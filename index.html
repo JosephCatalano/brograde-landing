@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#0B1426"/>
+<title>BroGrade · Upload yourself. Get graded. Get upgraded.</title>
+<meta name="description" content="A personalized appearance audit for men. Style, hair, grooming, physique, and photos — graded, with a clear upgrade plan. $19 CAD beta audit."/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="BroGrade · Get graded. Get upgraded."/>
+<meta property="og:description" content="Honest, specific appearance feedback for men. Upload yourself, get a personalized upgrade plan in 24–72 hours."/>
+<meta property="og:image" content="assets/logo-horizontal.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<link rel="icon" type="image/png" href="assets/logo-mark.png"/>
+<link rel="apple-touch-icon" href="assets/logo-mark.png"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:     #0B1426;
+  --navy-2:   #111C2E;
+  --navy-3:   #14233B;
+  --navy-4:   #1B2D49;
+  --blue:     #2563EB;
+  --blue-2:   #3B82F6;
+  --blue-lt:  #60A5FA;
+  --blue-soft: rgba(37, 99, 235, 0.16);
+  --blue-glow: rgba(59, 130, 246, 0.30);
+  --paper:    #FFFFFF;
+  --cream:    #FAFAF9;
+  --gray:     #F4F6F8;
+  --line-d:   #1E293B;
+  --line-l:   #E5E7EB;
+  --rule:     #CBD5E1;
+  --text:     #0F172A;
+  --text-mid: #475569;
+  --text-mut: #64748B;
+  --text-dim: #94A3B8;
+  --text-rev: #E2E8F0;
+  --green:    #047857;
+  --red:      #B91C1C;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: var(--navy);
+  color: var(--text-rev);
+  overflow-x: hidden;
+}
+
+/* ===== UTILITIES ===== */
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+.eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--blue);
+}
+.tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--text-dim);
+}
+.tag .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue); box-shadow: 0 0 12px var(--blue);
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 24px; border-radius: 10px;
+  font-weight: 600; font-size: 15px;
+  text-decoration: none; transition: all .2s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-primary {
+  background: var(--blue); color: #fff;
+  box-shadow: 0 8px 28px var(--blue-glow), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.btn-primary:hover { background: #1D4ED8; transform: translateY(-1px); box-shadow: 0 12px 36px var(--blue-glow); }
+.btn-ghost {
+  background: transparent; color: #fff;
+  border-color: rgba(255,255,255,0.18);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.32); }
+.btn-dark { background: var(--navy); color: #fff; }
+.btn-dark:hover { background: #14233B; }
+.btn .arrow {
+  display: inline-block; width: 14px; height: 14px;
+  transition: transform .2s ease;
+}
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  padding: 18px 0;
+  background: rgba(11, 20, 38, 0.72);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo img { height: 28px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a {
+  color: var(--text-dim); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  transition: color .15s ease;
+}
+.nav-links a:hover { color: #fff; }
+.nav-cta { display: flex; align-items: center; gap: 12px; }
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  padding: 180px 0 120px;
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 800px 500px at 50% 0%, var(--blue-soft), transparent 70%),
+    radial-gradient(ellipse 600px 400px at 80% 100%, rgba(37, 99, 235, 0.10), transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; text-align: center; }
+.hero .tag { margin-bottom: 32px; }
+.hero-logo { height: 96px; width: auto; margin: 0 auto 40px; display: block; }
+.hero h1 {
+  font-size: clamp(40px, 7vw, 88px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: #fff;
+  margin-bottom: 28px;
+}
+.hero h1 .accent {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--blue-lt);
+  letter-spacing: -0.02em;
+}
+.hero .lead {
+  font-size: 19px; line-height: 1.6;
+  color: var(--text-dim);
+  max-width: 620px; margin: 0 auto 44px;
+}
+.hero-ctas { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.hero-meta {
+  margin-top: 56px;
+  display: inline-flex; gap: 40px;
+  font-size: 12px; letter-spacing: 0.16em; color: var(--text-mut);
+  text-transform: uppercase;
+  flex-wrap: wrap; justify-content: center;
+}
+.hero-meta span b { color: #fff; font-weight: 600; }
+.hero-meta .sep { color: rgba(255,255,255,0.15); }
+
+/* ===== PILLARS ===== */
+.pillars {
+  padding: 100px 0 80px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.pillar {
+  padding: 40px 28px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  transition: background .2s ease;
+}
+.pillar:last-child { border-right: none; }
+.pillar:hover { background: rgba(37, 99, 235, 0.04); }
+.pillar-num {
+  font-size: 12px; font-weight: 700;
+  color: var(--blue); letter-spacing: 0.18em;
+  margin-bottom: 16px; text-transform: uppercase;
+}
+.pillar-name {
+  font-size: 22px; font-weight: 700;
+  color: #fff; letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.pillar-desc {
+  font-size: 14px; line-height: 1.5;
+  color: var(--text-dim);
+}
+@media (max-width: 980px) {
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillar { border-right: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .pillar:nth-child(2n) { border-right: none; }
+  .pillar:nth-last-child(-n+2) { border-bottom: none; }
+  .pillars-grid > :last-child:nth-child(odd) { grid-column: span 2; border-right: none; }
+}
+@media (max-width: 540px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+  .pillar { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
+  .pillar:last-child { border-bottom: none !important; }
+}
+
+/* ===== MANIFESTO ===== */
+.manifesto { padding: 140px 0; position: relative; }
+.manifesto .wrap { max-width: 980px; }
+.manifesto h2 {
+  font-size: clamp(36px, 6vw, 68px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.manifesto h2 .accent {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--blue-lt);
+}
+.manifesto p {
+  font-size: 22px; line-height: 1.55;
+  color: var(--text-dim);
+  text-align: center;
+  max-width: 760px; margin: 0 auto;
+}
+.manifesto .sig {
+  margin-top: 64px; text-align: center;
+  font-size: 12px; letter-spacing: 0.22em; color: var(--text-mut);
+  text-transform: uppercase;
+}
+
+/* ===== STEPS ===== */
+.steps {
+  padding: 120px 0;
+  background: var(--cream);
+  color: var(--text);
+  position: relative;
+}
+.steps .eyebrow { color: var(--blue); }
+.section-head { text-align: center; margin-bottom: 80px; }
+.section-head .eyebrow { margin-bottom: 16px; }
+.section-head h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.08; font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+.section-head .lead {
+  font-size: 18px; color: var(--text-mid); max-width: 620px;
+  margin: 0 auto; line-height: 1.55;
+}
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.step {
+  background: #fff;
+  border: 1px solid var(--line-l);
+  border-radius: 18px;
+  padding: 40px 32px;
+  position: relative;
+  transition: all .2s ease;
+}
+.step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(11, 20, 38, 0.08);
+  border-color: var(--blue);
+}
+.step-num {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 80px; line-height: 1;
+  font-weight: 400; color: var(--blue);
+  margin-bottom: 24px;
+  letter-spacing: -0.04em;
+}
+.step h3 {
+  font-size: 22px; font-weight: 700;
+  color: var(--navy); margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.step p {
+  font-size: 15px; line-height: 1.6;
+  color: var(--text-mid);
+}
+@media (max-width: 820px) {
+  .steps-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== AUDIT PREVIEW ===== */
+.preview { padding: 140px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+.preview-grid {
+  display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: center;
+}
+.preview .eyebrow { margin-bottom: 18px; }
+.preview h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.08; font-weight: 800;
+  letter-spacing: -0.03em; color: #fff;
+  margin-bottom: 24px;
+}
+.preview h2 .accent {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic; font-weight: 400; color: var(--blue-lt);
+}
+.preview .lead {
+  font-size: 17px; line-height: 1.6; color: var(--text-dim);
+  margin-bottom: 32px;
+}
+.deliverables {
+  list-style: none;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.deliverables li {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; gap: 16px;
+  font-size: 16px; color: var(--text-rev);
+}
+.deliverables li .check {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--blue-soft); color: var(--blue-lt);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.deliverables li b {
+  color: #fff; font-weight: 600;
+}
+
+/* mock audit cover preview card */
+.mock {
+  background: #0E1A30;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  position: relative;
+}
+.mock::before {
+  content: 'BETA AUDIT  ·  REPORT 0001';
+  position: absolute; top: -14px; left: 24px;
+  background: var(--blue); color: #fff;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  padding: 6px 12px; border-radius: 6px;
+  box-shadow: 0 8px 22px var(--blue-glow);
+}
+.mock-inner {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 40px 32px;
+  border-left: 3px solid var(--blue);
+}
+.mock-top {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 36px;
+  font-size: 10px; letter-spacing: 0.18em; color: var(--text-mut);
+  text-transform: uppercase;
+}
+.mock-top b { color: #fff; }
+.mock-logo { display: block; height: 76px; width: auto; margin: 0 auto 28px; }
+.mock-rule { height: 1px; background: var(--blue); margin: 24px 0; opacity: .6; }
+.mock-scores {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  margin-top: 28px;
+}
+.mock-score {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.mock-score .lbl {
+  font-size: 9px; letter-spacing: 0.18em; color: var(--text-mut);
+  text-transform: uppercase; margin-bottom: 6px; font-weight: 600;
+}
+.mock-score .val {
+  font-size: 24px; font-weight: 800; color: #fff;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+}
+.mock-score .val .of { color: var(--text-dim); font-size: 14px; }
+@media (max-width: 920px) {
+  .preview-grid { grid-template-columns: 1fr; gap: 56px; }
+}
+
+/* ===== PRICING ===== */
+.pricing {
+  padding: 140px 0;
+  background: var(--cream);
+  color: var(--text);
+}
+.pricing-card {
+  max-width: 580px; margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--line-l);
+  border-radius: 24px;
+  padding: 56px 48px;
+  position: relative;
+  box-shadow: 0 32px 80px rgba(11, 20, 38, 0.10);
+}
+.pricing-card::before {
+  content: 'BETA · LIMITED SPOTS';
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: var(--navy); color: #fff;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  padding: 8px 16px; border-radius: 999px;
+  white-space: nowrap;
+}
+.pricing-card .eyebrow { color: var(--blue); margin-bottom: 16px; }
+.pricing-card h3 {
+  font-size: 28px; font-weight: 800; color: var(--navy);
+  margin-bottom: 8px; letter-spacing: -0.01em;
+}
+.pricing-card .desc {
+  color: var(--text-mid); font-size: 16px;
+  margin-bottom: 36px; line-height: 1.5;
+}
+.pricing-price {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line-l);
+}
+.pricing-price .num {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 88px; line-height: 1; font-weight: 400;
+  color: var(--navy); letter-spacing: -0.04em;
+}
+.pricing-price .ccy {
+  font-size: 18px; color: var(--text-mut);
+  font-weight: 500;
+}
+.pricing-price .note {
+  margin-left: auto;
+  font-size: 12px; letter-spacing: 0.18em;
+  color: var(--text-mut); text-transform: uppercase;
+  font-weight: 600;
+}
+.pricing-list { list-style: none; }
+.pricing-list li {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 12px 0;
+  font-size: 15px;
+}
+.pricing-list li .check {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--blue-soft); color: var(--blue);
+  display: grid; place-items: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.pricing-list li b { color: var(--navy); font-weight: 600; }
+.pricing-cta { margin-top: 40px; }
+.pricing-cta .btn { width: 100%; justify-content: center; padding: 18px 24px; font-size: 16px; }
+.pricing-fine {
+  text-align: center; margin-top: 20px;
+  font-size: 12px; letter-spacing: 0.14em;
+  color: var(--text-mut); text-transform: uppercase;
+}
+
+/* ===== FAQ ===== */
+.faq {
+  padding: 140px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.faq-list {
+  max-width: 820px; margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.faq-q {
+  width: 100%; text-align: left;
+  padding: 28px 0;
+  background: none; border: none; cursor: pointer;
+  color: #fff; font-size: 18px; font-weight: 600;
+  font-family: inherit;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+  letter-spacing: -0.01em;
+}
+.faq-q:hover { color: var(--blue-lt); }
+.faq-icon {
+  width: 24px; height: 24px; flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  transition: all .2s ease;
+}
+.faq-icon::before, .faq-icon::after {
+  content: ''; position: absolute;
+  background: var(--text-dim);
+}
+.faq-icon::before { width: 10px; height: 1.5px; }
+.faq-icon::after { width: 1.5px; height: 10px; transition: transform .2s ease; }
+.faq-item.open .faq-icon::after { transform: rotate(90deg); }
+.faq-item.open .faq-icon { border-color: var(--blue); background: var(--blue-soft); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height .3s ease, padding .3s ease;
+}
+.faq-a-inner {
+  padding-bottom: 28px;
+  color: var(--text-dim); font-size: 16px; line-height: 1.65;
+  max-width: 680px;
+}
+.faq-item.open .faq-a { max-height: 400px; }
+
+/* ===== WAITLIST ===== */
+.waitlist {
+  padding: 120px 0;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.waitlist .wrap { max-width: 700px; text-align: center; }
+.waitlist .eyebrow { margin-bottom: 16px; }
+.waitlist h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800; color: #fff;
+  letter-spacing: -0.025em; line-height: 1.1;
+  margin-bottom: 18px;
+}
+.waitlist h2 .accent {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic; font-weight: 400; color: var(--blue-lt);
+}
+.waitlist .lead {
+  font-size: 17px; color: var(--text-dim);
+  margin-bottom: 36px; line-height: 1.55;
+}
+.waitlist-form {
+  display: flex; gap: 8px; padding: 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  max-width: 480px; margin: 0 auto;
+}
+.waitlist-form input {
+  flex: 1; background: none; border: none; outline: none;
+  color: #fff; font-size: 15px; padding: 12px 14px;
+  font-family: inherit;
+}
+.waitlist-form input::placeholder { color: var(--text-mut); }
+.waitlist-form button { padding: 12px 22px; }
+.waitlist-note {
+  margin-top: 16px; font-size: 12px; color: var(--text-mut);
+  letter-spacing: 0.05em;
+}
+.waitlist-success {
+  display: none;
+  margin-top: 24px;
+  padding: 18px 24px;
+  background: rgba(4, 120, 87, 0.10);
+  border: 1px solid rgba(4, 120, 87, 0.35);
+  border-radius: 10px;
+  color: #6EE7B7;
+  font-size: 15px;
+}
+.waitlist-success.show { display: block; }
+
+/* ===== FINAL CTA ===== */
+.final-cta {
+  padding: 140px 0;
+  text-align: center;
+  position: relative;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.final-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 600px 400px at 50% 60%, var(--blue-soft), transparent 70%);
+  pointer-events: none;
+}
+.final-cta-inner { position: relative; }
+.final-cta img { height: 72px; width: auto; margin-bottom: 36px; }
+.final-cta h2 {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 800; color: #fff;
+  letter-spacing: -0.03em; line-height: 1.05;
+  margin-bottom: 16px;
+}
+.final-cta h2 .accent {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic; font-weight: 400; color: var(--blue-lt);
+}
+.final-cta p {
+  font-size: 18px; color: var(--text-dim);
+  max-width: 540px; margin: 0 auto 40px; line-height: 1.5;
+}
+.final-cta .btn { padding: 18px 32px; font-size: 16px; }
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 60px 0 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: var(--navy-2);
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand img { height: 32px; width: auto; margin-bottom: 18px; }
+.footer-brand p {
+  font-size: 14px; color: var(--text-mut); line-height: 1.55;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase;
+  color: var(--text-dim); font-weight: 600;
+  margin-bottom: 18px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  color: var(--text-mut); text-decoration: none;
+  font-size: 14px; transition: color .15s ease;
+}
+.footer-col a:hover { color: #fff; }
+.footer-base {
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: var(--text-mut);
+  letter-spacing: 0.06em;
+}
+@media (max-width: 820px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-base { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* ===== ANIMATIONS ===== */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+::selection { background: var(--blue); color: #fff; }
+
+/* small icons via SVG inline */
+.icon-arrow { width: 14px; height: 14px; display: inline-block; }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-logo">
+      <img src="assets/logo-horizontal.png" alt="BroGrade"/>
+    </a>
+    <div class="nav-links">
+      <a href="#what">What you get</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#pricing" class="btn btn-primary">
+        Get graded
+        <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <span class="tag"><span class="dot"></span> BETA AUDIT  ·  $19 CAD</span>
+    <img src="assets/logo-mark.png" alt="BroGrade shield" class="hero-logo"/>
+    <h1>You're not ugly.<br/><span class="accent">You're under-optimized.</span></h1>
+    <p class="lead">A personalized appearance audit for men. You upload yourself, we tell you exactly what's helping your look, what's hurting it, and what to fix first. No vague advice. No fake compliments.</p>
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn btn-primary">
+        Get the beta audit
+        <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#waitlist" class="btn btn-ghost">Join the waitlist</a>
+    </div>
+    <div class="hero-meta">
+      <span><b>24–72h</b> delivery</span>
+      <span class="sep">·</span>
+      <span><b>Photos in,</b> plan out</span>
+      <span class="sep">·</span>
+      <span><b>Built by men, for men</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PILLARS ===== -->
+<section class="pillars">
+  <div class="wrap">
+    <div class="pillars-grid">
+      <div class="pillar"><div class="pillar-num">01 / Style</div><div class="pillar-name">Outfit fit &amp; direction</div><p class="pillar-desc">Garment fit, silhouette, color palette, and aesthetic cohesion graded against your target.</p></div>
+      <div class="pillar"><div class="pillar-num">02 / Hair</div><div class="pillar-name">Cut &amp; framing</div><p class="pillar-desc">Cut, texture, length, and styling. Plus a barber-ready script you can hand over verbatim.</p></div>
+      <div class="pillar"><div class="pillar-num">03 / Physique</div><div class="pillar-name">Proportion &amp; posture</div><p class="pillar-desc">V-taper, waist emphasis, posture diagnostics, and a training priority list based on your build.</p></div>
+      <div class="pillar"><div class="pillar-num">04 / Grooming</div><div class="pillar-name">Facial framing</div><p class="pillar-desc">Facial hair, skin presentation, and a baseline protocol you can run in five minutes a day.</p></div>
+      <div class="pillar"><div class="pillar-num">05 / Photos</div><div class="pillar-name">Digital presence</div><p class="pillar-desc">Lighting, angle, pose, environment. The exact reasons your photos undersell you and how to retake.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MANIFESTO ===== -->
+<section class="manifesto">
+  <div class="wrap">
+    <h2 class="reveal">Most guys don't need motivation. They need someone to tell them <span class="accent">what's actually hurting their look.</span></h2>
+    <p class="reveal">Bad fit. Weak haircut. Wrong shoes. Awkward photos. Posture that cancels confidence. Your friends are too nice to say it. BroGrade isn't.</p>
+    <div class="sig reveal">Upload yourself  ·  Get graded  ·  Get upgraded</div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="steps" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How it works</div>
+      <h2>Three steps. One personalized plan.</h2>
+      <p class="lead">No app to download. No subscription. Submit photos, get the audit, execute the plan.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Submit your photos</h3>
+        <p>Front, side, face, and a few outfit shots. Answer a short questionnaire about your goals, environment, and target aesthetic. Takes about five minutes.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h3>We audit the full picture</h3>
+        <p>Style, hair, physique direction, grooming, and digital presence all graded against your goal. No generic advice. No fake compliments. Just specific calls.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h3>Execute the upgrade plan</h3>
+        <p>You get a personalized BroGrade report inside 24–72 hours. Scorecard, weak points, fastest wins, shopping list, and a seven-day action plan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT YOU GET (audit preview) ===== -->
+<section class="preview" id="what">
+  <div class="wrap">
+    <div class="preview-grid">
+      <div class="reveal">
+        <div class="eyebrow">Inside your audit</div>
+        <h2>A real report. <span class="accent">Not a chatbot reply.</span></h2>
+        <p class="lead">Every audit ships as a designed, twelve-section report covering scorecard, brutal truth, fit diagnostics, grooming protocol, physique strategy, digital presence, procurement list, and a 7-day execution sprint.</p>
+        <ul class="deliverables">
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Appearance scorecard</b>&nbsp; · &nbsp;six categories graded</li>
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Style &amp; fit architecture</b>&nbsp; · &nbsp;tops, pants, footwear, layering</li>
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Hair plan + barber script</b>&nbsp; · &nbsp;copy-paste at the chair</li>
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Physique direction</b>&nbsp; · &nbsp;priority muscle groups</li>
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Photo audit</b>&nbsp; · &nbsp;lighting, angle, pose</li>
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Procurement list</b>&nbsp; · &nbsp;ranked, with budget</li>
+          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>7-day execution sprint</b>&nbsp; · &nbsp;day-by-day plan</li>
+        </ul>
+      </div>
+
+      <!-- Mock report cover -->
+      <div class="mock reveal">
+        <div class="mock-inner">
+          <div class="mock-top">
+            <span>REPORT NO. <b>[0001]</b></span>
+            <span>CONFIDENTIAL  ·  BETA</span>
+          </div>
+          <img src="assets/logo-horizontal.png" class="mock-logo" alt=""/>
+          <div class="mock-rule"></div>
+          <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; letter-spacing:0.18em; color:var(--text-mut); text-transform:uppercase;">
+            <span><b style="color:#fff">STYLE</b>  ·  HAIR  ·  PHYSIQUE  ·  GROOMING  ·  PHOTOS</span>
+          </div>
+          <div class="mock-scores">
+            <div class="mock-score"><div class="lbl">Current Baseline</div><div class="val">6.4<span class="of"> / 10</span></div></div>
+            <div class="mock-score"><div class="lbl">Upgrade Potential</div><div class="val" style="color:var(--blue-lt)">8.7<span class="of"> / 10</span></div></div>
+            <div class="mock-score"><div class="lbl">Primary Liability</div><div class="val" style="font-size:13px; font-family:'Inter'; font-weight:600;">Pant fit + posture</div></div>
+            <div class="mock-score"><div class="lbl">Immediate ROI</div><div class="val" style="font-size:13px; font-family:'Inter'; font-weight:600;">Tailored break + layering</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pricing</div>
+      <h2>One audit. One price. Honest feedback.</h2>
+      <p class="lead">Beta pricing while we onboard the first cohort. No subscription. Pay once, audit shipped within 72 hours.</p>
+    </div>
+
+    <div class="pricing-card reveal">
+      <div class="eyebrow">BroGrade Beta Audit</div>
+      <h3>The full appearance audit</h3>
+      <p class="desc">Twelve sections. Personalized to your photos, build, and target aesthetic.</p>
+
+      <div class="pricing-price">
+        <span class="num">$19</span>
+        <span class="ccy">CAD</span>
+        <span class="note">one-time</span>
+      </div>
+
+      <ul class="pricing-list">
+        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Appearance scorecard</b> across six categories</span></li>
+        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Style &amp; fit architecture</b> with tailored recommendations</span></li>
+        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Hair plan + verbatim barber script</b></span></li>
+        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Physique &amp; posture diagnostics</b> with training priorities</span></li>
+        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Photo audit + retake direction</b></span></li>
+        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Ranked procurement list</b> with budget guidance</span></li>
+        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>7-day execution sprint</b> + 30-day trajectory</span></li>
+      </ul>
+
+      <div class="pricing-cta">
+        <a href="https://forms.gle/s58S8b6sq6drfv188" target="_blank" rel="noopener" class="btn btn-primary">
+          Submit your audit form
+          <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="pricing-fine">Form first  ·  Payment link follows</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 style="color:#fff">Honest answers to obvious questions.</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q">What photos do I need to submit?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">A clear front body photo, a side body photo, a face and hair photo, and one to five recent outfit photos. Optional but useful: a back body photo and a few wardrobe shots. Natural lighting, no filters, full-body shots if possible. The better the photos, the sharper the audit.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How long until I get my audit?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Within 24 to 72 hours of payment confirmation. We send it as a designed PDF report. Most beta audits ship inside 48 hours.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Is this just for fit or attractive guys?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. BroGrade is built specifically for guys who feel under-optimized. The audit is most useful when there's room to upgrade. We grade your trajectory, not your starting line.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Is the audit AI-generated or written by a person?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">It's a hybrid. Trained visual judgement plus AI-assisted speed. Every audit is reviewed and finalized by a human before it ships. You get real, considered feedback — not a chatbot reply.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What if I disagree with the audit?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Push back. Beta is built on feedback. Every report ends with a direct line to submit notes: what was lethal, what missed, what you're actually executing. We learn faster when you do.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Will my photos be shared anywhere?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Never. Your photos are used to build your audit and nothing else. They aren't posted, sold, or used as marketing material without explicit written consent. Full stop.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What if I'm short, bald, or out of shape?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">That's exactly the audience. BroGrade focuses on what you can change, fast: fit, hair architecture, grooming, posture, photos, and training direction. Genetic traits aren't the lever. Execution is.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Refund policy?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Audits are personalized work delivered as a digital file, so all sales are final. If your photos are unusable, we'll request retakes before charging.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== WAITLIST ===== -->
+<section class="waitlist" id="waitlist">
+  <div class="wrap">
+    <div class="eyebrow">Waitlist</div>
+    <h2>Beta is limited. <span class="accent">Hold a spot.</span></h2>
+    <p class="lead">When the current cohort closes, the next round opens by waitlist only. Drop your email — we'll send the link before public release.</p>
+    <form class="waitlist-form" action="https://formsubmit.co/getbrograde@gmail.com" method="POST" id="waitlist-form">
+      <input type="hidden" name="_subject" value="New BroGrade waitlist signup">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://brograde.com/#waitlist-success">
+      <input type="email" name="email" placeholder="you@email.com" required autocomplete="email"/>
+      <button type="submit" class="btn btn-primary">
+        Join waitlist
+        <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+    <div class="waitlist-note">No spam. One email when the next cohort opens.</div>
+    <div class="waitlist-success" id="waitlist-success">You're on the list. We'll be in touch when the next cohort opens.</div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta">
+  <div class="wrap final-cta-inner">
+    <img src="assets/logo-mark.png" alt="BroGrade"/>
+    <h2>Upload yourself.<br/><span class="accent">Get graded. Get upgraded.</span></h2>
+    <p>The first version of you was random. The next one is intentional. BroGrade gets you there in a week.</p>
+    <a href="#pricing" class="btn btn-primary">
+      Get the beta audit
+      <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-horizontal.png" alt="BroGrade"/>
+        <p>Personalized appearance audits for men. Style, hair, grooming, physique, and photos — graded honestly.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#what">What you get</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#waitlist">Waitlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="mailto:getbrograde@gmail.com">Contact</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://instagram.com/brograde" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://tiktok.com/@brograde" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="mailto:getbrograde@gmail.com">getbrograde@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© <span id="year">2026</span> BroGrade. All rights reserved.</span>
+      <span>Made for guys who want it dialed in.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // year stamp
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.parentElement.classList.toggle('open');
+    });
+  });
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // waitlist optimistic UI (still submits to FormSubmit)
+  const form = document.getElementById('waitlist-form');
+  form?.addEventListener('submit', () => {
+    setTimeout(() => {
+      document.getElementById('waitlist-success').classList.add('show');
+      form.reset();
+    }, 200);
+  });
+</script>
+</body>
+</html>
