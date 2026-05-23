@@ -306,8 +306,8 @@ body::before {
 .nav.scrolled { padding: 10px 0; background: rgba(10, 11, 17, 0.86); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .nav-logo { display: flex; align-items: center; gap: 12px; }
-.nav-logo img { height: 28px; width: auto; transition: height var(--dur-2) var(--ease-out); }
-.nav.scrolled .nav-logo img { height: 24px; }
+.nav-logo img { height: 38px; width: auto; transition: height var(--dur-2) var(--ease-out); margin: -5px 0; }
+.nav.scrolled .nav-logo img { height: 32px; margin: -4px 0; }
 .nav-links { display: none; align-items: center; gap: 28px; }
 .nav-links a {
   font-family: var(--mono);
@@ -1636,7 +1636,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 }
 .rc-item:last-child { border-bottom: none; }
 .rc-item::before {
-  content: "—";
+  content: "·";
   font-family: var(--mono); font-size: 10px;
   color: var(--rev-6); flex-shrink: 0;
   margin-top: 2px;
@@ -1950,7 +1950,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         <span>Inside the report</span>
       </div>
       <h2>See exactly what <span class="accent">ships to you.</span></h2>
-      <p class="lead">Five of the twelve report sections — scored, annotated, and ready to execute. No redacted demos. No mockups.</p>
+      <p class="lead">Five of the twelve report sections: scored, annotated, and ready to execute. No redacted demos. No mockups.</p>
     </div>
   </div>
 
@@ -1976,7 +1976,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
             <div class="cs-bar-row"><span class="cs-bar-name">Grooming</span><div class="cs-bar-track"><div class="cs-bar-fill amber" style="--w:0.65"></div></div><span class="cs-bar-num">6.5</span></div>
             <div class="cs-bar-row"><span class="cs-bar-name">Photos</span><div class="cs-bar-track"><div class="cs-bar-fill red" style="--w:0.42"></div></div><span class="cs-bar-num">4.2</span></div>
           </div>
-          <div class="cs-finding"><b>Primary liability:</b> Photo presentation is killing a solid baseline. Lighting, angle, and composition — all fixable in one afternoon.</div>
+          <div class="cs-finding"><b>Primary liability:</b> Photo presentation is killing a solid baseline. Lighting, angle, and composition are all fixable in one afternoon.</div>
         </div>
       </div>
 
@@ -1998,7 +1998,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
             <div class="cs-bar-row"><span class="cs-bar-name">Color palette</span><div class="cs-bar-track"><div class="cs-bar-fill green" style="--w:0.72"></div></div><span class="cs-bar-num">7.2</span></div>
             <div class="cs-bar-row"><span class="cs-bar-name">Cohesion</span><div class="cs-bar-track"><div class="cs-bar-fill amber" style="--w:0.60"></div></div><span class="cs-bar-num">6.0</span></div>
           </div>
-          <div class="cs-finding"><b>Immediate fix:</b> Trousers are breaking at the ankle — one tailor visit closes a 1.8pt gap. Shirt is baggy through the torso, add a side tuck or size down.</div>
+          <div class="cs-finding"><b>Immediate fix:</b> Trousers are breaking at the ankle. One tailor visit closes a 1.8pt gap. Shirt is baggy through the torso, so add a side tuck or size down.</div>
           <div class="cs-tag-row">
             <span class="cs-tag">Slim taper</span>
             <span class="cs-tag">No break</span>
@@ -2194,7 +2194,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         <span>The rubric</span>
       </div>
       <h2>Every variable we <span class="accent">grade against you.</span></h2>
-      <p class="lead">Not vibes. Not generics. A grid of specific, observable, fixable signals — graded in every audit.</p>
+      <p class="lead">Not vibes. Not generics. A grid of specific, observable, fixable signals. All graded in every audit.</p>
     </div>
 
     <div class="rubric-grid">
@@ -2206,11 +2206,11 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         </div>
         <div class="rc-name">Outfit Fit &amp; Direction</div>
         <ul class="rc-items">
-          <li class="rc-item"><b>Silhouette read</b> — shoulder seam placement, torso taper</li>
-          <li class="rc-item"><b>Pant break</b> — stack, hem, ankle exposure</li>
-          <li class="rc-item"><b>Color palette logic</b> — neutral base, accent ratio</li>
-          <li class="rc-item"><b>Aesthetic coherence</b> — do the pieces talk to each other</li>
-          <li class="rc-item"><b>Footwear alignment</b> — do the shoes finish the look</li>
+          <li class="rc-item"><b>Silhouette read:</b> shoulder seam placement, torso taper</li>
+          <li class="rc-item"><b>Pant break:</b> stack, hem, ankle exposure</li>
+          <li class="rc-item"><b>Color palette logic:</b> neutral base, accent ratio</li>
+          <li class="rc-item"><b>Aesthetic coherence:</b> do the pieces talk to each other</li>
+          <li class="rc-item"><b>Footwear alignment:</b> do the shoes finish the look</li>
         </ul>
         <div class="rc-verdict">Outputs: Fit diagnosis + tailor brief + capsule direction</div>
       </div>
@@ -2222,11 +2222,11 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         </div>
         <div class="rc-name">Cut &amp; Texture Architecture</div>
         <ul class="rc-items">
-          <li class="rc-item"><b>Face-shape framing</b> — how the cut works with bone structure</li>
-          <li class="rc-item"><b>Fade taper logic</b> — guard lengths, blend zones</li>
-          <li class="rc-item"><b>Top length ratio</b> — too long, too short, or wrong for your density</li>
-          <li class="rc-item"><b>Product and texture</b> — what you should be using, verbatim</li>
-          <li class="rc-item"><b>Barber-ready script</b> — copy-paste at the chair</li>
+          <li class="rc-item"><b>Face-shape framing:</b> how the cut works with your bone structure</li>
+          <li class="rc-item"><b>Fade taper logic:</b> guard lengths, blend zones</li>
+          <li class="rc-item"><b>Top length ratio:</b> too long, too short, or wrong for your density</li>
+          <li class="rc-item"><b>Product and texture:</b> what you should be using, verbatim</li>
+          <li class="rc-item"><b>Barber-ready script:</b> copy-paste at the chair</li>
         </ul>
         <div class="rc-verdict">Outputs: Full cut brief + product call + growth direction</div>
       </div>
@@ -2238,10 +2238,10 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         </div>
         <div class="rc-name">Proportion &amp; Posture</div>
         <ul class="rc-items">
-          <li class="rc-item"><b>V-taper potential</b> — shoulder width vs. waist read</li>
-          <li class="rc-item"><b>Posture flags</b> — forward head, anterior pelvic tilt, rounded shoulders</li>
-          <li class="rc-item"><b>Priority muscle groups</b> — highest visual ROI for your build</li>
-          <li class="rc-item"><b>Clothing leverage</b> — how to dress around current physique</li>
+          <li class="rc-item"><b>V-taper potential:</b> shoulder width vs. waist read</li>
+          <li class="rc-item"><b>Posture flags:</b> forward head, anterior pelvic tilt, rounded shoulders</li>
+          <li class="rc-item"><b>Priority muscle groups:</b> highest visual ROI for your build</li>
+          <li class="rc-item"><b>Clothing leverage:</b> how to dress around your current physique</li>
         </ul>
         <div class="rc-verdict">Outputs: Posture protocol + 30-day training priority list</div>
       </div>
@@ -2253,10 +2253,10 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         </div>
         <div class="rc-name">Facial Framing</div>
         <ul class="rc-items">
-          <li class="rc-item"><b>Facial hair strategy</b> — beard, stubble, or clean — what works for your face</li>
-          <li class="rc-item"><b>Skin presentation</b> — texture, uniformity, any flags</li>
-          <li class="rc-item"><b>Eyebrow architecture</b> — shape, weight, and grooming need</li>
-          <li class="rc-item"><b>5-minute baseline protocol</b> — what to add this week</li>
+          <li class="rc-item"><b>Facial hair strategy:</b> beard, stubble, or clean shave graded against your face shape</li>
+          <li class="rc-item"><b>Skin presentation:</b> texture, uniformity, any flags</li>
+          <li class="rc-item"><b>Eyebrow architecture:</b> shape, weight, and grooming need</li>
+          <li class="rc-item"><b>5-minute baseline protocol:</b> what to add this week</li>
         </ul>
         <div class="rc-verdict">Outputs: Daily protocol + beard direction + product list</div>
       </div>
@@ -2268,11 +2268,11 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         </div>
         <div class="rc-name">Digital Presence</div>
         <ul class="rc-items">
-          <li class="rc-item"><b>Lighting read</b> — source, direction, quality, shadows</li>
-          <li class="rc-item"><b>Angle and height</b> — camera position relative to face and body</li>
-          <li class="rc-item"><b>Pose and expression</b> — tension flags, jaw line, openness</li>
-          <li class="rc-item"><b>Environment</b> — background, context, distraction</li>
-          <li class="rc-item"><b>Retake brief</b> — exact instructions to go reshoot</li>
+          <li class="rc-item"><b>Lighting read:</b> source, direction, quality, shadows</li>
+          <li class="rc-item"><b>Angle and height:</b> camera position relative to face and body</li>
+          <li class="rc-item"><b>Pose and expression:</b> tension flags, jaw line, openness</li>
+          <li class="rc-item"><b>Environment:</b> background, context, distraction</li>
+          <li class="rc-item"><b>Retake brief:</b> exact instructions to go reshoot</li>
         </ul>
         <div class="rc-verdict">Outputs: Shot-by-shot retake guide + posing brief</div>
       </div>
@@ -2284,10 +2284,10 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         </div>
         <div class="rc-name">7-Day &amp; 30-Day Trajectory</div>
         <ul class="rc-items">
-          <li class="rc-item"><b>Highest-ROI moves</b> — ranked by impact per dollar and effort</li>
-          <li class="rc-item"><b>Day-by-day sprint</b> — what to do each day this week</li>
-          <li class="rc-item"><b>Procurement list</b> — items ranked, with budget guidance</li>
-          <li class="rc-item"><b>30-day trajectory</b> — where you land if you execute</li>
+          <li class="rc-item"><b>Highest-ROI moves:</b> ranked by impact per dollar and effort</li>
+          <li class="rc-item"><b>Day-by-day sprint:</b> what to do each day this week</li>
+          <li class="rc-item"><b>Procurement list:</b> items ranked, with budget guidance</li>
+          <li class="rc-item"><b>30-day trajectory:</b> where you land if you execute</li>
         </ul>
         <div class="rc-verdict">Outputs: Action sprint + shopping list + projected score</div>
       </div>
@@ -2325,7 +2325,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         </div>
 
         <div class="founder-text reveal" data-delay="200">
-          <p>I built BroGrade because I was the guy who thought he was doing fine until someone gave me one specific note — and it changed everything. <b>The feedback wasn't harsh. It was precise.</b> That's the whole difference.</p>
+          <p>I built BroGrade because I was the guy who thought he was doing fine until someone gave me one specific note. It changed everything. <b>The feedback wasn't harsh. It was precise.</b> That's the whole difference.</p>
           <p>Most style advice is too vague to act on. "Wear better clothes." "Get a better haircut." <b>None of that tells you what's actually wrong with your look right now.</b> BroGrade does.</p>
           <p>Every audit I write, I ask one question: if I had five minutes with this person, <b>what's the single callout that would move the needle fastest?</b> Then I find the next four. That's what ships to you.</p>
           <p>Beta pricing exists because I'm learning as much as you are. You get an honest audit at a fraction of what this should cost. I get signal. That's the deal.</p>
@@ -2778,7 +2778,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
     track.querySelectorAll('.carousel-slide').forEach(s => barIO.observe(s));
   }
 
-  /* ── No extra bar JS needed — CSS vars handle widths ── */
+  /* No extra bar JS needed. CSS vars handle widths. */
 </script>
 </body>
 </html>
