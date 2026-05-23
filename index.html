@@ -6,11 +6,11 @@
 <meta name="theme-color" content="#08090C"/>
 <meta name="color-scheme" content="dark"/>
 
-<title>BroGrade — Vol. 01. Upload yourself. Get graded.</title>
-<meta name="description" content="A personalized appearance audit for men. Style, hair, grooming, physique, and photos — graded honestly, with a clear upgrade plan delivered in 24–72 hours. $19 CAD beta audit."/>
+<title>BroGrade · Vol. 01 · Upload yourself. Get graded.</title>
+<meta name="description" content="A personalized appearance audit for men. Style, hair, grooming, physique, and photos, graded honestly. A clear upgrade plan delivered in 24 to 72 hours. $19 CAD beta audit."/>
 
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="BroGrade — Vol. 01. Upload yourself. Get graded."/>
+<meta property="og:title" content="BroGrade · Vol. 01 · Upload yourself. Get graded."/>
 <meta property="og:description" content="A personalized appearance audit for men. Style, hair, physique, grooming, photos. Vol. 01 beta cohort open."/>
 <meta property="og:image" content="assets/logo-horizontal.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -22,11 +22,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,700&family=Geist+Mono:wght@400;500;600&family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
-   DESIGN SYSTEM  ·  BroGrade · Vol. 01 · Dark Editorial Luxury
+   DESIGN SYSTEM · BroGrade · Vol. 01
    ============================================================ */
 :root {
   /* Obsidian base */
@@ -39,7 +39,6 @@
   /* Editorial cream */
   --cream:      #F4EFE5;
   --cream-2:    #EAE3D4;
-  --cream-3:    #D9D1BE;
   --paper:      #FFFFFF;
 
   /* Brand blue */
@@ -51,9 +50,8 @@
   --blue-glow:  rgba(86, 134, 248, 0.42);
   --blue-haze:  rgba(86, 134, 248, 0.06);
 
-  /* Copper metallic accent  ·  used sparingly */
+  /* Copper accent */
   --copper:     #C8A776;
-  --copper-2:   #B08E5C;
   --copper-soft: rgba(200, 167, 118, 0.12);
 
   /* Reverse type scale */
@@ -79,7 +77,6 @@
   /* Motion */
   --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
   --ease-soft:   cubic-bezier(0.33, 1, 0.68, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --dur-1:       180ms;
   --dur-2:       320ms;
   --dur-3:       520ms;
@@ -94,7 +91,6 @@
   --r-full: 999px;
 
   /* Type stacks */
-  --serif: 'Fraunces', 'Times New Roman', Georgia, serif;
   --sans:  'Geist', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --mono:  'Geist Mono', ui-monospace, 'SF Mono', Consolas, monospace;
 }
@@ -116,7 +112,7 @@ html {
 }
 body {
   font-family: var(--sans);
-  font-feature-settings: "ss01", "ss02", "cv01", "cv11";
+  font-feature-settings: "ss01", "ss03", "cv11";
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -135,7 +131,7 @@ a { color: inherit; text-decoration: none; }
 ::selection { background: var(--blue); color: #fff; }
 
 /* ============================================================
-   ATMOSPHERE  ·  page-level grain
+   ATMOSPHERE
    ============================================================ */
 body::before {
   content: "";
@@ -162,7 +158,7 @@ body::before {
 .section { position: relative; z-index: 2; }
 
 /* ============================================================
-   EDITORIAL TYPE
+   TYPE PRIMITIVES
    ============================================================ */
 .label {
   font-family: var(--mono);
@@ -182,11 +178,10 @@ body::before {
   margin-bottom: 18px;
 }
 .chapter .roman {
-  font-family: var(--serif); font-style: italic;
-  font-size: 30px; line-height: 1;
-  color: var(--blue-2); font-weight: 400;
-  letter-spacing: -0.02em;
-  text-transform: none;
+  font-family: var(--sans); font-weight: 800;
+  font-size: 14px; line-height: 1;
+  color: var(--blue-2);
+  letter-spacing: 0.04em;
 }
 .chapter .roman.dark { color: var(--blue); }
 
@@ -222,18 +217,14 @@ body::before {
   100% { box-shadow: 0 0 0 0 transparent; transform: scale(1); }
 }
 
-/* serif italic helper */
-.italic { font-family: var(--serif); font-style: italic; font-weight: 400; }
-.serif  { font-family: var(--serif); font-weight: 500; }
-
 /* ============================================================
-   BUTTONS  ·  editorial luxury
+   BUTTONS
    ============================================================ */
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 14px 22px;
   font-family: var(--sans);
-  font-size: 14px; font-weight: 500;
+  font-size: 14px; font-weight: 600;
   letter-spacing: -0.005em;
   border-radius: var(--r-2);
   border: 1px solid transparent;
@@ -285,7 +276,7 @@ body::before {
 
 .btn-quiet {
   background: transparent; color: var(--rev-3);
-  padding: 8px 12px; font-size: 13px;
+  padding: 8px 12px; font-size: 13px; font-weight: 500;
 }
 .btn-quiet:hover { color: #fff; }
 
@@ -342,7 +333,7 @@ body::before {
 }
 
 /* ============================================================
-   HERO  ·  editorial cover
+   HERO
    ============================================================ */
 .hero {
   position: relative;
@@ -407,15 +398,14 @@ body::before {
 }
 
 .hero h1 {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(46px, 8.4vw, 112px);
-  line-height: 0.96;
-  letter-spacing: -0.035em;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(44px, 7.6vw, 100px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
   color: var(--rev-1);
   max-width: 16ch;
   text-wrap: balance;
-  font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
 }
 .hero h1 .line { display: block; overflow: hidden; padding: 0.06em 0.04em; }
 .hero h1 .line > span {
@@ -426,9 +416,9 @@ body::before {
 .hero h1 .line:nth-of-type(1) > span { animation-delay: 220ms; }
 .hero h1 .line:nth-of-type(2) > span { animation-delay: 380ms; }
 .hero h1 .accent {
-  font-style: italic;
   font-weight: 400;
   color: var(--blue-2);
+  letter-spacing: -0.035em;
 }
 
 .hero-lead {
@@ -467,14 +457,17 @@ body::before {
 }
 .hero-fact {
   display: flex; flex-direction: column;
-  align-items: center; gap: 4px;
+  align-items: center; gap: 6px;
   padding-top: 14px;
   border-top: 1px solid var(--rule-d);
 }
 .hero-fact .val {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  font-size: 22px; color: var(--rev-1);
-  text-transform: none; letter-spacing: -0.01em;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--rev-1);
+  text-transform: none;
+  letter-spacing: -0.02em;
 }
 
 @keyframes line-up { to { transform: translateY(0); } }
@@ -502,13 +495,14 @@ body::before {
 @media (max-width: 640px) { .marquee-track { gap: 36px; animation-duration: 28s; } }
 .marquee-item {
   display: flex; align-items: center; gap: 56px;
-  font-family: var(--serif); font-weight: 500;
-  font-size: clamp(28px, 4.6vw, 52px);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(26px, 4vw, 46px);
   letter-spacing: -0.025em;
   color: var(--rev-2);
 }
-.marquee-item .ital {
-  font-style: italic; font-weight: 400;
+.marquee-item .alt {
+  font-weight: 400;
   color: var(--blue-2);
 }
 .marquee-item .dot {
@@ -528,17 +522,16 @@ body::before {
 .section-head.center { text-align: center; margin-left: auto; margin-right: auto; }
 .section-head .chapter { margin-bottom: 22px; }
 .section-head h2 {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(36px, 5.2vw, 64px);
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(36px, 5.2vw, 60px);
   line-height: 1.02;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: var(--rev-1);
   margin-bottom: 20px;
   text-wrap: balance;
-  font-variation-settings: "opsz" 144;
 }
-.section-head h2 .accent { font-style: italic; font-weight: 400; color: var(--blue-2); }
+.section-head h2 .accent { font-weight: 400; color: var(--blue-2); letter-spacing: -0.03em; }
 .section-head .lead {
   font-size: clamp(15px, 1.8vw, 18px);
   line-height: 1.65;
@@ -555,7 +548,7 @@ body::before {
 .section-head.dark .rule { background: var(--rule-l); }
 
 /* ============================================================
-   I. PILLARS  ·  editorial 5-up
+   PILLARS
    ============================================================ */
 .pillars { padding: 100px 0 80px; border-top: 1px solid var(--rule-d); }
 @media (min-width: 768px) { .pillars { padding: 140px 0 120px; } }
@@ -606,18 +599,20 @@ body::before {
 .pillar:hover::before { opacity: 1; }
 
 .pillar-num {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-family: var(--sans);
+  font-weight: 800;
   font-size: 44px; line-height: 1;
   color: var(--blue-2);
   margin-bottom: 22px;
   letter-spacing: -0.04em;
 }
 .pillar-name {
-  font-family: var(--serif); font-weight: 500;
-  font-size: 22px; line-height: 1.15;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 22px; line-height: 1.2;
   color: var(--rev-1);
   margin-bottom: 12px;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 .pillar-cat {
   font-family: var(--mono); font-size: 10px;
@@ -631,7 +626,7 @@ body::before {
 }
 
 /* ============================================================
-   II. AUDIT REPORT
+   AUDIT REPORT
    ============================================================ */
 .report {
   padding: 100px 0;
@@ -651,28 +646,21 @@ body::before {
 }
 
 .report-copy h2 {
-  font-family: var(--serif); font-weight: 500;
-  font-size: clamp(36px, 5.4vw, 64px);
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(36px, 5.4vw, 60px);
   line-height: 1.02;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: var(--rev-1);
   margin: 18px 0 24px;
   text-wrap: balance;
 }
-.report-copy h2 .accent { font-style: italic; font-weight: 400; color: var(--blue-2); }
+.report-copy h2 .accent { font-weight: 400; color: var(--blue-2); letter-spacing: -0.03em; }
 .report-copy .lead {
   font-size: 17px; line-height: 1.7;
   color: var(--rev-4);
   margin-bottom: 32px;
   max-width: 52ch;
-}
-.report-copy .lead.dropcap::first-letter {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  float: left;
-  font-size: 4em;
-  line-height: 0.85;
-  margin: 0.08em 0.12em 0 -0.04em;
-  color: var(--blue-2);
 }
 
 .deliv {
@@ -693,6 +681,7 @@ body::before {
   letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--blue-2);
   flex-shrink: 0; width: 28px;
+  font-weight: 600;
 }
 
 /* mock report card */
@@ -787,24 +776,23 @@ body::before {
   text-transform: uppercase; margin-bottom: 6px; font-weight: 500;
 }
 .mock-score .val {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  font-size: 36px; line-height: 1;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 32px; line-height: 1;
   color: var(--rev-1);
   letter-spacing: -0.03em;
 }
 .mock-score .val.accent { color: var(--blue-2); }
 .mock-score .val .of {
-  font-family: var(--sans); font-style: normal;
   font-size: 14px; color: var(--rev-5); font-weight: 500;
 }
 .mock-score.text .val {
-  font-family: var(--sans); font-style: normal;
   font-size: 14px; font-weight: 600; line-height: 1.3;
   letter-spacing: -0.005em;
 }
 
 /* ============================================================
-   III. METHOD  ·  cream section with editorial steps
+   METHOD
    ============================================================ */
 .method {
   padding: 100px 0;
@@ -823,7 +811,6 @@ body::before {
     radial-gradient(ellipse 50% 50% at 82% 100%, rgba(200,167,118,0.06), transparent 60%);
 }
 .method::after {
-  /* warm paper grain on cream */
   content: ""; position: absolute; inset: 0; z-index: -1;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.65 0 0 0 0 0.60 0 0 0 0 0.50 0 0 0 0.10 0'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>");
   opacity: 0.6; mix-blend-mode: multiply;
@@ -858,18 +845,20 @@ body::before {
 }
 .step:hover::after { opacity: 1; }
 .step-num {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  font-size: 78px; line-height: 1;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 64px; line-height: 1;
   color: var(--blue);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
   margin-bottom: 22px;
 }
 .step h3 {
-  font-family: var(--serif); font-weight: 500;
-  font-size: 22px; line-height: 1.2;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 22px; line-height: 1.25;
   color: var(--ink-1);
   margin-bottom: 12px;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 .step p {
   font-size: 14.5px; line-height: 1.7;
@@ -881,13 +870,14 @@ body::before {
   color: var(--ink-4); text-transform: uppercase;
   margin-bottom: 18px;
   display: flex; align-items: center; gap: 8px;
+  font-weight: 500;
 }
 .step .step-label::before {
   content: ""; width: 18px; height: 1px; background: var(--ink-4);
 }
 
 /* ============================================================
-   STATEMENT  ·  full-screen pull quote
+   STATEMENT
    ============================================================ */
 .statement {
   padding: 140px 0;
@@ -914,17 +904,19 @@ body::before {
 .statement .wrap { max-width: 1000px; }
 .statement .chapter { justify-content: center; }
 .statement-quote {
-  font-family: var(--serif); font-weight: 500;
-  font-size: clamp(34px, 5.6vw, 76px);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(32px, 5.2vw, 68px);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
   color: var(--rev-1);
   margin: 36px 0 32px;
   text-wrap: balance;
 }
 .statement-quote .accent {
-  font-style: italic; font-weight: 400;
+  font-weight: 400;
   color: var(--blue-2);
+  letter-spacing: -0.03em;
 }
 .statement p {
   font-size: clamp(16px, 2vw, 19px);
@@ -940,18 +932,19 @@ body::before {
   font-family: var(--mono);
   font-size: 11px; letter-spacing: 0.22em; color: var(--rev-5);
   text-transform: uppercase;
+  font-weight: 500;
 }
 .statement-sig .rule {
   width: 36px; flex: none;
 }
-.statement-sig .ital {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  font-size: 15px; color: var(--copper);
-  letter-spacing: -0.01em; text-transform: none;
+.statement-sig .copper-tag {
+  color: var(--copper);
+  letter-spacing: 0.22em;
+  font-weight: 600;
 }
 
 /* ============================================================
-   IV. PRICING  ·  cream editorial single card
+   PRICING
    ============================================================ */
 .pricing {
   padding: 100px 0;
@@ -984,7 +977,7 @@ body::before {
 .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 56px 140px rgba(11, 12, 18, 0.12); }
 
 .pricing-card::before {
-  content: "VOLUME 01 · LIMITED COHORT";
+  content: "VOL. 01 · LIMITED COHORT";
   position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
   background: var(--ink-1); color: var(--cream);
   font-family: var(--mono);
@@ -998,13 +991,14 @@ body::before {
 .pricing-card .chapter .roman { color: var(--blue); }
 .pricing-card .chapter { color: var(--ink-3); }
 .pricing-card h3 {
-  font-family: var(--serif); font-weight: 500;
-  font-size: 30px; line-height: 1.1;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 30px; line-height: 1.15;
   color: var(--ink-1);
   margin-bottom: 10px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
-.pricing-card h3 .accent { font-style: italic; font-weight: 400; color: var(--blue); }
+.pricing-card h3 .accent { font-weight: 400; color: var(--blue); letter-spacing: -0.02em; }
 .pricing-desc {
   color: var(--ink-3); font-size: 15px; line-height: 1.65;
   margin-bottom: 32px;
@@ -1018,8 +1012,9 @@ body::before {
   border-bottom: 1px solid var(--rule-l);
 }
 .pricing-price .num {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  font-size: 108px; line-height: 1;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 92px; line-height: 0.95;
   color: var(--ink-1);
   letter-spacing: -0.05em;
 }
@@ -1051,6 +1046,7 @@ body::before {
   letter-spacing: 0.10em;
   width: 28px; flex-shrink: 0;
   margin-top: 3px;
+  text-transform: uppercase;
 }
 
 .pricing-cta { margin-top: 36px; }
@@ -1060,10 +1056,11 @@ body::before {
   font-family: var(--mono);
   font-size: 10px; letter-spacing: 0.20em;
   color: var(--ink-4); text-transform: uppercase;
+  font-weight: 500;
 }
 
 /* ============================================================
-   V. FAQ
+   FAQ
    ============================================================ */
 .faq { padding: 100px 0; border-top: 1px solid var(--rule-d); }
 @media (min-width: 768px) { .faq { padding: 140px 0; } }
@@ -1080,12 +1077,12 @@ body::before {
   padding: 26px 0;
   display: flex; align-items: center; justify-content: space-between;
   gap: 24px;
-  font-family: var(--serif); font-weight: 500;
-  font-size: 19px; letter-spacing: -0.012em;
+  font-family: var(--sans); font-weight: 600;
+  font-size: 17px; letter-spacing: -0.018em;
   color: var(--rev-1);
   transition: color var(--dur-1) var(--ease-out);
 }
-@media (min-width: 768px) { .faq-q { font-size: 22px; padding: 30px 0; } }
+@media (min-width: 768px) { .faq-q { font-size: 19px; padding: 30px 0; } }
 .faq-q .q-no {
   font-family: var(--mono);
   font-size: 11px; color: var(--rev-5);
@@ -1127,7 +1124,7 @@ body::before {
 .faq-item.open .faq-a { max-height: 480px; }
 
 /* ============================================================
-   VI. WAITLIST
+   WAITLIST
    ============================================================ */
 .waitlist {
   padding: 100px 0;
@@ -1144,15 +1141,15 @@ body::before {
 .waitlist .wrap { max-width: 700px; text-align: center; }
 .waitlist .chapter { justify-content: center; }
 .waitlist h2 {
-  font-family: var(--serif); font-weight: 500;
+  font-family: var(--sans); font-weight: 800;
   font-size: clamp(34px, 5vw, 56px);
   line-height: 1.05;
-  letter-spacing: -0.028em;
+  letter-spacing: -0.035em;
   color: var(--rev-1);
   margin: 18px 0 18px;
   text-wrap: balance;
 }
-.waitlist h2 .accent { font-style: italic; font-weight: 400; color: var(--blue-2); }
+.waitlist h2 .accent { font-weight: 400; color: var(--blue-2); letter-spacing: -0.03em; }
 .waitlist-lead {
   font-size: 17px; color: var(--rev-4);
   margin-bottom: 36px; line-height: 1.6;
@@ -1191,6 +1188,7 @@ body::before {
   font-family: var(--mono);
   font-size: 11px; color: var(--rev-5);
   letter-spacing: 0.10em;
+  font-weight: 500;
 }
 .waitlist-success {
   display: none;
@@ -1208,7 +1206,7 @@ body::before {
 .waitlist-success.show { display: block; animation: fade-up 400ms var(--ease-out); }
 
 /* ============================================================
-   VII. FINAL  ·  the closing mark
+   FINAL
    ============================================================ */
 .final {
   padding: 140px 0;
@@ -1247,15 +1245,15 @@ body::before {
   animation: glow-breathe 4s ease-in-out infinite;
 }
 .final h2 {
-  font-family: var(--serif); font-weight: 500;
-  font-size: clamp(40px, 7vw, 96px);
+  font-family: var(--sans); font-weight: 800;
+  font-size: clamp(40px, 6.8vw, 88px);
   line-height: 1.02;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
   color: var(--rev-1);
   margin-bottom: 22px;
   text-wrap: balance;
 }
-.final h2 .accent { font-style: italic; font-weight: 400; color: var(--blue-2); }
+.final h2 .accent { font-weight: 400; color: var(--blue-2); letter-spacing: -0.035em; }
 .final p {
   font-size: clamp(15px, 2vw, 18px);
   color: var(--rev-4);
@@ -1267,11 +1265,12 @@ body::before {
   font-family: var(--mono);
   font-size: 11px; letter-spacing: 0.22em; color: var(--rev-5);
   text-transform: uppercase;
+  font-weight: 500;
 }
 .final-colophon .rule { width: 32px; flex: none; }
 
 /* ============================================================
-   FOOTER  ·  editorial colophon
+   FOOTER
    ============================================================ */
 .footer {
   padding: 60px 0 40px;
@@ -1315,16 +1314,15 @@ body::before {
   font-family: var(--mono);
   font-size: 11px; color: var(--rev-5);
   letter-spacing: 0.10em;
+  font-weight: 500;
 }
-.footer-base .ital {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  color: var(--rev-4); font-size: 13px;
-  letter-spacing: -0.005em;
+.footer-base .tag {
+  color: var(--rev-4); font-size: 12px;
 }
 @media (min-width: 640px) { .footer-base { flex-direction: row; } }
 
 /* ============================================================
-   SCROLL REVEAL  ·  defensive · only when JS enabled
+   SCROLL REVEAL
    ============================================================ */
 html.js .reveal {
   opacity: 0;
@@ -1336,6 +1334,7 @@ html.js .reveal[data-delay="100"] { transition-delay: 100ms; }
 html.js .reveal[data-delay="200"] { transition-delay: 200ms; }
 html.js .reveal[data-delay="300"] { transition-delay: 300ms; }
 html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
+html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 
 @media (prefers-reduced-motion: reduce) {
   html.js .reveal { opacity: 1; transform: none; transition: none; }
@@ -1345,7 +1344,6 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
   .tag-pill .dot { animation: none; }
 }
 
-/* skip link */
 .skip {
   position: absolute; left: -9999px; top: 0;
   background: var(--blue); color: #fff; padding: 12px 16px;
@@ -1385,7 +1383,7 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
 
 <main id="main">
 
-<!-- ===== HERO  ·  editorial cover ===== -->
+<!-- ===== HERO ===== -->
 <section class="hero section" id="top">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
@@ -1429,8 +1427,8 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
 <!-- ===== MARQUEE ===== -->
 <section class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <div class="marquee-item"><span>Style</span><span class="dot"></span><span class="ital">Hair</span><span class="dot"></span><span>Physique</span><span class="dot"></span><span class="ital">Grooming</span><span class="dot"></span><span>Photos</span><span class="dot"></span><span class="ital">Posture</span><span class="dot"></span><span>Fit</span><span class="dot"></span><span class="ital">Proportion</span><span class="dot"></span></div>
-    <div class="marquee-item"><span>Style</span><span class="dot"></span><span class="ital">Hair</span><span class="dot"></span><span>Physique</span><span class="dot"></span><span class="ital">Grooming</span><span class="dot"></span><span>Photos</span><span class="dot"></span><span class="ital">Posture</span><span class="dot"></span><span>Fit</span><span class="dot"></span><span class="ital">Proportion</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Style</span><span class="dot"></span><span class="alt">Hair</span><span class="dot"></span><span>Physique</span><span class="dot"></span><span class="alt">Grooming</span><span class="dot"></span><span>Photos</span><span class="dot"></span><span class="alt">Posture</span><span class="dot"></span><span>Fit</span><span class="dot"></span><span class="alt">Proportion</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Style</span><span class="dot"></span><span class="alt">Hair</span><span class="dot"></span><span>Physique</span><span class="dot"></span><span class="alt">Grooming</span><span class="dot"></span><span>Photos</span><span class="dot"></span><span class="alt">Posture</span><span class="dot"></span><span>Fit</span><span class="dot"></span><span class="alt">Proportion</span><span class="dot"></span></div>
   </div>
 </section>
 
@@ -1444,42 +1442,42 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
         <span>The pillars</span>
       </div>
       <h2>Every audit grades <span class="accent">the full picture.</span></h2>
-      <p class="lead">Not just outfits. Not just hair. The complete visual stack — every variable you can move this week.</p>
+      <p class="lead">Not just outfits. Not just hair. The complete visual stack. Every variable you can move this week.</p>
     </div>
 
     <div class="pillar-grid">
       <article class="pillar reveal">
         <div class="pillar-num">01</div>
         <div class="pillar-cat">Category · Style</div>
-        <h3 class="pillar-name">Outfit fit <span class="italic">&amp; direction</span></h3>
+        <h3 class="pillar-name">Outfit fit and direction</h3>
         <p class="pillar-desc">Garment fit, silhouette, color palette, and aesthetic cohesion graded against your target.</p>
       </article>
 
       <article class="pillar reveal" data-delay="100">
         <div class="pillar-num">02</div>
         <div class="pillar-cat">Category · Hair</div>
-        <h3 class="pillar-name">Cut <span class="italic">&amp; framing</span></h3>
+        <h3 class="pillar-name">Cut and framing</h3>
         <p class="pillar-desc">Cut, texture, length, and styling. Plus a barber-ready script you can hand over verbatim.</p>
       </article>
 
       <article class="pillar reveal" data-delay="200">
         <div class="pillar-num">03</div>
         <div class="pillar-cat">Category · Physique</div>
-        <h3 class="pillar-name">Proportion <span class="italic">&amp; posture</span></h3>
+        <h3 class="pillar-name">Proportion and posture</h3>
         <p class="pillar-desc">V-taper, waist emphasis, posture diagnostics, and a training priority list based on your build.</p>
       </article>
 
       <article class="pillar reveal" data-delay="300">
         <div class="pillar-num">04</div>
         <div class="pillar-cat">Category · Grooming</div>
-        <h3 class="pillar-name">Facial <span class="italic">framing</span></h3>
+        <h3 class="pillar-name">Facial framing</h3>
         <p class="pillar-desc">Facial hair, skin presentation, and a baseline protocol you can run in five minutes a day.</p>
       </article>
 
       <article class="pillar reveal" data-delay="400">
         <div class="pillar-num">05</div>
         <div class="pillar-cat">Category · Photos</div>
-        <h3 class="pillar-name">Digital <span class="italic">presence</span></h3>
+        <h3 class="pillar-name">Digital presence</h3>
         <p class="pillar-desc">Lighting, angle, pose, environment. The exact reasons your photos undersell you and how to retake.</p>
       </article>
     </div>
@@ -1497,15 +1495,15 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
           <span>Inside the audit</span>
         </div>
         <h2>A real report. <span class="accent">Not a chatbot reply.</span></h2>
-        <p class="lead dropcap">Every audit ships as a designed, twelve-section report covering the scorecard, brutal truth, fit diagnostics, grooming protocol, physique strategy, digital presence, procurement list, and a seven-day execution sprint. Personalized to your photos, build, and target aesthetic.</p>
+        <p class="lead">Every audit ships as a designed, twelve-section report covering the scorecard, brutal truth, fit diagnostics, grooming protocol, physique strategy, digital presence, procurement list, and a seven-day execution sprint. Personalized to your photos, build, and target aesthetic.</p>
         <ul class="deliv">
-          <li><span class="deliv-no">01</span><span><b>Appearance scorecard</b>  ·  six categories graded</span></li>
-          <li><span class="deliv-no">02</span><span><b>Style &amp; fit architecture</b>  ·  tops, pants, footwear, layering</span></li>
-          <li><span class="deliv-no">03</span><span><b>Hair plan + barber script</b>  ·  copy-paste at the chair</span></li>
-          <li><span class="deliv-no">04</span><span><b>Physique direction</b>  ·  priority muscle groups</span></li>
-          <li><span class="deliv-no">05</span><span><b>Photo audit</b>  ·  lighting, angle, pose</span></li>
-          <li><span class="deliv-no">06</span><span><b>Procurement list</b>  ·  ranked, with budget</span></li>
-          <li><span class="deliv-no">07</span><span><b>Seven-day execution sprint</b>  ·  day-by-day</span></li>
+          <li><span class="deliv-no">01</span><span><b>Appearance scorecard</b> across six categories</span></li>
+          <li><span class="deliv-no">02</span><span><b>Style and fit architecture</b> covering tops, pants, footwear, layering</span></li>
+          <li><span class="deliv-no">03</span><span><b>Hair plan plus barber script</b> ready to copy-paste at the chair</span></li>
+          <li><span class="deliv-no">04</span><span><b>Physique direction</b> with priority muscle groups</span></li>
+          <li><span class="deliv-no">05</span><span><b>Photo audit</b> covering lighting, angle, and pose</span></li>
+          <li><span class="deliv-no">06</span><span><b>Procurement list</b> ranked, with budget</span></li>
+          <li><span class="deliv-no">07</span><span><b>Seven-day execution sprint</b> mapped day by day</span></li>
         </ul>
       </div>
 
@@ -1565,13 +1563,13 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
         <div class="step-label">Step Three</div>
         <div class="step-num">03</div>
         <h3>Execute the upgrade plan</h3>
-        <p>You get a personalized BroGrade report inside 24–72 hours. Scorecard, weak points, fastest wins, shopping list, and a seven-day action plan.</p>
+        <p>You get a personalized BroGrade report inside 24 to 72 hours. Scorecard, weak points, fastest wins, shopping list, and a seven-day action plan.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ===== STATEMENT  ·  big pull quote ===== -->
+<!-- ===== STATEMENT ===== -->
 <section class="statement section">
   <div class="wrap">
     <div class="chapter reveal">
@@ -1579,11 +1577,11 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
       <span>A note</span>
       <span class="rule" style="width:48px"></span>
     </div>
-    <p class="statement-quote reveal" data-delay="100">Most men don't need motivation. They need someone to point at the <span class="accent">three things actually hurting their look</span> — and tell them what to do by Sunday.</p>
+    <p class="statement-quote reveal" data-delay="100">Most men don't need motivation. They need someone to point at the <span class="accent">three things actually hurting their look,</span> then tell them what to do by Sunday.</p>
     <p class="reveal" data-delay="300">Bad fit. Weak haircut. Wrong shoes. Awkward photos. Posture that cancels confidence. Your friends are too polite to say it. BroGrade isn't.</p>
     <div class="statement-sig reveal" data-delay="400">
       <span class="rule"></span>
-      <span class="ital">Upload yourself · Get graded · Get upgraded</span>
+      <span class="copper-tag">Upload · Get graded · Get upgraded</span>
       <span class="rule"></span>
     </div>
   </div>
@@ -1618,13 +1616,13 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
       </div>
 
       <ul class="price-list">
-        <li><span class="num">i</span><span><b>Appearance scorecard</b> across six categories</span></li>
-        <li><span class="num">ii</span><span><b>Style &amp; fit architecture</b> with tailored recommendations</span></li>
-        <li><span class="num">iii</span><span><b>Hair plan + verbatim barber script</b></span></li>
-        <li><span class="num">iv</span><span><b>Physique &amp; posture diagnostics</b> with training priorities</span></li>
-        <li><span class="num">v</span><span><b>Photo audit + retake direction</b></span></li>
-        <li><span class="num">vi</span><span><b>Ranked procurement list</b> with budget guidance</span></li>
-        <li><span class="num">vii</span><span><b>Seven-day execution sprint</b> + 30-day trajectory</span></li>
+        <li><span class="num">01</span><span><b>Appearance scorecard</b> across six categories</span></li>
+        <li><span class="num">02</span><span><b>Style and fit architecture</b> with tailored recommendations</span></li>
+        <li><span class="num">03</span><span><b>Hair plan plus verbatim barber script</b></span></li>
+        <li><span class="num">04</span><span><b>Physique and posture diagnostics</b> with training priorities</span></li>
+        <li><span class="num">05</span><span><b>Photo audit plus retake direction</b></span></li>
+        <li><span class="num">06</span><span><b>Ranked procurement list</b> with budget guidance</span></li>
+        <li><span class="num">07</span><span><b>Seven-day execution sprint</b> plus 30-day trajectory</span></li>
       </ul>
 
       <div class="pricing-cta">
@@ -1682,7 +1680,7 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
           <span class="faq-q-text">Is the audit AI-generated or written by a person?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">It's a hybrid. Trained visual judgement plus AI-assisted speed. Every audit is reviewed and finalized by a human before it ships. You get real, considered feedback — not a chatbot reply.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">It's a hybrid. Trained visual judgement plus AI-assisted speed. Every audit is reviewed and finalized by a human before it ships. You get real, considered feedback, not a chatbot reply.</div></div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">
@@ -1785,7 +1783,7 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="assets/logo-horizontal.png" alt="BroGrade"/>
-        <p>Personalized appearance audits for men. Style, hair, grooming, physique, and photos — graded honestly.</p>
+        <p>Personalized appearance audits for men. Style, hair, grooming, physique, and photos. Graded honestly.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
@@ -1817,16 +1815,14 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
     </div>
     <div class="footer-base">
       <span>© <span id="year">2026</span> BroGrade. All rights reserved.</span>
-      <span class="ital">Made for men who want it dialled in.</span>
+      <span class="tag">Made for men who want it dialled in.</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // Year stamp
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Nav shrink
   const nav = document.getElementById('nav');
   let ticking = false;
   window.addEventListener('scroll', () => {
@@ -1839,7 +1835,6 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
     }
   }, { passive: true });
 
-  // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
@@ -1848,7 +1843,6 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
     });
   });
 
-  // Reveal on scroll
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduce && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
@@ -1864,7 +1858,6 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
   }
 
-  // Score counters
   const countEls = document.querySelectorAll('[data-count]');
   if ('IntersectionObserver' in window) {
     const co = new IntersectionObserver((entries) => {
@@ -1889,7 +1882,6 @@ html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
     countEls.forEach(el => co.observe(el));
   }
 
-  // Waitlist optimistic UI
   const form = document.getElementById('waitlist-form');
   form?.addEventListener('submit', () => {
     setTimeout(() => {
