@@ -2048,7 +2048,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   grid-template-columns: 1fr;
   gap: 14px;
 }
-@media (min-width: 700px) and (max-width: 1039px) {
+@media (min-width: 940px) and (max-width: 1039px) {
   .proof-quotes { grid-template-columns: repeat(3, 1fr); }
 }
 .proof-card,
@@ -2233,10 +2233,9 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 }
 .proof-note {
   margin-top: 18px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
   color: var(--rev-5);
 }
 @media (max-width: 560px) {
@@ -2562,6 +2561,248 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   color: var(--rev-6); font-weight: 500;
 }
 .section-rule .rule { flex: 1; }
+
+/* ============================================================
+   RESPONSIVE QA POLISH
+   ============================================================ */
+@media (min-width: 720px) and (max-width: 939px) {
+  .proof-quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .proof-card:nth-child(3) { grid-column: 1 / -1; min-height: 150px; }
+}
+
+@media (max-width: 640px) {
+  html { scroll-padding-top: 76px; }
+
+  .wrap { padding-left: 20px; padding-right: 20px; }
+
+  .section-head {
+    margin-bottom: 42px;
+  }
+
+  .section-head .chapter {
+    margin-bottom: 16px;
+  }
+
+  .chapter {
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+  }
+
+  .chapter .roman {
+    font-size: 13px;
+  }
+
+  .rule {
+    min-width: 16px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(31px, 8.8vw, 38px);
+    line-height: 1.08;
+    letter-spacing: -0.032em;
+    margin-bottom: 14px;
+  }
+
+  .section-head .lead {
+    font-size: 15px;
+    line-height: 1.58;
+  }
+
+  .pillars,
+  .report,
+  .method,
+  .pricing,
+  .for-section,
+  .faq,
+  .cohort-section {
+    padding-top: 88px;
+    padding-bottom: 96px;
+  }
+
+  .carousel-section,
+  .beta-proof,
+  .rubric,
+  .founder {
+    padding-top: 88px;
+    padding-bottom: 104px;
+  }
+
+  .statement,
+  .final {
+    padding-top: 116px;
+    padding-bottom: 116px;
+  }
+
+  .privacy-strip {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .marquee-item {
+    gap: 28px;
+    font-size: 24px;
+  }
+
+  .carousel-track-wrap {
+    margin-top: 36px;
+  }
+
+  .carousel-track-wrap::before,
+  .carousel-track-wrap::after {
+    width: 42px;
+  }
+
+  .carousel-track {
+    gap: 14px;
+    padding: 12px max(20px, calc((100vw - 300px) / 2)) 26px;
+  }
+
+  .carousel-slide,
+  .carousel-slide.expanded {
+    width: min(300px, calc(100vw - 40px));
+  }
+
+  .cs-header {
+    padding: 16px 18px 14px;
+  }
+
+  .cs-body {
+    padding: 24px 20px;
+  }
+
+  .carousel-dots {
+    margin-top: 22px;
+  }
+
+  .pillar,
+  .rubric-cell,
+  .for-col,
+  .step {
+    padding: 28px 24px;
+  }
+
+  .step-num {
+    font-size: 56px;
+    margin-bottom: 18px;
+  }
+
+  .pricing-card {
+    padding: 48px 28px 38px;
+  }
+
+  .pricing-price {
+    gap: 8px 10px;
+    flex-wrap: wrap;
+  }
+
+  .pricing-price .num {
+    font-size: 78px;
+  }
+
+  .pricing-price .note {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+
+  .privacy-inner {
+    gap: 24px;
+  }
+
+  .faq-q {
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .faq-q .q-no {
+    margin-right: 8px;
+  }
+
+  .founder-pull {
+    padding-left: 22px;
+    margin-bottom: 36px;
+  }
+
+  .founder-body {
+    gap: 30px;
+  }
+
+  .final-colophon {
+    gap: 10px;
+    letter-spacing: 0.16em;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding-top: 112px;
+    padding-bottom: 66px;
+  }
+
+  .cover-meta {
+    margin-bottom: 24px;
+  }
+
+  .hero-inner {
+    gap: 20px;
+  }
+
+  .hero-mark {
+    width: 76px;
+    height: 76px;
+    margin-top: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 9.5vw, 39px);
+  }
+
+  .hero-lead {
+    line-height: 1.55;
+  }
+
+  .hero-ctas {
+    gap: 10px;
+  }
+
+  .hero-assurance {
+    margin-top: -8px;
+  }
+
+  .sample-feature-list {
+    gap: 10px;
+  }
+
+  .proof-card {
+    min-height: 172px;
+  }
+
+  .footer {
+    padding-top: 52px;
+  }
+
+  .footer-grid {
+    gap: 30px;
+    margin-bottom: 36px;
+  }
+}
+
+@media (max-width: 420px) {
+  .pricing-card::before {
+    content: "VOL. 01 \00B7  $19 CAD";
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    padding: 7px 12px;
+  }
+
+  .cohort-points span {
+    letter-spacing: 0.12em;
+  }
+
+  .final h2 {
+    font-size: clamp(36px, 11vw, 42px);
+  }
+}
 </style>
 </head>
 <body>
@@ -2823,17 +3064,17 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   </div>
 </section>
 
-<!-- ===== BETA PROOF PLACEHOLDERS ===== -->
+<!-- ===== SPECIFIC FEEDBACK SAMPLE ===== -->
 <section class="beta-proof section" id="proof">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="chapter">
         <span class="roman">✓</span>
         <span class="rule"></span>
-        <span>Beta feedback</span>
+        <span>Specific feedback</span>
       </div>
-      <h2>Proof will live <span class="accent">right here.</span></h2>
-      <p class="lead">Swap these placeholders for real beta quotes and one anonymized before/after audit snapshot once the first reports come back.</p>
+      <h2>Specific feedback. <span class="accent">Visible fixes.</span></h2>
+      <p class="lead">BroGrade shows what is helping, what is hurting, and the first fixes that would actually change the look. No vague "dress better" advice.</p>
     </div>
 
     <div class="proof-layout">
@@ -2842,59 +3083,59 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           <div>
             <div class="proof-card-top">
               <span class="proof-kind">Style specificity</span>
-              <span class="proof-status">Replace</span>
+              <span class="proof-status">Fit fix</span>
             </div>
-            <blockquote>Paste a real quote about the audit calling out outfit fit, pant break, shirt shape, or photo angles.</blockquote>
+            <blockquote>Pants are breaking too hard at the ankle, which makes the whole fit look sloppier than it is. Clean up the break before buying anything new.</blockquote>
           </div>
-          <figcaption>Beta user 01 · City/age optional</figcaption>
+          <figcaption>Sample audit 01 · Style &amp; fit</figcaption>
         </figure>
 
         <figure class="proof-card">
           <div>
             <div class="proof-card-top">
               <span class="proof-kind">Hair direction</span>
-              <span class="proof-status">Replace</span>
+              <span class="proof-status">Barber script</span>
             </div>
-            <blockquote>Paste a real quote about the barber script, haircut direction, grooming plan, or confidence walking into the appointment.</blockquote>
+            <blockquote>Keep the top length, reduce side bulk, and ask for a low taper with a softer blend. The cut has potential, but the shape needs to look intentional.</blockquote>
           </div>
-          <figcaption>Beta user 02 · City/age optional</figcaption>
+          <figcaption>Sample audit 01 · Hair</figcaption>
         </figure>
 
         <figure class="proof-card">
           <div>
             <div class="proof-card-top">
               <span class="proof-kind">Shopping clarity</span>
-              <span class="proof-status">Replace</span>
+              <span class="proof-status">Buy first</span>
             </div>
-            <blockquote>Paste a real quote about knowing what to buy first instead of wasting money on random clothes.</blockquote>
+            <blockquote>Do not buy more random pieces yet. Start with straight dark denim, a structured white tee, and clean leather sneakers. Fix the base first.</blockquote>
           </div>
-          <figcaption>Beta user 03 · City/age optional</figcaption>
+          <figcaption>Sample audit 01 · Shopping</figcaption>
         </figure>
       </div>
 
       <article class="proof-snapshot">
         <div class="proof-snapshot-head">
           <h3 class="proof-snapshot-title">Before / after audit snapshot</h3>
-          <span class="proof-snapshot-tag">Anonymize</span>
+          <span class="proof-snapshot-tag">Sample</span>
         </div>
         <div class="proof-snapshot-body">
-          <div class="proof-photo-pair" aria-label="Placeholder before and after photos">
-            <div class="proof-photo-slot" role="img" aria-label="Placeholder for before photo">
+          <div class="proof-photo-pair" aria-label="Sample before and after audit snapshot">
+            <div class="proof-photo-slot" role="img" aria-label="Sample before audit photo placeholder">
               <span>Before</span>
-              <small>Drop in a blurred original outfit/photo here.</small>
+              <small>Stacked pants, flat lighting, weak shirt structure.</small>
             </div>
-            <div class="proof-photo-slot" role="img" aria-label="Placeholder for after or recommended direction photo">
+            <div class="proof-photo-slot" role="img" aria-label="Sample after audit direction placeholder">
               <span>After</span>
-              <small>Drop in the improved retake or audit direction here.</small>
+              <small>Cleaner pant break, stronger top, better photo angle.</small>
             </div>
           </div>
           <div>
             <ul class="proof-fix-list">
-              <li><span class="pf-num">01</span><span><b>Problem found:</b> Replace with the exact weak point BroGrade called out.</span></li>
-              <li><span class="pf-num">02</span><span><b>Fix given:</b> Replace with the clearest instruction from the report.</span></li>
-              <li><span class="pf-num">03</span><span><b>Visible result:</b> Replace with what changed after he executed it.</span></li>
+              <li><span class="pf-num">01</span><span><b>Problem found:</b> Pant break and shirt collapse were weakening the silhouette.</span></li>
+              <li><span class="pf-num">02</span><span><b>Fix given:</b> Clean up the pant break, use a heavier structured top, and retake photos at chest height in window light.</span></li>
+              <li><span class="pf-num">03</span><span><b>Visible result:</b> Cleaner vertical line, stronger frame, and a more intentional profile photo.</span></li>
             </ul>
-            <p class="proof-note">Use consented, blurred, or cropped photos only.</p>
+            <p class="proof-note">Sample audit snapshot. Real beta results use consented, blurred, or cropped photos only.</p>
           </div>
         </div>
       </article>

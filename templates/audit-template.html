@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BroGrade Beta Audit Template</title>
+<style>
+:root {
+  --ink: #08090d;
+  --navy: #0b1426;
+  --navy-2: #121d32;
+  --blue: #2154e8;
+  --blue-2: #6e9dff;
+  --cream: #f4efe5;
+  --paper: #fffdfa;
+  --line: rgba(11, 20, 38, 0.14);
+  --line-dark: rgba(244, 239, 229, 0.18);
+  --muted: #6f7480;
+  --soft: #f5f7fb;
+  --green: #047857;
+  --green-bg: #edfdf5;
+  --red: #a21d2d;
+  --red-bg: #fff1f2;
+  --gold: #c8a776;
+  --sans: "Inter", "Geist", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", "Geist Mono", Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+html { background: #11131a; color: var(--ink); }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(33,84,232,0.16), transparent 30rem),
+    #11131a;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 22px;
+  background: rgba(8, 9, 13, 0.84);
+  color: white;
+  border-bottom: 1px solid rgba(244,239,229,0.12);
+  backdrop-filter: blur(18px);
+}
+.toolbar img { width: 112px; height: auto; }
+.toolbar-actions { display: flex; gap: 10px; align-items: center; }
+.toolbar span {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.56);
+}
+.print-btn {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: linear-gradient(180deg, #3b82f6, #2154e8);
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font: 700 12px var(--sans);
+  cursor: pointer;
+  box-shadow: 0 12px 34px rgba(33,84,232,0.34);
+}
+
+.document {
+  width: min(100%, 980px);
+  margin: 32px auto 70px;
+  padding: 0 18px;
+}
+.page {
+  min-height: 11in;
+  margin: 0 auto 28px;
+  padding: 0.78in;
+  background:
+    linear-gradient(rgba(11,20,38,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11,20,38,0.022) 1px, transparent 1px),
+    var(--paper);
+  background-size: 34px 34px, 34px 34px, auto;
+  box-shadow: 0 34px 90px rgba(0,0,0,0.38);
+  border: 1px solid rgba(244,239,229,0.10);
+  break-after: page;
+}
+.page.cover {
+  display: grid;
+  align-content: stretch;
+  background:
+    radial-gradient(circle at 70% 14%, rgba(110,157,255,0.20), transparent 20rem),
+    linear-gradient(135deg, #0a0b11, #10192b 60%, #08090d);
+  color: white;
+  border-left: 8px solid var(--blue);
+}
+
+.cover-top,
+.cover-bottom,
+.report-header,
+.report-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 10px;
+}
+.cover-top { color: rgba(255,255,255,0.62); }
+.cover-top b { color: var(--blue-2); }
+.cover-mark {
+  display: grid;
+  place-items: center;
+  min-height: 6in;
+  text-align: center;
+}
+.cover-mark img {
+  width: 360px;
+  max-width: 80%;
+  margin: 0 auto 36px;
+}
+.cover-line {
+  height: 1px;
+  width: min(540px, 80%);
+  margin: 0 auto 30px;
+  background: linear-gradient(90deg, transparent, var(--blue-2), transparent);
+}
+.cover-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 40px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.prepared {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+  text-align: right;
+}
+.prepared span { color: rgba(255,255,255,0.52); }
+.prepared strong {
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  color: white;
+}
+
+.report-header {
+  padding-bottom: 16px;
+  margin-bottom: 42px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+.report-header strong { color: var(--navy); }
+.report-header img { width: 24px; height: 24px; }
+.report-footer {
+  margin-top: 46px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+.report-footer strong { color: var(--navy); }
+
+.kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.section-title {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: end;
+  margin-bottom: 30px;
+}
+.section-title .num {
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  color: var(--navy);
+}
+.section-title h2 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 4px solid var(--navy);
+  font-size: 22px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+.section-intro {
+  font-size: 18px;
+  line-height: 1.65;
+  color: #2d3440;
+}
+
+h1, h2, h3, p { margin-top: 0; }
+h3 {
+  margin: 28px 0 14px;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+p, li {
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: #3f4652;
+}
+.quote {
+  margin: 24px 0;
+  padding: 24px 28px;
+  border-left: 5px solid var(--blue);
+  background: #eef4ff;
+  color: var(--navy);
+  font-size: 22px;
+  line-height: 1.45;
+  font-style: italic;
+  font-weight: 700;
+}
+.advisory {
+  margin-top: 32px;
+  padding: 24px 28px;
+  background: #f7f2e7;
+  border-left: 5px solid var(--muted);
+}
+
+.grid { display: grid; gap: 18px; }
+.grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.kv,
+.scorecard,
+.procurement {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 26px;
+}
+.kv th,
+.kv td,
+.scorecard th,
+.scorecard td,
+.procurement th,
+.procurement td {
+  border-bottom: 1px solid var(--line);
+  padding: 13px 12px;
+  vertical-align: top;
+}
+.kv th {
+  width: 34%;
+  text-align: left;
+  font: 700 10px var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.kv td {
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--navy);
+}
+.scorecard th,
+.procurement th {
+  background: var(--navy);
+  color: white;
+  text-align: left;
+  font: 700 10px var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.scorecard td,
+.procurement td { font-size: 13.5px; }
+.score {
+  color: var(--blue);
+  font-weight: 900;
+  white-space: nowrap;
+}
+.overall td {
+  background: var(--navy-2);
+  color: white;
+}
+.overall .score { color: var(--blue-2); }
+
+.metric-card,
+.insight,
+.diagnostic,
+.priority,
+.week,
+.day-row,
+.photo-card {
+  padding: 22px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  min-width: 0;
+}
+.metric-card.dark,
+.final-callout {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+.metric-card .label,
+.insight .label,
+.priority .label,
+.week .label,
+.day-row .label {
+  display: block;
+  margin-bottom: 8px;
+  font: 800 10px var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.metric-card strong {
+  display: block;
+  color: var(--navy);
+  font-size: 24px;
+  line-height: 1.15;
+}
+.metric-card.dark strong,
+.metric-card.dark .label { color: white; }
+.metric-card small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-style: italic;
+}
+.metric-card.dark small { color: rgba(255,255,255,0.62); }
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+}
+.legend div {
+  padding: 14px;
+  background: white;
+}
+.legend strong {
+  display: block;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.legend span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.insight.asset {
+  background: var(--green-bg);
+  border-left: 4px solid var(--green);
+}
+.insight.liability {
+  background: var(--red-bg);
+  border-left: 4px solid var(--red);
+}
+.insight h4,
+.diagnostic h4,
+.photo-card h4 {
+  margin: 0 0 8px;
+  color: var(--navy);
+  font-size: 18px;
+}
+.diagnostic {
+  background: white;
+  border-left: 4px solid var(--navy);
+}
+.diagnostic p { margin-bottom: 10px; }
+.diagnostic b.red { color: var(--red); }
+.diagnostic b.green { color: var(--green); }
+
+.golden,
+.barber,
+.final-callout {
+  margin: 26px 0;
+  padding: 26px 30px;
+  background: var(--navy);
+  color: white;
+  border-left: 5px solid var(--blue);
+  border-radius: 10px;
+}
+.golden p,
+.barber p,
+.final-callout p { color: white; }
+.golden strong,
+.barber strong,
+.final-callout strong {
+  color: var(--blue-2);
+}
+.barber code {
+  display: block;
+  white-space: normal;
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.7;
+  color: white;
+}
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 0;
+  list-style: none;
+}
+.pill-list li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 11px;
+  background: white;
+  font-size: 12px;
+  color: var(--navy);
+}
+
+.day-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+.day-num {
+  height: 100%;
+  min-height: 94px;
+  display: grid;
+  place-items: center;
+  background: var(--navy);
+  color: white;
+  font-size: 34px;
+  font-weight: 900;
+}
+.day-body { padding: 18px 18px 18px 0; }
+.week { border-top: 5px solid var(--blue); background: white; }
+.priority {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 18px;
+  background: white;
+  padding: 0;
+  overflow: hidden;
+}
+.priority-num {
+  display: grid;
+  place-items: center;
+  background: var(--navy);
+  color: white;
+  font-size: 28px;
+  font-weight: 900;
+}
+.priority-body { padding: 20px; }
+.priority-body h4 { margin: 0 0 12px; font-size: 18px; color: var(--navy); }
+
+.end-seal {
+  margin-top: 46px;
+  text-align: center;
+}
+.end-seal img {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+}
+.end-seal strong {
+  display: block;
+  font-family: var(--mono);
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--navy);
+}
+.end-seal span {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.placeholder {
+  color: var(--blue);
+  font-weight: 750;
+}
+.no-break { break-inside: avoid; page-break-inside: avoid; }
+
+@media (max-width: 760px) {
+  .toolbar { position: static; }
+  .document { padding: 0; margin-top: 0; }
+  .page { min-height: auto; padding: 34px 22px; margin-bottom: 12px; border-radius: 0; }
+  .grid.two,
+  .grid.three,
+  .grid.four,
+  .legend { grid-template-columns: 1fr; }
+  .section-title { grid-template-columns: 1fr; gap: 12px; }
+  .section-title .num { font-size: 46px; }
+  .cover-top,
+  .cover-bottom,
+  .report-header,
+  .report-footer { align-items: flex-start; flex-direction: column; }
+  .prepared { justify-items: start; text-align: left; }
+}
+
+@media print {
+  @page { size: Letter; margin: 0; }
+  html, body { background: white; }
+  .toolbar { display: none; }
+  .document { width: auto; margin: 0; padding: 0; }
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0;
+    padding: 0.62in;
+    border: 0;
+    box-shadow: none;
+    break-after: page;
+  }
+  .page:last-child { break-after: auto; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <img src="../assets/logo-horizontal.png" alt="BroGrade">
+  <div class="toolbar-actions">
+    <span>Print-ready audit template</span>
+    <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  </div>
+</div>
+
+<main class="document">
+  <section class="page cover">
+    <div class="cover-top">
+      <span><b>Report No.</b> <span class="placeholder">[0001]</span></span>
+      <span>Confidential &middot; Beta Audit</span>
+    </div>
+    <div class="cover-mark">
+      <div>
+        <img src="../assets/logo-horizontal.png" alt="BroGrade">
+        <div class="cover-line"></div>
+        <div class="cover-nav">
+          <span>Style</span><span>Hair</span><span>Physique</span><span>Grooming</span><span>Photos</span>
+        </div>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <span>BroGrade &middot; Get graded. Get upgraded.</span>
+      <div class="prepared">
+        <span>Prepared For</span>
+        <strong class="placeholder">[Client First Name]</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <header class="report-header">
+      <span><img src="../assets/logo-mark.png" alt=""> <strong>BroGrade</strong> Beta Audit</span>
+      <span>Confidential Client Deliverable</span>
+    </header>
+
+    <h3>Client Dossier</h3>
+    <table class="kv">
+      <tr><th>Name</th><td class="placeholder">[Client First Name]</td></tr>
+      <tr><th>Date</th><td class="placeholder">[YYYY-MM-DD]</td></tr>
+      <tr><th>Audit Goal</th><td class="placeholder">[Client's Primary Objective]</td></tr>
+      <tr><th>Current Presentation</th><td class="placeholder">[Client's self-described current style]</td></tr>
+      <tr><th>Target Aesthetic</th><td class="placeholder">[Target aesthetic, in the client's exact words]</td></tr>
+      <tr><th>Primary Environment</th><td class="placeholder">[School / Professional / Dating / Casual / Nightlife]</td></tr>
+      <tr><th>Procurement Budget</th><td class="placeholder">[Client Budget]</td></tr>
+    </table>
+
+    <div class="advisory no-break">
+      <h3>Advisory</h3>
+      <p>This audit provides objective, practical feedback on style, grooming, physique direction, posture, and visual presentation based on submitted materials. It does not constitute medical, dermatological, mental health, or certified fitness advice. All recommendations are general self-improvement directives.</p>
+    </div>
+
+    <footer class="report-footer">
+      <span>brograde.com</span>
+      <span>getbrograde@gmail.com</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>01 / Executive Summary</span></header>
+    <div class="section-title"><div class="num">01</div><h2>Executive Summary</h2></div>
+
+    <h3>The BroGrade Metrics</h3>
+    <div class="grid two">
+      <div class="metric-card no-break"><span class="label">Current Baseline</span><strong class="placeholder">[X.X] / 10</strong><small>Where you stand today.</small></div>
+      <div class="metric-card no-break"><span class="label">Upgrade Potential</span><strong class="placeholder">[X.X] / 10</strong><small>Where you can be in 90 days.</small></div>
+      <div class="metric-card no-break"><span class="label">Primary Liability</span><strong class="placeholder">[Inconsistent fit, sub-optimal grooming, posture]</strong></div>
+      <div class="metric-card no-break"><span class="label">Immediate ROI</span><strong class="placeholder">[Tailored pant break, structured layering]</strong></div>
+      <div class="metric-card dark no-break" style="grid-column:1/-1"><span class="label">Long-Term Objective</span><strong class="placeholder">[Upper chest hypertrophy over a 6 to 12 month macrocycle]</strong></div>
+    </div>
+
+    <h3>The Verdict</h3>
+    <div class="quote">&ldquo;Your foundational traits are strong. The overall presentation is currently compromised by unstructured garments and a lack of visual cohesion.&rdquo;</div>
+
+    <footer class="report-footer"><span>Report No. <span class="placeholder">[0001]</span></span><span>Confidential</span></footer>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>02 / The Brutal Truth</span></header>
+    <div class="section-title"><div class="num">02</div><h2>The Brutal Truth</h2></div>
+
+    <p class="section-intro">Based on your visual data, your current baseline reads as <span class="placeholder">[basic, decent, inconsistent, under-optimized]</span>.</p>
+    <p>The primary friction point holding back your presentation is <span class="placeholder">[specific issue]</span>. Currently, your visual footprint signals a <span class="placeholder">[current impression]</span> aesthetic, which directly conflicts with the <span class="placeholder">[desired impression]</span> you are aiming for.</p>
+    <p>The advantage here is that your required upgrades are entirely logistical. You do not require a full reinvention. By correcting <span class="placeholder">[issue 1]</span>, <span class="placeholder">[issue 2]</span>, and <span class="placeholder">[issue 3]</span>, your presentation will transition to a highly <span class="placeholder">[masculine, polished, athletic, intentional]</span> standard.</p>
+
+    <footer class="report-footer"><span>BroGrade &middot; Objective visual feedback</span><span>02</span></footer>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>03 / Scorecard</span></header>
+    <div class="section-title"><div class="num">03</div><h2>The Scorecard</h2></div>
+
+    <table class="scorecard">
+      <tr><th>Category</th><th>Score</th><th>Metric Definition</th></tr>
+      <tr><td>Style &amp; Outfit Fit</td><td class="score placeholder">[X]/10</td><td>Garment drape, silhouette alignment with frame, aesthetic cohesion.</td></tr>
+      <tr><td>Hair Architecture</td><td class="score placeholder">[X]/10</td><td>Cut, shape, texture, volume, facial framing execution.</td></tr>
+      <tr><td>Grooming Polish</td><td class="score placeholder">[X]/10</td><td>Facial hair precision, skin presentation, overall maintenance.</td></tr>
+      <tr><td>Physique &amp; Proportion</td><td class="score placeholder">[X]/10</td><td>Visual structure, posture, localized muscular development needs.</td></tr>
+      <tr><td>Digital Presence</td><td class="score placeholder">[X]/10</td><td>Lighting, angle mastery, confidence, digital translation of the look.</td></tr>
+      <tr><td>Wardrobe Utility</td><td class="score placeholder">[X]/10</td><td>How efficiently your current inventory serves your target aesthetic.</td></tr>
+      <tr class="overall"><td><strong>Overall BroGrade</strong></td><td class="score placeholder">[X]/10</td><td>Cumulative visual presentation.</td></tr>
+    </table>
+
+    <h3>Scoring Legend</h3>
+    <div class="legend no-break">
+      <div><strong>9-10</strong><span>Elite, intentional</span></div>
+      <div><strong>8-8.9</strong><span>Strong, minor tweaks</span></div>
+      <div><strong>7-7.9</strong><span>Solid foundation</span></div>
+      <div><strong>6-6.9</strong><span>Under-optimized</span></div>
+      <div><strong>5-5.9</strong><span>Inconsistent</span></div>
+      <div><strong>&lt; 5</strong><span>Full reset required</span></div>
+    </div>
+    <footer class="report-footer"><span>BroGrade scorecard</span><span>03</span></footer>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>04 / Assets &amp; Liabilities</span></header>
+    <div class="section-title"><div class="num">04</div><h2>Visual Assets &amp; Liabilities</h2></div>
+
+    <h3>Assets That Drive Your Look</h3>
+    <div class="grid">
+      <div class="insight asset no-break"><span class="label">Asset 01</span><h4 class="placeholder">[Solid Frame Foundation]</h4><p>You have a naturally broad clavicle structure that easily supports tailored outerwear.</p></div>
+      <div class="insight asset no-break"><span class="label">Asset 02</span><h4 class="placeholder">[Title]</h4><p class="placeholder">[Explanation of objective advantage.]</p></div>
+      <div class="insight asset no-break"><span class="label">Asset 03</span><h4 class="placeholder">[Title]</h4><p class="placeholder">[Explanation of objective advantage.]</p></div>
+    </div>
+
+    <h3>Liabilities Compromising Your Look</h3>
+    <div class="grid">
+      <div class="insight liability no-break"><span class="label">Liability 01</span><h4 class="placeholder">[Shoulder Collapse in Shirts]</h4><p>The lack of structure in your tops creates an artificial narrowing of the shoulders, hiding your actual frame.</p></div>
+      <div class="insight liability no-break"><span class="label">Liability 02</span><h4 class="placeholder">[Title]</h4><p class="placeholder">[Explanation of visual detriment.]</p></div>
+      <div class="insight liability no-break"><span class="label">Liability 03</span><h4 class="placeholder">[Title]</h4><p class="placeholder">[Explanation of visual detriment.]</p></div>
+    </div>
+    <footer class="report-footer"><span>Visual audit layer</span><span>04</span></footer>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>05 / Style &amp; Fit</span></header>
+    <div class="section-title"><div class="num">05</div><h2>Style &amp; Fit Architecture</h2></div>
+
+    <h3>Aesthetic Gap Analysis</h3>
+    <table class="kv">
+      <tr><th>Current Read</th><td class="placeholder">[basic, sporty, random, streetwear, business casual]</td></tr>
+      <tr><th>Current Impression</th><td class="placeholder">[immature, underdressed, inconsistent]</td></tr>
+      <tr><th>Target Read</th><td class="placeholder">[old money, clean mature, athletic, mafia sleek]</td></tr>
+      <tr><th>The Gap</th><td class="placeholder">[Small, Medium, Large]. [Precise disconnect between current and target state.]</td></tr>
+    </table>
+
+    <h3>Fit Diagnostics</h3>
+    <div class="grid">
+      <div class="diagnostic no-break"><h4>Tops</h4><p><b class="red">Problem</b> Currently <span class="placeholder">[too tight, lacks structure, poor neckline]</span>, which visually <span class="placeholder">[narrows shoulders, makes torso boxy]</span>.</p><p><b class="green">The Fix</b> Transition to heavyweight cotton tees and structured overshirts.</p></div>
+      <div class="diagnostic no-break"><h4>Trousers &amp; Denim</h4><p><b class="red">Problem</b> Current pants suffer from <span class="placeholder">[too skinny, wrong rise, heavy ankle stacking]</span>, which <span class="placeholder">[shortens legs, ruins silhouette]</span>.</p><p><b class="green">The Fix</b> Move to a slim-straight fit with no break at the shoe.</p></div>
+      <div class="diagnostic no-break"><h4>Footwear</h4><p><b class="red">Problem</b> Current shoes read as <span class="placeholder">[too casual, bulky, worn down]</span>, which <span class="placeholder">[ruins polish, breaks formality]</span>.</p><p><b class="green">The Fix</b> Implement clean white leather minimalism.</p></div>
+      <div class="diagnostic no-break"><h4>Outerwear &amp; Layering</h4><p><b class="red">Problem</b> Currently suffering from <span class="placeholder">[no layering, cheap fabric, poor length]</span>.</p><p><b class="green">The Fix</b> Source a minimal leather jacket or suede bomber.</p></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>05 / Style Directives</span></header>
+    <h3>Color &amp; Texture Directives</h3>
+    <table class="kv">
+      <tr><th>Core Palette</th><td class="placeholder">[Navy, Charcoal, Black, Cream]</td></tr>
+      <tr><th>Accent Palette</th><td class="placeholder">[Olive, Burgundy, Brown]</td></tr>
+      <tr><th>Strict Avoidance</th><td class="placeholder">[Neons, loud graphics, washed-out tones]</td></tr>
+      <tr><th>Texture Priority</th><td>Implement more <span class="placeholder">[heavy cotton, suede, leather, knitwear]</span>. Eliminate <span class="placeholder">[thin polyester, shiny fabrics]</span>.</td></tr>
+    </table>
+
+    <div class="golden no-break">
+      <h3>The Golden Rule</h3>
+      <p>&ldquo;Less 'I just got dressed.' More 'I know exactly what I am doing.'&rdquo;</p>
+    </div>
+    <footer class="report-footer"><span>Style architecture</span><span>05</span></footer>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>06 / Grooming</span></header>
+    <div class="section-title"><div class="num">06</div><h2>Grooming &amp; Facial Framing</h2></div>
+
+    <h3>Hair Optimization</h3>
+    <p>Your current hair reads as <span class="placeholder">[flat, overgrown, un-styled]</span>. While the <span class="placeholder">[current strength, e.g. length]</span> works in your favor, the <span class="placeholder">[current weakness, e.g. lack of intentional styling]</span> creates an accidental look.</p>
+    <table class="kv">
+      <tr><th>Recommended Cut</th><td class="placeholder">[Low taper textured fringe]</td></tr>
+      <tr><th>Length &amp; Styling</th><td class="placeholder">[Matte paste, keep length on top]</td></tr>
+    </table>
+
+    <h3>Barber Instructions</h3>
+    <p>Show your barber this exact text:</p>
+    <div class="barber no-break">
+      <h3>Copy Verbatim</h3>
+      <code>&ldquo;I want a <span class="placeholder">[cut type]</span>. Keep <span class="placeholder">[specific area or length]</span>, clean up the <span class="placeholder">[sides or neckline]</span>, and ensure the top can be styled <span class="placeholder">[direction]</span>. Do not take too much off <span class="placeholder">[area]</span>.&rdquo;</code>
+    </div>
+
+    <h3>Facial Hair &amp; Skin</h3>
+    <p><strong>Facial hair.</strong> Currently <span class="placeholder">[patchy, messy, weak neckline]</span>. Transition to <span class="placeholder">[sharp goatee, short stubble, clean shave]</span> to properly frame your jawline.</p>
+    <p><strong>Skin presentation.</strong> Based on visual data, focus on managing apparent <span class="placeholder">[oiliness, texture, dark circles]</span>.</p>
+
+    <h3>Baseline Skincare Protocol</h3>
+    <div class="grid two">
+      <div class="metric-card no-break"><span class="label">Morning</span><strong>Gentle cleanser. Moisturizer. SPF.</strong></div>
+      <div class="metric-card no-break"><span class="label">Night</span><strong>Cleanser. Moisturizer.</strong></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>07 / Physique</span></header>
+    <div class="section-title"><div class="num">07</div><h2>Physique &amp; Proportion Strategy</h2></div>
+
+    <table class="kv">
+      <tr><th>Visual Baseline</th><td class="placeholder">[skinny-fat, average, athletic, bigger build]</td></tr>
+      <tr><th>Highest ROI Opportunity</th><td class="placeholder">[Build upper chest, reduce waist emphasis, correct posture]</td></tr>
+    </table>
+
+    <h3>Diagnostics</h3>
+    <p><strong>Shoulders &amp; chest.</strong> Upper body requires more shoulder and upper chest density to force a V-taper and improve garment drape.</p>
+    <p><strong>Midsection.</strong> Avoid drawing visual weight to the waist. Utilize structured tops and dark denim.</p>
+    <p><strong>Lower body.</strong> If glutes and legs are dominant, avoid aggressive tapers. Utilize straight fits.</p>
+    <p><strong>Posture.</strong> Rounded shoulders currently project low confidence. Fix this for an instant visual upgrade.</p>
+
+    <h3>Training Protocol (Aesthetics Focus)</h3>
+    <p>Assuming a <span class="placeholder">[frequency]</span> training split, prioritize:</p>
+    <div class="grid three">
+      <div class="metric-card no-break"><span class="label">Priority 01</span><strong>Upper Chest</strong><small>Incline movements.</small></div>
+      <div class="metric-card no-break"><span class="label">Priority 02</span><strong>Side Delts</strong><small>Lateral raises.</small></div>
+      <div class="metric-card no-break"><span class="label">Priority 03</span><strong>Posture Control</strong><small>Face pulls. Rear delts.</small></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>08 / Photo Audit</span></header>
+    <div class="section-title"><div class="num">08</div><h2>Digital Presence &middot; Photo Audit</h2></div>
+
+    <p>Currently, your photos project a <span class="placeholder">[awkward, stiff, low-effort, decent but unoptimized]</span> presence.</p>
+    <h3>Current Liabilities</h3>
+    <ul>
+      <li class="placeholder">[Identify issue with lighting, angle, pose, expression, or background.]</li>
+      <li class="placeholder">[Identify a second visible issue.]</li>
+      <li class="placeholder">[Identify a third visible issue.]</li>
+    </ul>
+
+    <h3>Corrective Action</h3>
+    <div class="grid two">
+      <div class="photo-card no-break"><h4>Lighting</h4><p>Utilize natural window or shade light. Cease overhead lighting use.</p></div>
+      <div class="photo-card no-break"><h4>Angle</h4><p>Chest-height camera placement. Eliminate extreme high or low angles.</p></div>
+      <div class="photo-card no-break"><h4>Pose</h4><p>Stand tall. Relax shoulders. Angle slightly to the lens.</p></div>
+      <div class="photo-card no-break"><h4>Environment</h4><p>Clean the background. Clutter ruins the frame.</p></div>
+    </div>
+
+    <div class="quote">The objective is not to look like a model. It is to look clear, intentional, and socially competent. Minimum required stack: one clear face, one full-body, one activity, one polished casual.</div>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>09 / Procurement</span></header>
+    <div class="section-title"><div class="num">09</div><h2>Wardrobe Procurement &amp; Gap Analysis</h2></div>
+
+    <h3>Operational Assets &middot; Keep</h3>
+    <ul><li class="placeholder">[Current functional item 1]</li><li class="placeholder">[Current functional item 2]</li></ul>
+
+    <h3>System Liabilities &middot; Stop Buying</h3>
+    <ul class="pill-list">
+      <li>[Loud graphic tees]</li>
+      <li>[Overly skinny jeans]</li>
+      <li>[Random hoodies]</li>
+    </ul>
+
+    <h3>Procurement List</h3>
+    <div class="quote" style="font-size:18px">If you procure only one item, acquire <span class="placeholder">[Priority 01 Item]</span>. Reason: <span class="placeholder">[Why this single item changes the silhouette most.]</span></div>
+    <table class="procurement">
+      <tr><th>#</th><th>Asset Required</th><th>Colorway</th><th>Fit Parameter</th><th>Est. Budget</th></tr>
+      <tr><td>01</td><td class="placeholder">[Item]</td><td class="placeholder">[Color]</td><td class="placeholder">[Fit]</td><td class="placeholder">[$]</td></tr>
+      <tr><td>02</td><td class="placeholder">[Item]</td><td class="placeholder">[Color]</td><td class="placeholder">[Fit]</td><td class="placeholder">[$]</td></tr>
+      <tr><td>03</td><td class="placeholder">[Item]</td><td class="placeholder">[Color]</td><td class="placeholder">[Fit]</td><td class="placeholder">[$]</td></tr>
+      <tr><td>04</td><td class="placeholder">[Item]</td><td class="placeholder">[Color]</td><td class="placeholder">[Fit]</td><td class="placeholder">[$]</td></tr>
+      <tr><td>05</td><td class="placeholder">[Item]</td><td class="placeholder">[Color]</td><td class="placeholder">[Fit]</td><td class="placeholder">[$]</td></tr>
+    </table>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>10 / Execution Protocols</span></header>
+    <div class="section-title"><div class="num">10</div><h2>Execution Protocols</h2></div>
+
+    <h3>The 7-Day Sprint</h3>
+    <div class="grid">
+      <div class="day-row no-break"><div class="day-num">1</div><div class="day-body"><span class="label">Baseline</span><p>Capture unposed reference photos: front, side, face, best and worst outfit.</p></div></div>
+      <div class="day-row no-break"><div class="day-num">2</div><div class="day-body"><span class="label">Grooming Reset</span><p>Execute <span class="placeholder">[haircut, beard trim, eyebrow cleanup]</span>.</p></div></div>
+      <div class="day-row no-break"><div class="day-num">3</div><div class="day-body"><span class="label">Outfit Architecture</span><p>Assemble one flawless outfit using existing assets: top, pants, shoes, accessory.</p></div></div>
+      <div class="day-row no-break"><div class="day-num">4</div><div class="day-body"><span class="label">Physique Calibration</span><p>Execute one targeted session on priority weak points: incline press, lateral raises, face pulls.</p></div></div>
+      <div class="day-row no-break"><div class="day-num">5</div><div class="day-body"><span class="label">Procurement</span><p>Source one to three priority items. Strict fit over brand name.</p></div></div>
+      <div class="day-row no-break"><div class="day-num">6</div><div class="day-body"><span class="label">Digital Translation</span><p>Retake reference photos using the new lighting and angle rules.</p></div></div>
+      <div class="day-row no-break"><div class="day-num">7</div><div class="day-body"><span class="label">Delta Review</span><p>Compare Day 1 against Day 6. Identify what is still soft.</p></div></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>10 / 30-Day Trajectory</span></header>
+    <h3>The 30-Day Trajectory</h3>
+    <div class="grid four">
+      <div class="week no-break"><span class="label">Week 1</span><h4>Correct Liabilities</h4><p>Grooming, baseline outfit, one strong photo.</p></div>
+      <div class="week no-break"><span class="label">Week 2</span><h4>Fix the Fit</h4><p>Pants, tops, footwear. Purge anything wrong.</p></div>
+      <div class="week no-break"><span class="label">Week 3</span><h4>Build Proportions</h4><p>Consistency in targeted training and posture.</p></div>
+      <div class="week no-break"><span class="label">Week 4</span><h4>Lock the System</h4><p>Establish two to three repeatable uniforms: Work, Dating, Casual.</p></div>
+    </div>
+
+    <footer class="report-footer"><span>Execution system</span><span>10</span></footer>
+  </section>
+
+  <section class="page">
+    <header class="report-header"><span><strong>BroGrade</strong> Beta Audit</span><span>11 / Final Directives</span></header>
+    <div class="section-title"><div class="num">11</div><h2>Final Directives</h2></div>
+
+    <div class="final-callout no-break">
+      <p>Your baseline is intact. The presentation simply lacks ruthless intentionality. The primary objective is to align your styling, grooming, and physical presence into one unified signal: <strong class="placeholder">[Desired Image]</strong>.</p>
+    </div>
+
+    <h3>Execute These First</h3>
+    <div class="grid">
+      <div class="priority no-break"><div class="priority-num">01</div><div class="priority-body"><h4 class="placeholder">[Priority 01 Fix]</h4><p><strong>Why</strong> <span class="placeholder">[Explanation of why this matters most.]</span></p><p><strong>Action</strong> <span class="placeholder">[Exact step the client must take this week.]</span></p></div></div>
+      <div class="priority no-break"><div class="priority-num">02</div><div class="priority-body"><h4 class="placeholder">[Priority 02 Fix]</h4><p><strong>Why</strong> <span class="placeholder">[Explanation of why this matters most.]</span></p><p><strong>Action</strong> <span class="placeholder">[Exact step the client must take this week.]</span></p></div></div>
+      <div class="priority no-break"><div class="priority-num">03</div><div class="priority-body"><h4 class="placeholder">[Priority 03 Fix]</h4><p><strong>Why</strong> <span class="placeholder">[Explanation of why this matters most.]</span></p><p><strong>Action</strong> <span class="placeholder">[Exact step the client must take this week.]</span></p></div></div>
+    </div>
+
+    <p>Execute these consistently. Your visual presentation will shift in 30 days.</p>
+
+    <div class="golden no-break">
+      <h3>We Demand Excellence</h3>
+      <p>Submit feedback on your BroGrade Audit to getbrograde@gmail.com. What was lethal? What missed the mark? Are you executing the protocol?</p>
+    </div>
+
+    <div class="end-seal">
+      <img src="../assets/logo-mark.png" alt="BroGrade">
+      <strong>End of Audit</strong>
+      <span>BroGrade &middot; Get graded. Get upgraded.</span>
+    </div>
+  </section>
+</main>
+</body>
+</html>
+
