@@ -1926,6 +1926,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 
 .sample-feature {
   max-width: 1168px;
+  width: 100%;
   margin: -8px auto 18px;
   display: grid;
   grid-template-columns: 1fr;
@@ -1938,6 +1939,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 }
 @media (min-width: 900px) { .sample-feature { grid-template-columns: 0.95fr 1.4fr; } }
 .sample-feature-aside {
+  min-width: 0;
   padding: 30px;
   border-bottom: 1px solid var(--rule-d);
   background:
@@ -1975,6 +1977,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   max-width: 36ch;
 }
 .sample-feature-main {
+  min-width: 0;
   padding: 30px;
 }
 .sample-feature-main h3 {
@@ -1983,6 +1986,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   letter-spacing: -0.03em;
   color: var(--rev-1);
   margin-bottom: 18px;
+  overflow-wrap: break-word;
 }
 .sample-feature-list {
   list-style: none;
@@ -2034,6 +2038,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   grid-template-columns: 1fr;
   gap: 22px;
   align-items: stretch;
+  min-width: 0;
 }
 @media (min-width: 1040px) {
   .proof-layout { grid-template-columns: 1.08fr 0.92fr; gap: 24px; }
@@ -2048,6 +2053,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 }
 .proof-card,
 .proof-snapshot {
+  min-width: 0;
   background: rgba(244,239,229,0.018);
   border: 1px solid var(--rule-d-2);
   border-radius: var(--r-3);
@@ -2095,6 +2101,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   line-height: 1.55;
   color: var(--rev-2);
   letter-spacing: -0.01em;
+  overflow-wrap: break-word;
 }
 .proof-card figcaption {
   font-family: var(--mono);
@@ -2122,6 +2129,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   line-height: 1.2;
   color: var(--rev-1);
   letter-spacing: -0.02em;
+  overflow-wrap: break-word;
 }
 .proof-snapshot-tag {
   font-family: var(--mono);
@@ -2209,6 +2217,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   color: var(--rev-3);
   font-size: 14px;
   line-height: 1.5;
+  min-width: 0;
 }
 .proof-fix-list .pf-num {
   font-family: var(--mono);
@@ -2229,6 +2238,30 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--rev-5);
+}
+@media (max-width: 560px) {
+  .sample-feature-main,
+  .sample-feature-aside,
+  .proof-card,
+  .proof-snapshot-head,
+  .proof-snapshot-body {
+    padding: 22px;
+  }
+  .sample-feature-main h3,
+  .beta-proof .section-head h2 {
+    font-size: 30px;
+    line-height: 1.08;
+  }
+  .proof-snapshot-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .proof-photo-pair {
+    grid-template-columns: 1fr;
+  }
+  .proof-photo-slot {
+    min-height: 180px;
+  }
 }
 
 /* ============================================================
