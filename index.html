@@ -1,804 +1,1532 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="theme-color" content="#0B1426"/>
-<title>BroGrade · Upload yourself. Get graded. Get upgraded.</title>
-<meta name="description" content="A personalized appearance audit for men. Style, hair, grooming, physique, and photos — graded, with a clear upgrade plan. $19 CAD beta audit."/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#08090C"/>
+<meta name="color-scheme" content="dark"/>
+
+<title>BroGrade — Vol. 01. Upload yourself. Get graded.</title>
+<meta name="description" content="A personalized appearance audit for men. Style, hair, grooming, physique, and photos — graded honestly, with a clear upgrade plan delivered in 24–72 hours. $19 CAD beta audit."/>
 
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="BroGrade · Get graded. Get upgraded."/>
-<meta property="og:description" content="Honest, specific appearance feedback for men. Upload yourself, get a personalized upgrade plan in 24–72 hours."/>
+<meta property="og:title" content="BroGrade — Vol. 01. Upload yourself. Get graded."/>
+<meta property="og:description" content="A personalized appearance audit for men. Style, hair, physique, grooming, photos. Vol. 01 beta cohort open."/>
 <meta property="og:image" content="assets/logo-horizontal.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 
 <link rel="icon" type="image/png" href="assets/logo-mark.png"/>
 <link rel="apple-touch-icon" href="assets/logo-mark.png"/>
 
+<script>document.documentElement.classList.replace('no-js','js')</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,700&family=Geist+Mono:wght@400;500;600&family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* ============================================================
+   DESIGN SYSTEM  ·  BroGrade · Vol. 01 · Dark Editorial Luxury
+   ============================================================ */
 :root {
-  --navy:     #0B1426;
-  --navy-2:   #111C2E;
-  --navy-3:   #14233B;
-  --navy-4:   #1B2D49;
-  --blue:     #2563EB;
-  --blue-2:   #3B82F6;
-  --blue-lt:  #60A5FA;
-  --blue-soft: rgba(37, 99, 235, 0.16);
-  --blue-glow: rgba(59, 130, 246, 0.30);
-  --paper:    #FFFFFF;
-  --cream:    #FAFAF9;
-  --gray:     #F4F6F8;
-  --line-d:   #1E293B;
-  --line-l:   #E5E7EB;
-  --rule:     #CBD5E1;
-  --text:     #0F172A;
-  --text-mid: #475569;
-  --text-mut: #64748B;
-  --text-dim: #94A3B8;
-  --text-rev: #E2E8F0;
-  --green:    #047857;
-  --red:      #B91C1C;
+  /* Obsidian base */
+  --ink:        #050609;
+  --obsidian:   #0A0B11;
+  --obsidian-1: #0F1119;
+  --obsidian-2: #151722;
+  --obsidian-3: #1A1D2B;
+
+  /* Editorial cream */
+  --cream:      #F4EFE5;
+  --cream-2:    #EAE3D4;
+  --cream-3:    #D9D1BE;
+  --paper:      #FFFFFF;
+
+  /* Brand blue */
+  --blue:       #2154E8;
+  --blue-1:     #3B82F6;
+  --blue-2:     #6E9DFF;
+  --blue-3:     #93C5FD;
+  --blue-soft:  rgba(86, 134, 248, 0.14);
+  --blue-glow:  rgba(86, 134, 248, 0.42);
+  --blue-haze:  rgba(86, 134, 248, 0.06);
+
+  /* Copper metallic accent  ·  used sparingly */
+  --copper:     #C8A776;
+  --copper-2:   #B08E5C;
+  --copper-soft: rgba(200, 167, 118, 0.12);
+
+  /* Reverse type scale */
+  --rev-1:      #FFFFFF;
+  --rev-2:      #ECE8DD;
+  --rev-3:      #C9C5B8;
+  --rev-4:      #8E8E95;
+  --rev-5:      #6A6B74;
+  --rev-6:      #44464F;
+
+  /* Dark-on-cream type */
+  --ink-1:      #0B0C12;
+  --ink-2:      #2A2C36;
+  --ink-3:      #51545F;
+  --ink-4:      #7C7F8A;
+
+  /* Hairlines */
+  --rule-d:     rgba(244, 239, 229, 0.08);
+  --rule-d-2:   rgba(244, 239, 229, 0.14);
+  --rule-l:     rgba(11, 12, 18, 0.10);
+  --rule-l-2:   rgba(11, 12, 18, 0.18);
+
+  /* Motion */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft:   cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-1:       180ms;
+  --dur-2:       320ms;
+  --dur-3:       520ms;
+  --dur-4:       820ms;
+
+  /* Radius */
+  --r-1: 4px;
+  --r-2: 8px;
+  --r-3: 14px;
+  --r-4: 22px;
+  --r-5: 32px;
+  --r-full: 999px;
+
+  /* Type stacks */
+  --serif: 'Fraunces', 'Times New Roman', Georgia, serif;
+  --sans:  'Geist', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --mono:  'Geist Mono', ui-monospace, 'SF Mono', Consolas, monospace;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+  background: var(--obsidian);
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  font-feature-settings: "ss01", "cv11";
+  font-family: var(--sans);
+  font-feature-settings: "ss01", "ss02", "cv01", "cv11";
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background: var(--navy);
-  color: var(--text-rev);
+  background: var(--obsidian);
+  color: var(--rev-3);
   overflow-x: hidden;
-}
-
-/* ===== UTILITIES ===== */
-.wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
-.eyebrow {
-  font-size: 12px; font-weight: 700; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--blue);
-}
-.tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 6px 14px; border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.03);
-  font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--text-dim);
-}
-.tag .dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--blue); box-shadow: 0 0 12px var(--blue);
-}
-.btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 14px 24px; border-radius: 10px;
-  font-weight: 600; font-size: 15px;
-  text-decoration: none; transition: all .2s ease;
-  border: 1px solid transparent;
-  cursor: pointer;
-  font-family: inherit;
-}
-.btn-primary {
-  background: var(--blue); color: #fff;
-  box-shadow: 0 8px 28px var(--blue-glow), inset 0 1px 0 rgba(255,255,255,0.15);
-}
-.btn-primary:hover { background: #1D4ED8; transform: translateY(-1px); box-shadow: 0 12px 36px var(--blue-glow); }
-.btn-ghost {
-  background: transparent; color: #fff;
-  border-color: rgba(255,255,255,0.18);
-}
-.btn-ghost:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.32); }
-.btn-dark { background: var(--navy); color: #fff; }
-.btn-dark:hover { background: #14233B; }
-.btn .arrow {
-  display: inline-block; width: 14px; height: 14px;
-  transition: transform .2s ease;
-}
-.btn:hover .arrow { transform: translateX(3px); }
-
-/* ===== NAV ===== */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  padding: 18px 0;
-  background: rgba(11, 20, 38, 0.72);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.nav .wrap { display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.nav-logo img { height: 28px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-links a {
-  color: var(--text-dim); text-decoration: none;
-  font-size: 14px; font-weight: 500;
-  transition: color .15s ease;
-}
-.nav-links a:hover { color: #fff; }
-.nav-cta { display: flex; align-items: center; gap: 12px; }
-@media (max-width: 720px) {
-  .nav-links { display: none; }
-}
-
-/* ===== HERO ===== */
-.hero {
+  min-height: 100vh;
   position: relative;
-  padding: 180px 0 120px;
-  overflow: hidden;
+  letter-spacing: -0.005em;
 }
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 800px 500px at 50% 0%, var(--blue-soft), transparent 70%),
-    radial-gradient(ellipse 600px 400px at 80% 100%, rgba(37, 99, 235, 0.10), transparent 60%);
-  pointer-events: none;
-}
-.hero::after {
-  content: ''; position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
-  pointer-events: none;
-}
-.hero-inner { position: relative; text-align: center; }
-.hero .tag { margin-bottom: 32px; }
-.hero-logo { height: 96px; width: auto; margin: 0 auto 40px; display: block; }
-.hero h1 {
-  font-size: clamp(40px, 7vw, 88px);
-  line-height: 1.02;
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  color: #fff;
-  margin-bottom: 28px;
-}
-.hero h1 .accent {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--blue-lt);
-  letter-spacing: -0.02em;
-}
-.hero .lead {
-  font-size: 19px; line-height: 1.6;
-  color: var(--text-dim);
-  max-width: 620px; margin: 0 auto 44px;
-}
-.hero-ctas { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-.hero-meta {
-  margin-top: 56px;
-  display: inline-flex; gap: 40px;
-  font-size: 12px; letter-spacing: 0.16em; color: var(--text-mut);
-  text-transform: uppercase;
-  flex-wrap: wrap; justify-content: center;
-}
-.hero-meta span b { color: #fff; font-weight: 600; }
-.hero-meta .sep { color: rgba(255,255,255,0.15); }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--blue-2); outline-offset: 3px; border-radius: 4px; }
+::selection { background: var(--blue); color: #fff; }
 
-/* ===== PILLARS ===== */
-.pillars {
-  padding: 100px 0 80px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.pillar {
-  padding: 40px 28px;
-  border-right: 1px solid rgba(255,255,255,0.06);
-  transition: background .2s ease;
-}
-.pillar:last-child { border-right: none; }
-.pillar:hover { background: rgba(37, 99, 235, 0.04); }
-.pillar-num {
-  font-size: 12px; font-weight: 700;
-  color: var(--blue); letter-spacing: 0.18em;
-  margin-bottom: 16px; text-transform: uppercase;
-}
-.pillar-name {
-  font-size: 22px; font-weight: 700;
-  color: #fff; letter-spacing: -0.01em;
-  margin-bottom: 12px;
-}
-.pillar-desc {
-  font-size: 14px; line-height: 1.5;
-  color: var(--text-dim);
-}
-@media (max-width: 980px) {
-  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-  .pillar { border-right: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .pillar:nth-child(2n) { border-right: none; }
-  .pillar:nth-last-child(-n+2) { border-bottom: none; }
-  .pillars-grid > :last-child:nth-child(odd) { grid-column: span 2; border-right: none; }
-}
-@media (max-width: 540px) {
-  .pillars-grid { grid-template-columns: 1fr; }
-  .pillar { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
-  .pillar:last-child { border-bottom: none !important; }
+/* ============================================================
+   ATMOSPHERE  ·  page-level grain
+   ============================================================ */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 1;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.16 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  opacity: 0.5; mix-blend-mode: overlay;
 }
 
-/* ===== MANIFESTO ===== */
-.manifesto { padding: 140px 0; position: relative; }
-.manifesto .wrap { max-width: 980px; }
-.manifesto h2 {
-  font-size: clamp(36px, 6vw, 68px);
-  line-height: 1.05;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #fff;
-  margin-bottom: 40px;
-  text-align: center;
-}
-.manifesto h2 .accent {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--blue-lt);
-}
-.manifesto p {
-  font-size: 22px; line-height: 1.55;
-  color: var(--text-dim);
-  text-align: center;
-  max-width: 760px; margin: 0 auto;
-}
-.manifesto .sig {
-  margin-top: 64px; text-align: center;
-  font-size: 12px; letter-spacing: 0.22em; color: var(--text-mut);
-  text-transform: uppercase;
-}
-
-/* ===== STEPS ===== */
-.steps {
-  padding: 120px 0;
-  background: var(--cream);
-  color: var(--text);
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.wrap {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
   position: relative;
+  z-index: 2;
 }
-.steps .eyebrow { color: var(--blue); }
-.section-head { text-align: center; margin-bottom: 80px; }
-.section-head .eyebrow { margin-bottom: 16px; }
-.section-head h2 {
-  font-size: clamp(36px, 5vw, 56px);
-  line-height: 1.08; font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--navy);
+@media (min-width: 768px) { .wrap { padding: 0 40px; } }
+@media (min-width: 1100px) { .wrap { padding: 0 56px; } }
+
+.section { position: relative; z-index: 2; }
+
+/* ============================================================
+   EDITORIAL TYPE
+   ============================================================ */
+.label {
+  font-family: var(--mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--rev-4);
+}
+.label.accent { color: var(--blue-2); }
+.label.copper { color: var(--copper); }
+
+.chapter {
+  display: inline-flex; align-items: baseline; gap: 14px;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--rev-5);
   margin-bottom: 18px;
 }
-.section-head .lead {
-  font-size: 18px; color: var(--text-mid); max-width: 620px;
-  margin: 0 auto; line-height: 1.55;
+.chapter .roman {
+  font-family: var(--serif); font-style: italic;
+  font-size: 30px; line-height: 1;
+  color: var(--blue-2); font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: none;
 }
-.steps-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+.chapter .roman.dark { color: var(--blue); }
+
+.rule {
+  height: 1px; background: var(--rule-d);
+  flex: 1; min-width: 20px;
 }
-.step {
-  background: #fff;
-  border: 1px solid var(--line-l);
-  border-radius: 18px;
-  padding: 40px 32px;
+.rule.dark { background: var(--rule-l); }
+.rule.copper { background: linear-gradient(90deg, transparent, var(--copper), transparent); }
+
+.tag-pill {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 8px 14px;
+  font-family: var(--mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--rev-3);
+  background: rgba(244, 239, 229, 0.03);
+  border: 1px solid var(--rule-d-2);
+  border-radius: var(--r-full);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.tag-pill .dot {
   position: relative;
-  transition: all .2s ease;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue-1);
+  box-shadow: 0 0 0 0 var(--blue-glow);
+  animation: pulse 2.2s ease-out infinite;
 }
-.step:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(11, 20, 38, 0.08);
-  border-color: var(--blue);
-}
-.step-num {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 80px; line-height: 1;
-  font-weight: 400; color: var(--blue);
-  margin-bottom: 24px;
-  letter-spacing: -0.04em;
-}
-.step h3 {
-  font-size: 22px; font-weight: 700;
-  color: var(--navy); margin-bottom: 12px;
-  letter-spacing: -0.01em;
-}
-.step p {
-  font-size: 15px; line-height: 1.6;
-  color: var(--text-mid);
-}
-@media (max-width: 820px) {
-  .steps-grid { grid-template-columns: 1fr; }
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 var(--blue-glow); transform: scale(1); }
+  70%  { box-shadow: 0 0 0 8px transparent; transform: scale(1.15); }
+  100% { box-shadow: 0 0 0 0 transparent; transform: scale(1); }
 }
 
-/* ===== AUDIT PREVIEW ===== */
-.preview { padding: 140px 0; border-top: 1px solid rgba(255,255,255,0.06); }
-.preview-grid {
-  display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: center;
+/* serif italic helper */
+.italic { font-family: var(--serif); font-style: italic; font-weight: 400; }
+.serif  { font-family: var(--serif); font-weight: 500; }
+
+/* ============================================================
+   BUTTONS  ·  editorial luxury
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  font-family: var(--sans);
+  font-size: 14px; font-weight: 500;
+  letter-spacing: -0.005em;
+  border-radius: var(--r-2);
+  border: 1px solid transparent;
+  transition: transform var(--dur-1) var(--ease-out),
+              background var(--dur-1) var(--ease-out),
+              box-shadow var(--dur-2) var(--ease-out),
+              border-color var(--dur-1) var(--ease-out),
+              color var(--dur-1) var(--ease-out);
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  will-change: transform;
 }
-.preview .eyebrow { margin-bottom: 18px; }
-.preview h2 {
-  font-size: clamp(36px, 5vw, 56px);
-  line-height: 1.08; font-weight: 800;
-  letter-spacing: -0.03em; color: #fff;
-  margin-bottom: 24px;
+.btn .arrow { width: 13px; height: 13px; transition: transform var(--dur-1) var(--ease-out); }
+.btn:hover .arrow { transform: translateX(4px); }
+.btn:active { transform: scale(0.985); }
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--blue-1) 0%, var(--blue) 100%);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(0,0,0,0.20),
+    0 1px 2px rgba(0,0,0,0.4),
+    0 14px 36px var(--blue-glow);
+  letter-spacing: -0.003em;
 }
-.preview h2 .accent {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic; font-weight: 400; color: var(--blue-lt);
+.btn-primary:hover {
+  background: linear-gradient(180deg, var(--blue-2) 0%, var(--blue-1) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.32),
+    inset 0 -1px 0 rgba(0,0,0,0.20),
+    0 1px 2px rgba(0,0,0,0.4),
+    0 18px 52px var(--blue-glow);
+  transform: translateY(-1px);
 }
-.preview .lead {
-  font-size: 17px; line-height: 1.6; color: var(--text-dim);
-  margin-bottom: 32px;
+
+.btn-ghost {
+  background: transparent;
+  color: var(--rev-2);
+  border-color: var(--rule-d-2);
 }
-.deliverables {
-  list-style: none;
-  border-top: 1px solid rgba(255,255,255,0.08);
+.btn-ghost:hover {
+  background: rgba(244, 239, 229, 0.04);
+  border-color: rgba(244, 239, 229, 0.22);
+  color: #fff;
+  transform: translateY(-1px);
 }
-.deliverables li {
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  display: flex; align-items: center; gap: 16px;
-  font-size: 16px; color: var(--text-rev);
+
+.btn-quiet {
+  background: transparent; color: var(--rev-3);
+  padding: 8px 12px; font-size: 13px;
 }
-.deliverables li .check {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: var(--blue-soft); color: var(--blue-lt);
-  display: grid; place-items: center;
+.btn-quiet:hover { color: #fff; }
+
+.btn-lg { padding: 16px 26px; font-size: 15px; border-radius: var(--r-3); }
+
+.btn-cream {
+  background: var(--ink-1); color: var(--cream);
+  border-color: var(--ink-1);
+  box-shadow: 0 14px 36px rgba(11, 12, 18, 0.20);
+}
+.btn-cream:hover { background: var(--ink-2); transform: translateY(-1px); }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 16px 0;
+  background: rgba(10, 11, 17, 0.66);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 1px solid var(--rule-d);
+  transition: padding var(--dur-2) var(--ease-out),
+              background var(--dur-2) var(--ease-out);
+}
+.nav.scrolled { padding: 10px 0; background: rgba(10, 11, 17, 0.86); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo img { height: 28px; width: auto; transition: height var(--dur-2) var(--ease-out); }
+.nav.scrolled .nav-logo img { height: 24px; }
+.nav-links { display: none; align-items: center; gap: 28px; }
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--rev-4);
+  transition: color var(--dur-1) var(--ease-out);
+  position: relative; padding: 6px 0;
+}
+.nav-links a::after {
+  content: ""; position: absolute;
+  left: 50%; right: 50%; bottom: 0;
+  height: 1px; background: var(--blue-2);
+  transition: left var(--dur-2) var(--ease-out), right var(--dur-2) var(--ease-out);
+}
+.nav-links a:hover { color: var(--rev-1); }
+.nav-links a:hover::after { left: 0; right: 0; }
+.nav-cta { display: flex; align-items: center; gap: 10px; }
+.nav-cta .btn-quiet { display: none; }
+@media (min-width: 920px) {
+  .nav-links { display: flex; }
+  .nav-cta .btn-quiet { display: inline-flex; }
+}
+
+/* ============================================================
+   HERO  ·  editorial cover
+   ============================================================ */
+.hero {
+  position: relative;
+  padding: 160px 0 100px;
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+@media (min-width: 768px) { .hero { padding: 196px 0 140px; } }
+
+.hero-bg {
+  position: absolute; inset: 0; z-index: -2;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, var(--blue-soft), transparent 65%),
+    radial-gradient(ellipse 30% 30% at 12% 70%, var(--blue-haze), transparent 65%),
+    radial-gradient(ellipse 30% 30% at 88% 80%, rgba(86, 134, 248, 0.05), transparent 65%);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(rgba(244,239,229,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,239,229,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 68% 60% at 50% 38%, #000 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 68% 60% at 50% 38%, #000 25%, transparent 78%);
+}
+
+.cover-meta {
+  display: flex; align-items: center; gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  animation: fade-up 700ms var(--ease-out) both;
+}
+
+.hero-inner {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 28px;
+  position: relative;
+}
+
+.hero-mark {
+  position: relative;
+  width: 96px; height: 96px;
+  margin-top: 8px;
+  animation: fade-in-scale 900ms var(--ease-out) both;
+  animation-delay: 80ms;
+}
+@media (min-width: 768px) { .hero-mark { width: 124px; height: 124px; } }
+.hero-mark img { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 2; }
+.hero-mark::before {
+  content: "";
+  position: absolute; inset: -28%;
+  background: radial-gradient(circle, var(--blue-glow), transparent 60%);
+  filter: blur(20px);
+  z-index: 0;
+  animation: glow-breathe 4s ease-in-out infinite;
+}
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.5; transform: scale(0.94); }
+  50%      { opacity: 1;   transform: scale(1.12); }
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(46px, 8.4vw, 112px);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  color: var(--rev-1);
+  max-width: 16ch;
+  text-wrap: balance;
+  font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+}
+.hero h1 .line { display: block; overflow: hidden; padding: 0.06em 0.04em; }
+.hero h1 .line > span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: line-up 1000ms var(--ease-out) both;
+}
+.hero h1 .line:nth-of-type(1) > span { animation-delay: 220ms; }
+.hero h1 .line:nth-of-type(2) > span { animation-delay: 380ms; }
+.hero h1 .accent {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--blue-2);
+}
+
+.hero-lead {
+  font-size: clamp(15px, 1.9vw, 18px);
+  line-height: 1.6;
+  color: var(--rev-3);
+  max-width: 54ch;
+  font-weight: 400;
+  text-wrap: pretty;
+  animation: fade-up 700ms var(--ease-out) both;
+  animation-delay: 540ms;
+}
+
+.hero-ctas {
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+  animation: fade-up 700ms var(--ease-out) both;
+  animation-delay: 660ms;
+}
+
+.hero-fact-row {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px 24px;
+  max-width: 600px;
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.14em;
+  color: var(--rev-5);
+  text-transform: uppercase;
+  animation: fade-up 700ms var(--ease-out) both;
+  animation-delay: 780ms;
+}
+@media (min-width: 540px) {
+  .hero-fact-row { grid-template-columns: repeat(3, 1fr); }
+}
+.hero-fact {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule-d);
+}
+.hero-fact .val {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: 22px; color: var(--rev-1);
+  text-transform: none; letter-spacing: -0.01em;
+}
+
+@keyframes line-up { to { transform: translateY(0); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in-scale { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: none; } }
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee {
+  position: relative;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule-d);
+  border-bottom: 1px solid var(--rule-d);
+  overflow: hidden;
+  background: rgba(244, 239, 229, 0.01);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee-track {
+  display: flex; align-items: center; gap: 56px;
+  width: max-content;
+  animation: marquee 42s linear infinite;
+}
+@media (max-width: 640px) { .marquee-track { gap: 36px; animation-duration: 28s; } }
+.marquee-item {
+  display: flex; align-items: center; gap: 56px;
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(28px, 4.6vw, 52px);
+  letter-spacing: -0.025em;
+  color: var(--rev-2);
+}
+.marquee-item .ital {
+  font-style: italic; font-weight: 400;
+  color: var(--blue-2);
+}
+.marquee-item .dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--copper);
   flex-shrink: 0;
 }
-.deliverables li b {
-  color: #fff; font-weight: 600;
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-/* mock audit cover preview card */
-.mock {
-  background: #0E1A30;
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 20px;
-  padding: 8px;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
-  position: relative;
+/* ============================================================
+   SECTION HEAD
+   ============================================================ */
+.section-head { text-align: left; margin-bottom: 64px; max-width: 720px; }
+.section-head.center { text-align: center; margin-left: auto; margin-right: auto; }
+.section-head .chapter { margin-bottom: 22px; }
+.section-head h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(36px, 5.2vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--rev-1);
+  margin-bottom: 20px;
+  text-wrap: balance;
+  font-variation-settings: "opsz" 144;
 }
-.mock::before {
-  content: 'BETA AUDIT  ·  REPORT 0001';
+.section-head h2 .accent { font-style: italic; font-weight: 400; color: var(--blue-2); }
+.section-head .lead {
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.65;
+  color: var(--rev-4);
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+.section-head.center .lead { margin: 0 auto; }
+.section-head.dark h2 { color: var(--ink-1); }
+.section-head.dark h2 .accent { color: var(--blue); }
+.section-head.dark .lead { color: var(--ink-3); }
+.section-head.dark .chapter .roman { color: var(--blue); }
+.section-head.dark .chapter { color: var(--ink-3); }
+.section-head.dark .rule { background: var(--rule-l); }
+
+/* ============================================================
+   I. PILLARS  ·  editorial 5-up
+   ============================================================ */
+.pillars { padding: 100px 0 80px; border-top: 1px solid var(--rule-d); }
+@media (min-width: 768px) { .pillars { padding: 140px 0 120px; } }
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 640px) { .pillar-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) {
+  .pillar-grid {
+    grid-template-columns: repeat(5, 1fr); gap: 0;
+    border-top: 1px solid var(--rule-d);
+    border-bottom: 1px solid var(--rule-d);
+  }
+}
+
+.pillar {
+  position: relative;
+  padding: 28px;
+  background: rgba(244, 239, 229, 0.01);
+  border: 1px solid var(--rule-d);
+  border-radius: var(--r-3);
+  transition: background var(--dur-2) var(--ease-out),
+              border-color var(--dur-2) var(--ease-out),
+              transform var(--dur-2) var(--ease-out);
+  overflow: hidden;
+  isolation: isolate;
+}
+@media (min-width: 980px) {
+  .pillar {
+    border-radius: 0; border: none;
+    border-right: 1px solid var(--rule-d);
+    padding: 52px 32px;
+    background: transparent;
+  }
+  .pillar:last-child { border-right: none; }
+}
+.pillar::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse 100% 60% at 50% 0%, var(--blue-soft), transparent 70%);
+  opacity: 0; transition: opacity var(--dur-3) var(--ease-out);
+}
+.pillar:hover { background: rgba(244, 239, 229, 0.025); border-color: rgba(244, 239, 229, 0.10); transform: translateY(-2px); }
+@media (min-width: 980px) { .pillar:hover { background: transparent; transform: none; } }
+.pillar:hover::before { opacity: 1; }
+
+.pillar-num {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: 44px; line-height: 1;
+  color: var(--blue-2);
+  margin-bottom: 22px;
+  letter-spacing: -0.04em;
+}
+.pillar-name {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 22px; line-height: 1.15;
+  color: var(--rev-1);
+  margin-bottom: 12px;
+  letter-spacing: -0.015em;
+}
+.pillar-cat {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--rev-5);
+  margin-bottom: 14px;
+}
+.pillar-desc {
+  font-size: 14px; line-height: 1.6;
+  color: var(--rev-4);
+}
+
+/* ============================================================
+   II. AUDIT REPORT
+   ============================================================ */
+.report {
+  padding: 100px 0;
+  position: relative;
+  border-top: 1px solid var(--rule-d);
+}
+@media (min-width: 768px) { .report { padding: 140px 0; } }
+
+.report-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+@media (min-width: 1000px) {
+  .report-grid { grid-template-columns: 1fr 1.1fr; gap: 80px; }
+}
+
+.report-copy h2 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(36px, 5.4vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--rev-1);
+  margin: 18px 0 24px;
+  text-wrap: balance;
+}
+.report-copy h2 .accent { font-style: italic; font-weight: 400; color: var(--blue-2); }
+.report-copy .lead {
+  font-size: 17px; line-height: 1.7;
+  color: var(--rev-4);
+  margin-bottom: 32px;
+  max-width: 52ch;
+}
+.report-copy .lead.dropcap::first-letter {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  float: left;
+  font-size: 4em;
+  line-height: 0.85;
+  margin: 0.08em 0.12em 0 -0.04em;
+  color: var(--blue-2);
+}
+
+.deliv {
+  list-style: none;
+  border-top: 1px solid var(--rule-d);
+}
+.deliv li {
+  display: flex; align-items: center; gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule-d);
+  font-size: 15px; color: var(--rev-2);
+  transition: padding-left var(--dur-2) var(--ease-out);
+}
+.deliv li:hover { padding-left: 6px; }
+.deliv li b { color: var(--rev-1); font-weight: 600; }
+.deliv-no {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--blue-2);
+  flex-shrink: 0; width: 28px;
+}
+
+/* mock report card */
+.mock {
+  position: relative;
+  background: linear-gradient(180deg, var(--obsidian-1) 0%, var(--obsidian) 100%);
+  border: 1px solid var(--rule-d-2);
+  border-radius: var(--r-4);
+  padding: 8px;
+  box-shadow:
+    0 40px 100px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(244,239,229,0.04),
+    inset 0 1px 0 rgba(244,239,229,0.05);
+}
+.mock-stamp {
   position: absolute; top: -14px; left: 24px;
-  background: var(--blue); color: #fff;
-  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
-  padding: 6px 12px; border-radius: 6px;
+  background: linear-gradient(180deg, var(--blue-1), var(--blue));
+  color: #fff;
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.20em;
+  padding: 7px 13px; border-radius: 6px;
   box-shadow: 0 8px 22px var(--blue-glow);
+  text-transform: uppercase;
+}
+.mock-foil {
+  position: absolute; top: -14px; right: 24px;
+  background: var(--copper-soft);
+  border: 1px solid rgba(200, 167, 118, 0.35);
+  color: var(--copper);
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.20em;
+  padding: 7px 13px; border-radius: 6px;
+  text-transform: uppercase;
 }
 .mock-inner {
-  background: var(--navy);
-  border-radius: 14px;
-  padding: 40px 32px;
-  border-left: 3px solid var(--blue);
+  background: var(--obsidian);
+  border-radius: 16px;
+  padding: 36px 30px;
+  border-left: 2px solid var(--blue);
+  position: relative;
+  overflow: hidden;
+}
+.mock-inner::before {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(244,239,229,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,239,229,0.018) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
 }
 .mock-top {
   display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 36px;
-  font-size: 10px; letter-spacing: 0.18em; color: var(--text-mut);
+  margin-bottom: 28px;
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.20em; color: var(--rev-5);
   text-transform: uppercase;
+  position: relative; z-index: 1;
 }
-.mock-top b { color: #fff; }
-.mock-logo { display: block; height: 76px; width: auto; margin: 0 auto 28px; }
-.mock-rule { height: 1px; background: var(--blue); margin: 24px 0; opacity: .6; }
+.mock-top b { color: var(--rev-1); font-weight: 600; }
+.mock-logo { display: block; height: 68px; width: auto; margin: 0 auto 22px; position: relative; z-index: 1; }
+@media (min-width: 540px) { .mock-logo { height: 80px; } }
+.mock-rule {
+  height: 1px; background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  margin: 20px 0; opacity: 0.55;
+}
+.mock-pillars {
+  display: flex; justify-content: center; align-items: center;
+  gap: 6px; flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.22em; color: var(--rev-5);
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  position: relative; z-index: 1;
+}
+.mock-pillars .high { color: var(--rev-1); font-weight: 600; }
+.mock-pillars .sep { color: var(--rev-6); }
+
 .mock-scores {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
-  margin-top: 28px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+  margin-top: 22px;
+  position: relative; z-index: 1;
 }
 .mock-score {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(244, 239, 229, 0.025);
+  border: 1px solid var(--rule-d);
   border-radius: 10px;
   padding: 14px 16px;
 }
 .mock-score .lbl {
-  font-size: 9px; letter-spacing: 0.18em; color: var(--text-mut);
-  text-transform: uppercase; margin-bottom: 6px; font-weight: 600;
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.20em; color: var(--rev-5);
+  text-transform: uppercase; margin-bottom: 6px; font-weight: 500;
 }
 .mock-score .val {
-  font-size: 24px; font-weight: 800; color: #fff;
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-weight: 400;
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: 36px; line-height: 1;
+  color: var(--rev-1);
+  letter-spacing: -0.03em;
 }
-.mock-score .val .of { color: var(--text-dim); font-size: 14px; }
-@media (max-width: 920px) {
-  .preview-grid { grid-template-columns: 1fr; gap: 56px; }
+.mock-score .val.accent { color: var(--blue-2); }
+.mock-score .val .of {
+  font-family: var(--sans); font-style: normal;
+  font-size: 14px; color: var(--rev-5); font-weight: 500;
+}
+.mock-score.text .val {
+  font-family: var(--sans); font-style: normal;
+  font-size: 14px; font-weight: 600; line-height: 1.3;
+  letter-spacing: -0.005em;
 }
 
-/* ===== PRICING ===== */
-.pricing {
-  padding: 140px 0;
+/* ============================================================
+   III. METHOD  ·  cream section with editorial steps
+   ============================================================ */
+.method {
+  padding: 100px 0;
   background: var(--cream);
-  color: var(--text);
-}
-.pricing-card {
-  max-width: 580px; margin: 0 auto;
-  background: #fff;
-  border: 1px solid var(--line-l);
-  border-radius: 24px;
-  padding: 56px 48px;
+  color: var(--ink-1);
   position: relative;
-  box-shadow: 0 32px 80px rgba(11, 20, 38, 0.10);
+  isolation: isolate;
+  border-top: 1px solid var(--rule-d);
+  border-bottom: 1px solid var(--rule-d);
 }
+@media (min-width: 768px) { .method { padding: 140px 0; } }
+.method::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 50% 50% at 18% 0%, rgba(33,84,232,0.04), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 82% 100%, rgba(200,167,118,0.06), transparent 60%);
+}
+.method::after {
+  /* warm paper grain on cream */
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.65 0 0 0 0 0.60 0 0 0 0 0.50 0 0 0 0.10 0'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>");
+  opacity: 0.6; mix-blend-mode: multiply;
+}
+
+.steps {
+  display: grid; grid-template-columns: 1fr; gap: 20px;
+}
+@media (min-width: 880px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+
+.step {
+  background: var(--paper);
+  border: 1px solid var(--rule-l);
+  border-radius: var(--r-4);
+  padding: 36px 30px;
+  position: relative;
+  transition: transform var(--dur-2) var(--ease-out),
+              box-shadow var(--dur-3) var(--ease-out),
+              border-color var(--dur-2) var(--ease-out);
+  overflow: hidden;
+  isolation: isolate;
+}
+.step::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse 100% 50% at 0% 0%, rgba(33,84,232,0.06), transparent 70%);
+  opacity: 0; transition: opacity var(--dur-3) var(--ease-out);
+}
+.step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(11, 12, 18, 0.10);
+  border-color: var(--blue);
+}
+.step:hover::after { opacity: 1; }
+.step-num {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: 78px; line-height: 1;
+  color: var(--blue);
+  letter-spacing: -0.04em;
+  margin-bottom: 22px;
+}
+.step h3 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 22px; line-height: 1.2;
+  color: var(--ink-1);
+  margin-bottom: 12px;
+  letter-spacing: -0.015em;
+}
+.step p {
+  font-size: 14.5px; line-height: 1.7;
+  color: var(--ink-3);
+}
+.step .step-label {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.20em;
+  color: var(--ink-4); text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 8px;
+}
+.step .step-label::before {
+  content: ""; width: 18px; height: 1px; background: var(--ink-4);
+}
+
+/* ============================================================
+   STATEMENT  ·  full-screen pull quote
+   ============================================================ */
+.statement {
+  padding: 140px 0;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+@media (min-width: 768px) { .statement { padding: 200px 0; } }
+
+.statement::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 50%, var(--blue-soft), transparent 70%);
+}
+.statement::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(rgba(244,239,229,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,239,229,0.022) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 80%);
+}
+
+.statement .wrap { max-width: 1000px; }
+.statement .chapter { justify-content: center; }
+.statement-quote {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(34px, 5.6vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--rev-1);
+  margin: 36px 0 32px;
+  text-wrap: balance;
+}
+.statement-quote .accent {
+  font-style: italic; font-weight: 400;
+  color: var(--blue-2);
+}
+.statement p {
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.7;
+  color: var(--rev-3);
+  max-width: 60ch;
+  margin: 0 auto;
+  text-wrap: pretty;
+}
+.statement-sig {
+  margin-top: 56px;
+  display: inline-flex; align-items: center; gap: 18px;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.22em; color: var(--rev-5);
+  text-transform: uppercase;
+}
+.statement-sig .rule {
+  width: 36px; flex: none;
+}
+.statement-sig .ital {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: 15px; color: var(--copper);
+  letter-spacing: -0.01em; text-transform: none;
+}
+
+/* ============================================================
+   IV. PRICING  ·  cream editorial single card
+   ============================================================ */
+.pricing {
+  padding: 100px 0;
+  background: var(--cream);
+  color: var(--ink-1);
+  position: relative;
+  border-top: 1px solid var(--rule-d);
+  border-bottom: 1px solid var(--rule-d);
+}
+@media (min-width: 768px) { .pricing { padding: 140px 0; } }
+.pricing::before {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.65 0 0 0 0 0.60 0 0 0 0 0.50 0 0 0 0.10 0'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>");
+  opacity: 0.6; mix-blend-mode: multiply; pointer-events: none;
+}
+.pricing .wrap { position: relative; z-index: 1; }
+
+.pricing-card {
+  max-width: 620px; margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--rule-l);
+  border-radius: var(--r-4);
+  padding: 56px 40px;
+  position: relative;
+  box-shadow: 0 48px 120px rgba(11, 12, 18, 0.08);
+  transition: transform var(--dur-3) var(--ease-out),
+              box-shadow var(--dur-3) var(--ease-out);
+}
+@media (min-width: 540px) { .pricing-card { padding: 64px 52px; } }
+.pricing-card:hover { transform: translateY(-4px); box-shadow: 0 56px 140px rgba(11, 12, 18, 0.12); }
+
 .pricing-card::before {
-  content: 'BETA · LIMITED SPOTS';
+  content: "VOLUME 01 · LIMITED COHORT";
   position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-  background: var(--navy); color: #fff;
-  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  background: var(--ink-1); color: var(--cream);
+  font-family: var(--mono);
+  font-size: 10px; font-weight: 600; letter-spacing: 0.22em;
   padding: 8px 16px; border-radius: 999px;
   white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(11, 12, 18, 0.18);
 }
-.pricing-card .eyebrow { color: var(--blue); margin-bottom: 16px; }
+
+.pricing-card .chapter { margin-bottom: 18px; }
+.pricing-card .chapter .roman { color: var(--blue); }
+.pricing-card .chapter { color: var(--ink-3); }
 .pricing-card h3 {
-  font-size: 28px; font-weight: 800; color: var(--navy);
-  margin-bottom: 8px; letter-spacing: -0.01em;
+  font-family: var(--serif); font-weight: 500;
+  font-size: 30px; line-height: 1.1;
+  color: var(--ink-1);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
 }
-.pricing-card .desc {
-  color: var(--text-mid); font-size: 16px;
-  margin-bottom: 36px; line-height: 1.5;
+.pricing-card h3 .accent { font-style: italic; font-weight: 400; color: var(--blue); }
+.pricing-desc {
+  color: var(--ink-3); font-size: 15px; line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 50ch;
 }
+
 .pricing-price {
-  display: flex; align-items: baseline; gap: 12px;
-  margin-bottom: 36px;
-  padding-bottom: 36px;
-  border-bottom: 1px solid var(--line-l);
+  display: flex; align-items: baseline; gap: 10px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--rule-l);
 }
 .pricing-price .num {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 88px; line-height: 1; font-weight: 400;
-  color: var(--navy); letter-spacing: -0.04em;
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: 108px; line-height: 1;
+  color: var(--ink-1);
+  letter-spacing: -0.05em;
 }
 .pricing-price .ccy {
-  font-size: 18px; color: var(--text-mut);
-  font-weight: 500;
+  font-family: var(--mono);
+  font-size: 16px; color: var(--ink-3);
+  font-weight: 500; letter-spacing: 0.10em;
 }
 .pricing-price .note {
   margin-left: auto;
-  font-size: 12px; letter-spacing: 0.18em;
-  color: var(--text-mut); text-transform: uppercase;
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.20em;
+  color: var(--ink-4); text-transform: uppercase;
   font-weight: 600;
 }
-.pricing-list { list-style: none; }
-.pricing-list li {
+
+.price-list { list-style: none; }
+.price-list li {
   display: flex; align-items: flex-start; gap: 14px;
-  padding: 12px 0;
-  font-size: 15px;
+  padding: 11px 0;
+  font-size: 15px; line-height: 1.45;
+  border-bottom: 1px solid var(--rule-l);
 }
-.pricing-list li .check {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: var(--blue-soft); color: var(--blue);
-  display: grid; place-items: center;
-  flex-shrink: 0; margin-top: 2px;
-}
-.pricing-list li b { color: var(--navy); font-weight: 600; }
-.pricing-cta { margin-top: 40px; }
-.pricing-cta .btn { width: 100%; justify-content: center; padding: 18px 24px; font-size: 16px; }
-.pricing-fine {
-  text-align: center; margin-top: 20px;
-  font-size: 12px; letter-spacing: 0.14em;
-  color: var(--text-mut); text-transform: uppercase;
+.price-list li:last-child { border-bottom: none; }
+.price-list li b { color: var(--ink-1); font-weight: 600; }
+.price-list li .num {
+  font-family: var(--mono);
+  font-size: 11px; color: var(--blue); font-weight: 600;
+  letter-spacing: 0.10em;
+  width: 28px; flex-shrink: 0;
+  margin-top: 3px;
 }
 
-/* ===== FAQ ===== */
-.faq {
-  padding: 140px 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
+.pricing-cta { margin-top: 36px; }
+.pricing-cta .btn { width: 100%; justify-content: center; }
+.pricing-fine {
+  text-align: center; margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.20em;
+  color: var(--ink-4); text-transform: uppercase;
 }
+
+/* ============================================================
+   V. FAQ
+   ============================================================ */
+.faq { padding: 100px 0; border-top: 1px solid var(--rule-d); }
+@media (min-width: 768px) { .faq { padding: 140px 0; } }
+
 .faq-list {
   max-width: 820px; margin: 0 auto;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid var(--rule-d);
 }
 .faq-item {
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--rule-d);
 }
 .faq-q {
   width: 100%; text-align: left;
-  padding: 28px 0;
-  background: none; border: none; cursor: pointer;
-  color: #fff; font-size: 18px; font-weight: 600;
-  font-family: inherit;
+  padding: 26px 0;
   display: flex; align-items: center; justify-content: space-between;
   gap: 24px;
-  letter-spacing: -0.01em;
+  font-family: var(--serif); font-weight: 500;
+  font-size: 19px; letter-spacing: -0.012em;
+  color: var(--rev-1);
+  transition: color var(--dur-1) var(--ease-out);
 }
-.faq-q:hover { color: var(--blue-lt); }
+@media (min-width: 768px) { .faq-q { font-size: 22px; padding: 30px 0; } }
+.faq-q .q-no {
+  font-family: var(--mono);
+  font-size: 11px; color: var(--rev-5);
+  letter-spacing: 0.20em;
+  margin-right: 18px;
+  font-weight: 500;
+}
+.faq-q:hover { color: var(--blue-2); }
+.faq-q:hover .q-no { color: var(--blue-2); }
+.faq-q-text { flex: 1; }
 .faq-icon {
-  width: 24px; height: 24px; flex-shrink: 0;
-  border: 1px solid rgba(255,255,255,0.18);
+  position: relative;
+  width: 30px; height: 30px; flex-shrink: 0;
+  border: 1px solid var(--rule-d-2);
   border-radius: 50%;
   display: grid; place-items: center;
-  transition: all .2s ease;
+  transition: border-color var(--dur-2) var(--ease-out),
+              background var(--dur-2) var(--ease-out);
 }
 .faq-icon::before, .faq-icon::after {
-  content: ''; position: absolute;
-  background: var(--text-dim);
+  content: ""; position: absolute;
+  background: var(--rev-3);
+  transition: background var(--dur-2), transform var(--dur-3) var(--ease-out);
 }
-.faq-icon::before { width: 10px; height: 1.5px; }
-.faq-icon::after { width: 1.5px; height: 10px; transition: transform .2s ease; }
-.faq-item.open .faq-icon::after { transform: rotate(90deg); }
+.faq-icon::before { width: 11px; height: 1.5px; }
+.faq-icon::after  { width: 1.5px; height: 11px; }
 .faq-item.open .faq-icon { border-color: var(--blue); background: var(--blue-soft); }
+.faq-item.open .faq-icon::before { background: var(--blue-2); }
+.faq-item.open .faq-icon::after  { transform: rotate(90deg); background: transparent; }
 .faq-a {
   max-height: 0; overflow: hidden;
-  transition: max-height .3s ease, padding .3s ease;
+  transition: max-height var(--dur-3) var(--ease-out);
 }
 .faq-a-inner {
-  padding-bottom: 28px;
-  color: var(--text-dim); font-size: 16px; line-height: 1.65;
-  max-width: 680px;
+  padding-bottom: 26px;
+  color: var(--rev-4); font-size: 16px; line-height: 1.7;
+  max-width: 720px;
 }
-.faq-item.open .faq-a { max-height: 400px; }
+.faq-item.open .faq-a { max-height: 480px; }
 
-/* ===== WAITLIST ===== */
+/* ============================================================
+   VI. WAITLIST
+   ============================================================ */
 .waitlist {
-  padding: 120px 0;
-  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 100px 0;
+  position: relative; overflow: hidden;
+  isolation: isolate;
+}
+@media (min-width: 768px) { .waitlist { padding: 140px 0; } }
+.waitlist::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 70% 100% at 50% 50%, var(--blue-soft), transparent 70%),
+    linear-gradient(180deg, var(--obsidian) 0%, var(--obsidian-1) 100%);
 }
 .waitlist .wrap { max-width: 700px; text-align: center; }
-.waitlist .eyebrow { margin-bottom: 16px; }
+.waitlist .chapter { justify-content: center; }
 .waitlist h2 {
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 800; color: #fff;
-  letter-spacing: -0.025em; line-height: 1.1;
-  margin-bottom: 18px;
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.028em;
+  color: var(--rev-1);
+  margin: 18px 0 18px;
+  text-wrap: balance;
 }
-.waitlist h2 .accent {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic; font-weight: 400; color: var(--blue-lt);
+.waitlist h2 .accent { font-style: italic; font-weight: 400; color: var(--blue-2); }
+.waitlist-lead {
+  font-size: 17px; color: var(--rev-4);
+  margin-bottom: 36px; line-height: 1.6;
 }
-.waitlist .lead {
-  font-size: 17px; color: var(--text-dim);
-  margin-bottom: 36px; line-height: 1.55;
-}
+
 .waitlist-form {
-  display: flex; gap: 8px; padding: 6px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 12px;
-  max-width: 480px; margin: 0 auto;
+  display: flex; gap: 6px; padding: 6px;
+  background: rgba(244, 239, 229, 0.04);
+  border: 1px solid var(--rule-d-2);
+  border-radius: var(--r-2);
+  max-width: 460px; margin: 0 auto;
+  transition: border-color var(--dur-2) var(--ease-out),
+              box-shadow var(--dur-3) var(--ease-out);
+}
+.waitlist-form:focus-within {
+  border-color: var(--blue-1);
+  box-shadow: 0 0 0 4px var(--blue-soft);
 }
 .waitlist-form input {
-  flex: 1; background: none; border: none; outline: none;
-  color: #fff; font-size: 15px; padding: 12px 14px;
-  font-family: inherit;
+  flex: 1; min-width: 0;
+  background: none; border: none; outline: none;
+  color: var(--rev-1); font-size: 15px; padding: 12px 14px;
+  font-family: var(--sans);
+  border-radius: var(--r-1);
+  letter-spacing: -0.005em;
 }
-.waitlist-form input::placeholder { color: var(--text-mut); }
-.waitlist-form button { padding: 12px 22px; }
+.waitlist-form input::placeholder { color: var(--rev-5); }
+.waitlist-form button { padding: 12px 20px; }
+@media (max-width: 480px) {
+  .waitlist-form { flex-direction: column; padding: 8px; gap: 8px; }
+  .waitlist-form button { width: 100%; justify-content: center; }
+}
+
 .waitlist-note {
-  margin-top: 16px; font-size: 12px; color: var(--text-mut);
-  letter-spacing: 0.05em;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 11px; color: var(--rev-5);
+  letter-spacing: 0.10em;
 }
 .waitlist-success {
   display: none;
   margin-top: 24px;
-  padding: 18px 24px;
-  background: rgba(4, 120, 87, 0.10);
-  border: 1px solid rgba(4, 120, 87, 0.35);
-  border-radius: 10px;
-  color: #6EE7B7;
-  font-size: 15px;
+  padding: 16px 22px;
+  background: rgba(86, 134, 248, 0.08);
+  border: 1px solid rgba(86, 134, 248, 0.30);
+  border-radius: var(--r-2);
+  color: var(--blue-3);
+  font-size: 14px;
+  max-width: 460px; margin-left: auto; margin-right: auto;
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
 }
-.waitlist-success.show { display: block; }
+.waitlist-success.show { display: block; animation: fade-up 400ms var(--ease-out); }
 
-/* ===== FINAL CTA ===== */
-.final-cta {
+/* ============================================================
+   VII. FINAL  ·  the closing mark
+   ============================================================ */
+.final {
   padding: 140px 0;
   text-align: center;
   position: relative;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid var(--rule-d);
+  overflow: hidden;
+  isolation: isolate;
 }
-.final-cta::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 600px 400px at 50% 60%, var(--blue-soft), transparent 70%);
-  pointer-events: none;
+@media (min-width: 768px) { .final { padding: 200px 0; } }
+.final::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, var(--blue-soft), transparent 70%);
 }
-.final-cta-inner { position: relative; }
-.final-cta img { height: 72px; width: auto; margin-bottom: 36px; }
-.final-cta h2 {
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 800; color: #fff;
-  letter-spacing: -0.03em; line-height: 1.05;
-  margin-bottom: 16px;
+.final::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(rgba(244,239,229,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,239,229,0.022) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 80%);
 }
-.final-cta h2 .accent {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic; font-weight: 400; color: var(--blue-lt);
+.final .chapter { justify-content: center; margin-bottom: 28px; }
+.final-mark {
+  position: relative;
+  width: 96px; height: 96px;
+  margin: 0 auto 36px;
 }
-.final-cta p {
-  font-size: 18px; color: var(--text-dim);
-  max-width: 540px; margin: 0 auto 40px; line-height: 1.5;
+.final-mark img { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1; }
+.final-mark::before {
+  content: "";
+  position: absolute; inset: -32%;
+  background: radial-gradient(circle, var(--blue-glow), transparent 60%);
+  filter: blur(22px); z-index: 0;
+  animation: glow-breathe 4s ease-in-out infinite;
 }
-.final-cta .btn { padding: 18px 32px; font-size: 16px; }
+.final h2 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--rev-1);
+  margin-bottom: 22px;
+  text-wrap: balance;
+}
+.final h2 .accent { font-style: italic; font-weight: 400; color: var(--blue-2); }
+.final p {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--rev-4);
+  max-width: 56ch; margin: 0 auto 40px; line-height: 1.65;
+}
+.final-colophon {
+  margin-top: 56px;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.22em; color: var(--rev-5);
+  text-transform: uppercase;
+}
+.final-colophon .rule { width: 32px; flex: none; }
 
-/* ===== FOOTER ===== */
+/* ============================================================
+   FOOTER  ·  editorial colophon
+   ============================================================ */
 .footer {
   padding: 60px 0 40px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  background: var(--navy-2);
+  border-top: 1px solid var(--rule-d);
+  background: var(--ink);
+  position: relative;
 }
 .footer-grid {
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
-  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  margin-bottom: 44px;
 }
-.footer-brand img { height: 32px; width: auto; margin-bottom: 18px; }
+@media (min-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 880px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; } }
+
+.footer-brand img { height: 30px; width: auto; margin-bottom: 18px; }
 .footer-brand p {
-  font-size: 14px; color: var(--text-mut); line-height: 1.55;
+  font-size: 14px; color: var(--rev-5); line-height: 1.65;
   max-width: 280px;
 }
+
 .footer-col h4 {
-  font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase;
-  color: var(--text-dim); font-weight: 600;
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--rev-4); font-weight: 600;
   margin-bottom: 18px;
 }
 .footer-col ul { list-style: none; }
-.footer-col li { margin-bottom: 10px; }
+.footer-col li { margin-bottom: 12px; }
 .footer-col a {
-  color: var(--text-mut); text-decoration: none;
-  font-size: 14px; transition: color .15s ease;
+  color: var(--rev-5); font-size: 14px;
+  transition: color var(--dur-1) var(--ease-out);
 }
-.footer-col a:hover { color: #fff; }
+.footer-col a:hover { color: var(--rev-1); }
 .footer-base {
-  padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: 12px; color: var(--text-mut);
-  letter-spacing: 0.06em;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule-d);
+  display: flex; flex-direction: column; gap: 8px;
+  justify-content: space-between; align-items: center;
+  font-family: var(--mono);
+  font-size: 11px; color: var(--rev-5);
+  letter-spacing: 0.10em;
 }
-@media (max-width: 820px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-  .footer-base { flex-direction: column; gap: 12px; text-align: center; }
+.footer-base .ital {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  color: var(--rev-4); font-size: 13px;
+  letter-spacing: -0.005em;
+}
+@media (min-width: 640px) { .footer-base { flex-direction: row; } }
+
+/* ============================================================
+   SCROLL REVEAL  ·  defensive · only when JS enabled
+   ============================================================ */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-out);
+}
+html.js .reveal.in { opacity: 1; transform: none; }
+html.js .reveal[data-delay="100"] { transition-delay: 100ms; }
+html.js .reveal[data-delay="200"] { transition-delay: 200ms; }
+html.js .reveal[data-delay="300"] { transition-delay: 300ms; }
+html.js .reveal[data-delay="400"] { transition-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+  .hero h1 .line > span { transform: none; animation: none; }
+  .marquee-track { animation: none; }
+  .hero-mark::before, .final-mark::before { animation: none; }
+  .tag-pill .dot { animation: none; }
 }
 
-/* ===== ANIMATIONS ===== */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
-.reveal.in { opacity: 1; transform: none; }
+/* skip link */
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--blue); color: #fff; padding: 12px 16px;
+  z-index: 100; border-radius: 0 0 8px 0;
+}
+.skip:focus { left: 0; }
 
-::selection { background: var(--blue); color: #fff; }
-
-/* small icons via SVG inline */
-.icon-arrow { width: 14px; height: 14px; display: inline-block; }
+.sr-only { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 </style>
 </head>
 <body>
 
+<a href="#main" class="skip">Skip to content</a>
+
 <!-- ===== NAV ===== -->
-<nav class="nav">
+<nav class="nav" id="nav" aria-label="Primary">
   <div class="wrap">
-    <a href="#top" class="nav-logo">
+    <a href="#top" class="nav-logo" aria-label="BroGrade home">
       <img src="assets/logo-horizontal.png" alt="BroGrade"/>
     </a>
     <div class="nav-links">
-      <a href="#what">What you get</a>
-      <a href="#how">How it works</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#pillars">Pillars</a>
+      <a href="#report">Report</a>
+      <a href="#method">Method</a>
+      <a href="#pricing">Audit</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
+      <a href="#waitlist" class="btn btn-quiet">Waitlist</a>
       <a href="#pricing" class="btn btn-primary">
         Get graded
-        <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
-<header class="hero" id="top">
+<main id="main">
+
+<!-- ===== HERO  ·  editorial cover ===== -->
+<section class="hero section" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
   <div class="wrap hero-inner">
-    <span class="tag"><span class="dot"></span> BETA AUDIT  ·  $19 CAD</span>
-    <img src="assets/logo-mark.png" alt="BroGrade shield" class="hero-logo"/>
-    <h1>You're not ugly.<br/><span class="accent">You're under-optimized.</span></h1>
-    <p class="lead">A personalized appearance audit for men. You upload yourself, we tell you exactly what's helping your look, what's hurting it, and what to fix first. No vague advice. No fake compliments.</p>
+
+    <div class="cover-meta">
+      <span class="label">Vol. 01</span>
+      <span class="rule" aria-hidden="true" style="width:60px"></span>
+      <span class="tag-pill"><span class="dot" aria-hidden="true"></span> Beta cohort open</span>
+      <span class="rule" aria-hidden="true" style="width:60px"></span>
+      <span class="label copper">$19 CAD</span>
+    </div>
+
+    <div class="hero-mark">
+      <img src="assets/logo-mark.png" alt="BroGrade shield mark"/>
+    </div>
+
+    <h1>
+      <span class="line"><span>You're not ugly.</span></span>
+      <span class="line"><span class="accent">You're under-optimized.</span></span>
+    </h1>
+
+    <p class="hero-lead">A personalized appearance audit for men. You upload yourself, and a designed twelve-section report grades exactly what's helping your look, what's hurting it, and what to fix first. No vague advice. No fake compliments.</p>
+
     <div class="hero-ctas">
-      <a href="#pricing" class="btn btn-primary">
+      <a href="#pricing" class="btn btn-primary btn-lg">
         Get the beta audit
-        <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="#waitlist" class="btn btn-ghost">Join the waitlist</a>
+      <a href="#waitlist" class="btn btn-ghost btn-lg">Join the waitlist</a>
     </div>
-    <div class="hero-meta">
-      <span><b>24–72h</b> delivery</span>
-      <span class="sep">·</span>
-      <span><b>Photos in,</b> plan out</span>
-      <span class="sep">·</span>
-      <span><b>Built by men, for men</b></span>
-    </div>
-  </div>
-</header>
 
-<!-- ===== PILLARS ===== -->
-<section class="pillars">
-  <div class="wrap">
-    <div class="pillars-grid">
-      <div class="pillar"><div class="pillar-num">01 / Style</div><div class="pillar-name">Outfit fit &amp; direction</div><p class="pillar-desc">Garment fit, silhouette, color palette, and aesthetic cohesion graded against your target.</p></div>
-      <div class="pillar"><div class="pillar-num">02 / Hair</div><div class="pillar-name">Cut &amp; framing</div><p class="pillar-desc">Cut, texture, length, and styling. Plus a barber-ready script you can hand over verbatim.</p></div>
-      <div class="pillar"><div class="pillar-num">03 / Physique</div><div class="pillar-name">Proportion &amp; posture</div><p class="pillar-desc">V-taper, waist emphasis, posture diagnostics, and a training priority list based on your build.</p></div>
-      <div class="pillar"><div class="pillar-num">04 / Grooming</div><div class="pillar-name">Facial framing</div><p class="pillar-desc">Facial hair, skin presentation, and a baseline protocol you can run in five minutes a day.</p></div>
-      <div class="pillar"><div class="pillar-num">05 / Photos</div><div class="pillar-name">Digital presence</div><p class="pillar-desc">Lighting, angle, pose, environment. The exact reasons your photos undersell you and how to retake.</p></div>
+    <div class="hero-fact-row">
+      <div class="hero-fact"><span class="val">24–72h</span> delivery window</div>
+      <div class="hero-fact"><span class="val">12</span> sections, designed</div>
+      <div class="hero-fact"><span class="val">5</span> categories graded</div>
     </div>
   </div>
 </section>
 
-<!-- ===== MANIFESTO ===== -->
-<section class="manifesto">
-  <div class="wrap">
-    <h2 class="reveal">Most guys don't need motivation. They need someone to tell them <span class="accent">what's actually hurting their look.</span></h2>
-    <p class="reveal">Bad fit. Weak haircut. Wrong shoes. Awkward photos. Posture that cancels confidence. Your friends are too nice to say it. BroGrade isn't.</p>
-    <div class="sig reveal">Upload yourself  ·  Get graded  ·  Get upgraded</div>
+<!-- ===== MARQUEE ===== -->
+<section class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>Style</span><span class="dot"></span><span class="ital">Hair</span><span class="dot"></span><span>Physique</span><span class="dot"></span><span class="ital">Grooming</span><span class="dot"></span><span>Photos</span><span class="dot"></span><span class="ital">Posture</span><span class="dot"></span><span>Fit</span><span class="dot"></span><span class="ital">Proportion</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Style</span><span class="dot"></span><span class="ital">Hair</span><span class="dot"></span><span>Physique</span><span class="dot"></span><span class="ital">Grooming</span><span class="dot"></span><span>Photos</span><span class="dot"></span><span class="ital">Posture</span><span class="dot"></span><span>Fit</span><span class="dot"></span><span class="ital">Proportion</span><span class="dot"></span></div>
   </div>
 </section>
 
-<!-- ===== HOW IT WORKS ===== -->
-<section class="steps" id="how">
+<!-- ===== I. PILLARS ===== -->
+<section class="pillars section" id="pillars">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">How it works</div>
-      <h2>Three steps. One personalized plan.</h2>
-      <p class="lead">No app to download. No subscription. Submit photos, get the audit, execute the plan.</p>
+    <div class="section-head reveal">
+      <div class="chapter">
+        <span class="roman">I.</span>
+        <span class="rule"></span>
+        <span>The pillars</span>
+      </div>
+      <h2>Every audit grades <span class="accent">the full picture.</span></h2>
+      <p class="lead">Not just outfits. Not just hair. The complete visual stack — every variable you can move this week.</p>
     </div>
-    <div class="steps-grid">
-      <div class="step reveal">
-        <div class="step-num">01</div>
-        <h3>Submit your photos</h3>
-        <p>Front, side, face, and a few outfit shots. Answer a short questionnaire about your goals, environment, and target aesthetic. Takes about five minutes.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">02</div>
-        <h3>We audit the full picture</h3>
-        <p>Style, hair, physique direction, grooming, and digital presence all graded against your goal. No generic advice. No fake compliments. Just specific calls.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">03</div>
-        <h3>Execute the upgrade plan</h3>
-        <p>You get a personalized BroGrade report inside 24–72 hours. Scorecard, weak points, fastest wins, shopping list, and a seven-day action plan.</p>
-      </div>
+
+    <div class="pillar-grid">
+      <article class="pillar reveal">
+        <div class="pillar-num">01</div>
+        <div class="pillar-cat">Category · Style</div>
+        <h3 class="pillar-name">Outfit fit <span class="italic">&amp; direction</span></h3>
+        <p class="pillar-desc">Garment fit, silhouette, color palette, and aesthetic cohesion graded against your target.</p>
+      </article>
+
+      <article class="pillar reveal" data-delay="100">
+        <div class="pillar-num">02</div>
+        <div class="pillar-cat">Category · Hair</div>
+        <h3 class="pillar-name">Cut <span class="italic">&amp; framing</span></h3>
+        <p class="pillar-desc">Cut, texture, length, and styling. Plus a barber-ready script you can hand over verbatim.</p>
+      </article>
+
+      <article class="pillar reveal" data-delay="200">
+        <div class="pillar-num">03</div>
+        <div class="pillar-cat">Category · Physique</div>
+        <h3 class="pillar-name">Proportion <span class="italic">&amp; posture</span></h3>
+        <p class="pillar-desc">V-taper, waist emphasis, posture diagnostics, and a training priority list based on your build.</p>
+      </article>
+
+      <article class="pillar reveal" data-delay="300">
+        <div class="pillar-num">04</div>
+        <div class="pillar-cat">Category · Grooming</div>
+        <h3 class="pillar-name">Facial <span class="italic">framing</span></h3>
+        <p class="pillar-desc">Facial hair, skin presentation, and a baseline protocol you can run in five minutes a day.</p>
+      </article>
+
+      <article class="pillar reveal" data-delay="400">
+        <div class="pillar-num">05</div>
+        <div class="pillar-cat">Category · Photos</div>
+        <h3 class="pillar-name">Digital <span class="italic">presence</span></h3>
+        <p class="pillar-desc">Lighting, angle, pose, environment. The exact reasons your photos undersell you and how to retake.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ===== WHAT YOU GET (audit preview) ===== -->
-<section class="preview" id="what">
+<!-- ===== II. AUDIT REPORT ===== -->
+<section class="report section" id="report">
   <div class="wrap">
-    <div class="preview-grid">
-      <div class="reveal">
-        <div class="eyebrow">Inside your audit</div>
+    <div class="report-grid">
+      <div class="report-copy reveal">
+        <div class="chapter">
+          <span class="roman">II.</span>
+          <span class="rule"></span>
+          <span>Inside the audit</span>
+        </div>
         <h2>A real report. <span class="accent">Not a chatbot reply.</span></h2>
-        <p class="lead">Every audit ships as a designed, twelve-section report covering scorecard, brutal truth, fit diagnostics, grooming protocol, physique strategy, digital presence, procurement list, and a 7-day execution sprint.</p>
-        <ul class="deliverables">
-          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Appearance scorecard</b>&nbsp; · &nbsp;six categories graded</li>
-          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Style &amp; fit architecture</b>&nbsp; · &nbsp;tops, pants, footwear, layering</li>
-          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Hair plan + barber script</b>&nbsp; · &nbsp;copy-paste at the chair</li>
-          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Physique direction</b>&nbsp; · &nbsp;priority muscle groups</li>
-          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Photo audit</b>&nbsp; · &nbsp;lighting, angle, pose</li>
-          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Procurement list</b>&nbsp; · &nbsp;ranked, with budget</li>
-          <li><span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>7-day execution sprint</b>&nbsp; · &nbsp;day-by-day plan</li>
+        <p class="lead dropcap">Every audit ships as a designed, twelve-section report covering the scorecard, brutal truth, fit diagnostics, grooming protocol, physique strategy, digital presence, procurement list, and a seven-day execution sprint. Personalized to your photos, build, and target aesthetic.</p>
+        <ul class="deliv">
+          <li><span class="deliv-no">01</span><span><b>Appearance scorecard</b>  ·  six categories graded</span></li>
+          <li><span class="deliv-no">02</span><span><b>Style &amp; fit architecture</b>  ·  tops, pants, footwear, layering</span></li>
+          <li><span class="deliv-no">03</span><span><b>Hair plan + barber script</b>  ·  copy-paste at the chair</span></li>
+          <li><span class="deliv-no">04</span><span><b>Physique direction</b>  ·  priority muscle groups</span></li>
+          <li><span class="deliv-no">05</span><span><b>Photo audit</b>  ·  lighting, angle, pose</span></li>
+          <li><span class="deliv-no">06</span><span><b>Procurement list</b>  ·  ranked, with budget</span></li>
+          <li><span class="deliv-no">07</span><span><b>Seven-day execution sprint</b>  ·  day-by-day</span></li>
         </ul>
       </div>
 
-      <!-- Mock report cover -->
-      <div class="mock reveal">
+      <div class="mock reveal" data-delay="200">
+        <span class="mock-stamp">Beta · File 0001</span>
+        <span class="mock-foil">Vol. 01</span>
         <div class="mock-inner">
           <div class="mock-top">
-            <span>REPORT NO. <b>[0001]</b></span>
-            <span>CONFIDENTIAL  ·  BETA</span>
+            <span>File No. <b>[0001]</b></span>
+            <span>Confidential · Beta</span>
           </div>
-          <img src="assets/logo-horizontal.png" class="mock-logo" alt=""/>
+          <img src="assets/logo-horizontal.png" alt="" class="mock-logo"/>
           <div class="mock-rule"></div>
-          <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; letter-spacing:0.18em; color:var(--text-mut); text-transform:uppercase;">
-            <span><b style="color:#fff">STYLE</b>  ·  HAIR  ·  PHYSIQUE  ·  GROOMING  ·  PHOTOS</span>
+          <div class="mock-pillars">
+            <span class="high">Style</span><span class="sep">·</span><span>Hair</span><span class="sep">·</span><span>Physique</span><span class="sep">·</span><span>Grooming</span><span class="sep">·</span><span>Photos</span>
           </div>
           <div class="mock-scores">
-            <div class="mock-score"><div class="lbl">Current Baseline</div><div class="val">6.4<span class="of"> / 10</span></div></div>
-            <div class="mock-score"><div class="lbl">Upgrade Potential</div><div class="val" style="color:var(--blue-lt)">8.7<span class="of"> / 10</span></div></div>
-            <div class="mock-score"><div class="lbl">Primary Liability</div><div class="val" style="font-size:13px; font-family:'Inter'; font-weight:600;">Pant fit + posture</div></div>
-            <div class="mock-score"><div class="lbl">Immediate ROI</div><div class="val" style="font-size:13px; font-family:'Inter'; font-weight:600;">Tailored break + layering</div></div>
+            <div class="mock-score"><div class="lbl">Current Baseline</div><div class="val" data-count="6.4">0.0<span class="of"> / 10</span></div></div>
+            <div class="mock-score"><div class="lbl">Upgrade Potential</div><div class="val accent" data-count="8.7">0.0<span class="of"> / 10</span></div></div>
+            <div class="mock-score text"><div class="lbl">Primary Liability</div><div class="val">Pant fit + posture</div></div>
+            <div class="mock-score text"><div class="lbl">Immediate ROI</div><div class="val">Tailored break + layering</div></div>
           </div>
         </div>
       </div>
@@ -806,19 +1534,82 @@ body {
   </div>
 </section>
 
-<!-- ===== PRICING ===== -->
-<section class="pricing" id="pricing">
+<!-- ===== III. METHOD ===== -->
+<section class="method section" id="method">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Pricing</div>
-      <h2>One audit. One price. Honest feedback.</h2>
-      <p class="lead">Beta pricing while we onboard the first cohort. No subscription. Pay once, audit shipped within 72 hours.</p>
+    <div class="section-head dark center reveal">
+      <div class="chapter">
+        <span class="rule dark"></span>
+        <span class="roman dark">III.</span>
+        <span>The method</span>
+        <span class="rule dark"></span>
+      </div>
+      <h2>Three steps. <span class="accent">One personalized plan.</span></h2>
+      <p class="lead">No app to download. No subscription. Submit photos, get the audit, execute the plan.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step reveal">
+        <div class="step-label">Step One</div>
+        <div class="step-num">01</div>
+        <h3>Submit your photos</h3>
+        <p>Front, side, face, and a few outfit shots. Answer a short questionnaire about your goals, environment, and target aesthetic. Takes about five minutes.</p>
+      </article>
+      <article class="step reveal" data-delay="150">
+        <div class="step-label">Step Two</div>
+        <div class="step-num">02</div>
+        <h3>We audit the full picture</h3>
+        <p>Style, hair, physique direction, grooming, and digital presence all graded against your goal. No generic advice. No fake compliments. Just specific calls.</p>
+      </article>
+      <article class="step reveal" data-delay="300">
+        <div class="step-label">Step Three</div>
+        <div class="step-num">03</div>
+        <h3>Execute the upgrade plan</h3>
+        <p>You get a personalized BroGrade report inside 24–72 hours. Scorecard, weak points, fastest wins, shopping list, and a seven-day action plan.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATEMENT  ·  big pull quote ===== -->
+<section class="statement section">
+  <div class="wrap">
+    <div class="chapter reveal">
+      <span class="rule" style="width:48px"></span>
+      <span>A note</span>
+      <span class="rule" style="width:48px"></span>
+    </div>
+    <p class="statement-quote reveal" data-delay="100">Most men don't need motivation. They need someone to point at the <span class="accent">three things actually hurting their look</span> — and tell them what to do by Sunday.</p>
+    <p class="reveal" data-delay="300">Bad fit. Weak haircut. Wrong shoes. Awkward photos. Posture that cancels confidence. Your friends are too polite to say it. BroGrade isn't.</p>
+    <div class="statement-sig reveal" data-delay="400">
+      <span class="rule"></span>
+      <span class="ital">Upload yourself · Get graded · Get upgraded</span>
+      <span class="rule"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. PRICING ===== -->
+<section class="pricing section" id="pricing">
+  <div class="wrap">
+    <div class="section-head dark center reveal">
+      <div class="chapter">
+        <span class="rule dark"></span>
+        <span class="roman dark">IV.</span>
+        <span>The audit</span>
+        <span class="rule dark"></span>
+      </div>
+      <h2>One audit. One price. <span class="accent">Honest feedback.</span></h2>
+      <p class="lead">Beta pricing while we onboard the first cohort. No subscription. Pay once, audit shipped within seventy-two hours.</p>
     </div>
 
     <div class="pricing-card reveal">
-      <div class="eyebrow">BroGrade Beta Audit</div>
-      <h3>The full appearance audit</h3>
-      <p class="desc">Twelve sections. Personalized to your photos, build, and target aesthetic.</p>
+      <div class="chapter">
+        <span class="roman">·</span>
+        <span>BroGrade Beta Audit</span>
+      </div>
+      <h3>The full <span class="accent">appearance audit</span></h3>
+      <p class="pricing-desc">Twelve sections. Personalized to your photos, build, and target aesthetic. Delivered as a designed PDF, ready to execute.</p>
 
       <div class="pricing-price">
         <span class="num">$19</span>
@@ -826,114 +1617,167 @@ body {
         <span class="note">one-time</span>
       </div>
 
-      <ul class="pricing-list">
-        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Appearance scorecard</b> across six categories</span></li>
-        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Style &amp; fit architecture</b> with tailored recommendations</span></li>
-        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Hair plan + verbatim barber script</b></span></li>
-        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Physique &amp; posture diagnostics</b> with training priorities</span></li>
-        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Photo audit + retake direction</b></span></li>
-        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Ranked procurement list</b> with budget guidance</span></li>
-        <li><span class="check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>7-day execution sprint</b> + 30-day trajectory</span></li>
+      <ul class="price-list">
+        <li><span class="num">i</span><span><b>Appearance scorecard</b> across six categories</span></li>
+        <li><span class="num">ii</span><span><b>Style &amp; fit architecture</b> with tailored recommendations</span></li>
+        <li><span class="num">iii</span><span><b>Hair plan + verbatim barber script</b></span></li>
+        <li><span class="num">iv</span><span><b>Physique &amp; posture diagnostics</b> with training priorities</span></li>
+        <li><span class="num">v</span><span><b>Photo audit + retake direction</b></span></li>
+        <li><span class="num">vi</span><span><b>Ranked procurement list</b> with budget guidance</span></li>
+        <li><span class="num">vii</span><span><b>Seven-day execution sprint</b> + 30-day trajectory</span></li>
       </ul>
 
       <div class="pricing-cta">
-        <a href="https://forms.gle/s58S8b6sq6drfv188" target="_blank" rel="noopener" class="btn btn-primary">
+        <a href="https://forms.gle/s58S8b6sq6drfv188" target="_blank" rel="noopener" class="btn btn-cream btn-lg">
           Submit your audit form
-          <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
-      <div class="pricing-fine">Form first  ·  Payment link follows</div>
+      <p class="pricing-fine">Form first  ·  Payment link follows</p>
     </div>
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
-<section class="faq" id="faq">
+<!-- ===== V. FAQ ===== -->
+<section class="faq section" id="faq">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">FAQ</div>
-      <h2 style="color:#fff">Honest answers to obvious questions.</h2>
+    <div class="section-head center reveal">
+      <div class="chapter">
+        <span class="rule"></span>
+        <span class="roman">V.</span>
+        <span>The questions</span>
+        <span class="rule"></span>
+      </div>
+      <h2>Honest answers <span class="accent">to obvious questions.</span></h2>
     </div>
-    <div class="faq-list">
 
-      <div class="faq-item">
-        <button class="faq-q">What photos do I need to submit?<span class="faq-icon"></span></button>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span class="q-no">01</span>
+          <span class="faq-q-text">What photos do I need to submit?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
         <div class="faq-a"><div class="faq-a-inner">A clear front body photo, a side body photo, a face and hair photo, and one to five recent outfit photos. Optional but useful: a back body photo and a few wardrobe shots. Natural lighting, no filters, full-body shots if possible. The better the photos, the sharper the audit.</div></div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-q">How long until I get my audit?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Within 24 to 72 hours of payment confirmation. We send it as a designed PDF report. Most beta audits ship inside 48 hours.</div></div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span class="q-no">02</span>
+          <span class="faq-q-text">How long until I get my audit?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Within 24 to 72 hours of payment confirmation. We deliver it as a designed PDF report. Most beta audits ship inside 48 hours.</div></div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Is this just for fit or attractive guys?<span class="faq-icon"></span></button>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span class="q-no">03</span>
+          <span class="faq-q-text">Is this just for fit or attractive guys?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
         <div class="faq-a"><div class="faq-a-inner">No. BroGrade is built specifically for guys who feel under-optimized. The audit is most useful when there's room to upgrade. We grade your trajectory, not your starting line.</div></div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Is the audit AI-generated or written by a person?<span class="faq-icon"></span></button>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span class="q-no">04</span>
+          <span class="faq-q-text">Is the audit AI-generated or written by a person?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
         <div class="faq-a"><div class="faq-a-inner">It's a hybrid. Trained visual judgement plus AI-assisted speed. Every audit is reviewed and finalized by a human before it ships. You get real, considered feedback — not a chatbot reply.</div></div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-q">What if I disagree with the audit?<span class="faq-icon"></span></button>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span class="q-no">05</span>
+          <span class="faq-q-text">What if I disagree with the audit?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
         <div class="faq-a"><div class="faq-a-inner">Push back. Beta is built on feedback. Every report ends with a direct line to submit notes: what was lethal, what missed, what you're actually executing. We learn faster when you do.</div></div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Will my photos be shared anywhere?<span class="faq-icon"></span></button>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span class="q-no">06</span>
+          <span class="faq-q-text">Will my photos be shared anywhere?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
         <div class="faq-a"><div class="faq-a-inner">Never. Your photos are used to build your audit and nothing else. They aren't posted, sold, or used as marketing material without explicit written consent. Full stop.</div></div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-q">What if I'm short, bald, or out of shape?<span class="faq-icon"></span></button>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span class="q-no">07</span>
+          <span class="faq-q-text">What if I'm short, bald, or out of shape?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
         <div class="faq-a"><div class="faq-a-inner">That's exactly the audience. BroGrade focuses on what you can change, fast: fit, hair architecture, grooming, posture, photos, and training direction. Genetic traits aren't the lever. Execution is.</div></div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Refund policy?<span class="faq-icon"></span></button>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span class="q-no">08</span>
+          <span class="faq-q-text">Refund policy?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
         <div class="faq-a"><div class="faq-a-inner">Audits are personalized work delivered as a digital file, so all sales are final. If your photos are unusable, we'll request retakes before charging.</div></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ===== WAITLIST ===== -->
-<section class="waitlist" id="waitlist">
+<!-- ===== VI. WAITLIST ===== -->
+<section class="waitlist section" id="waitlist">
   <div class="wrap">
-    <div class="eyebrow">Waitlist</div>
-    <h2>Beta is limited. <span class="accent">Hold a spot.</span></h2>
-    <p class="lead">When the current cohort closes, the next round opens by waitlist only. Drop your email — we'll send the link before public release.</p>
-    <form class="waitlist-form" action="https://formsubmit.co/getbrograde@gmail.com" method="POST" id="waitlist-form">
+    <div class="chapter reveal">
+      <span class="rule"></span>
+      <span class="roman">VI.</span>
+      <span>The waitlist</span>
+      <span class="rule"></span>
+    </div>
+    <h2 class="reveal">Beta is limited. <span class="accent">Hold a spot.</span></h2>
+    <p class="waitlist-lead reveal">When the current cohort closes, the next round opens by waitlist only. Drop your email and we'll send the link before public release.</p>
+
+    <form class="waitlist-form reveal" action="https://formsubmit.co/getbrograde@gmail.com" method="POST" id="waitlist-form" novalidate>
       <input type="hidden" name="_subject" value="New BroGrade waitlist signup">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://brograde.com/#waitlist-success">
-      <input type="email" name="email" placeholder="you@email.com" required autocomplete="email"/>
+      <label for="wl-email" class="sr-only">Email address</label>
+      <input type="email" id="wl-email" name="email" placeholder="you@email.com" required autocomplete="email"/>
       <button type="submit" class="btn btn-primary">
         Join waitlist
-        <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </form>
-    <div class="waitlist-note">No spam. One email when the next cohort opens.</div>
-    <div class="waitlist-success" id="waitlist-success">You're on the list. We'll be in touch when the next cohort opens.</div>
+    <p class="waitlist-note">No spam · One email when the next cohort opens</p>
+    <div class="waitlist-success" id="waitlist-success" role="status">You're on the list. We'll be in touch when the next cohort opens.</div>
   </div>
 </section>
 
-<!-- ===== FINAL CTA ===== -->
-<section class="final-cta">
-  <div class="wrap final-cta-inner">
-    <img src="assets/logo-mark.png" alt="BroGrade"/>
-    <h2>Upload yourself.<br/><span class="accent">Get graded. Get upgraded.</span></h2>
-    <p>The first version of you was random. The next one is intentional. BroGrade gets you there in a week.</p>
-    <a href="#pricing" class="btn btn-primary">
-      Get the beta audit
-      <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+<!-- ===== VII. FINAL ===== -->
+<section class="final section">
+  <div class="wrap">
+    <div class="chapter reveal">
+      <span class="rule"></span>
+      <span class="roman">VII.</span>
+      <span>The mark</span>
+      <span class="rule"></span>
+    </div>
+    <div class="final-mark reveal" data-delay="100">
+      <img src="assets/logo-mark.png" alt="BroGrade"/>
+    </div>
+    <h2 class="reveal" data-delay="200">Upload yourself.<br/><span class="accent">Get graded. Get upgraded.</span></h2>
+    <p class="reveal" data-delay="300">The first version of you was random. The next one is intentional. BroGrade gets you there in a week.</p>
+    <div class="reveal" data-delay="400">
+      <a href="#pricing" class="btn btn-primary btn-lg">
+        Get the beta audit
+        <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="final-colophon reveal" data-delay="500">
+      <span class="rule"></span>
+      <span>BroGrade · Volume 01 · 2026</span>
+      <span class="rule"></span>
+    </div>
   </div>
 </section>
+
+</main>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
@@ -946,8 +1790,9 @@ body {
       <div class="footer-col">
         <h4>Product</h4>
         <ul>
-          <li><a href="#what">What you get</a></li>
-          <li><a href="#how">How it works</a></li>
+          <li><a href="#pillars">Pillars</a></li>
+          <li><a href="#report">Report</a></li>
+          <li><a href="#method">Method</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#waitlist">Waitlist</a></li>
         </ul>
@@ -957,8 +1802,8 @@ body {
         <ul>
           <li><a href="mailto:getbrograde@gmail.com">Contact</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="/privacy">Privacy</a></li>
-          <li><a href="/terms">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -972,29 +1817,79 @@ body {
     </div>
     <div class="footer-base">
       <span>© <span id="year">2026</span> BroGrade. All rights reserved.</span>
-      <span>Made for guys who want it dialed in.</span>
+      <span class="ital">Made for men who want it dialled in.</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // year stamp
+  // Year stamp
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Nav shrink
+  const nav = document.getElementById('nav');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        nav.classList.toggle('scrolled', window.scrollY > 24);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
-      btn.parentElement.classList.toggle('open');
+      const item = btn.parentElement;
+      const open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   });
 
-  // scroll reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // Reveal on scroll
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
 
-  // waitlist optimistic UI (still submits to FormSubmit)
+  // Score counters
+  const countEls = document.querySelectorAll('[data-count]');
+  if ('IntersectionObserver' in window) {
+    const co = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseFloat(el.dataset.count);
+        const dur = 1400;
+        const start = performance.now();
+        const suffix = el.querySelector('.of')?.outerHTML || '';
+        function tick(now) {
+          const t = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const val = (target * eased).toFixed(1);
+          el.innerHTML = val + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        co.unobserve(el);
+      });
+    }, { threshold: 0.55 });
+    countEls.forEach(el => co.observe(el));
+  }
+
+  // Waitlist optimistic UI
   const form = document.getElementById('waitlist-form');
   form?.addEventListener('submit', () => {
     setTimeout(() => {
