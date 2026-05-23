@@ -7,16 +7,16 @@
 <meta name="color-scheme" content="dark"/>
 
 <title>BroGrade | Private Appearance Audit for Men</title>
-<meta name="description" content="Upload body, face/hair, and outfit photos. Get a private men's appearance audit with style, grooming, physique, photo feedback, shopping list, and a 7-day plan."/>
+<meta name="description" content="Upload body, face/hair, and outfit photos. Get a private men's appearance audit with style, grooming, physique, photo feedback, shopping list, and a 7-day upgrade plan."/>
 
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="BroGrade | Private Appearance Audit for Men"/>
-<meta property="og:description" content="Upload body, face/hair, and outfit photos. Get a private men's appearance audit with style, grooming, physique, photo feedback, shopping list, and a 7-day plan."/>
+<meta property="og:description" content="Upload body, face/hair, and outfit photos. Get a private men's appearance audit with style, grooming, physique, photo feedback, shopping list, and a 7-day upgrade plan."/>
 <meta property="og:image" content="assets/logo-horizontal.png"/>
 <meta property="og:url" content="https://brograde.com/"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="BroGrade | Private Appearance Audit for Men"/>
-<meta name="twitter:description" content="Private men's appearance audit covering style, hair, grooming, physique, photos, shopping priorities, and a 7-day plan."/>
+<meta name="twitter:description" content="Private men's appearance audit covering style, hair, grooming, physique, photos, shopping priorities, and a 7-day upgrade plan."/>
 
 <link rel="icon" type="image/png" href="assets/logo-mark.png"/>
 <link rel="apple-touch-icon" href="assets/logo-mark.png"/>
@@ -51,7 +51,7 @@
         "@id": "https://brograde.com/#organization"
       },
       "areaServed": "Canada",
-      "description": "A private men's appearance audit covering style, hair, grooming, physique, photos, shopping priorities, and a 7-day plan.",
+      "description": "A private men's appearance audit covering style, hair, grooming, physique, photos, shopping priorities, and a 7-day upgrade plan.",
       "offers": {
         "@type": "Offer",
         "price": "19",
@@ -395,8 +395,8 @@ body::before {
 .nav-links { display: none; align-items: center; justify-content: center; gap: 30px; }
 .nav-links a {
   font-family: var(--mono);
-  font-size: 12px; font-weight: 500;
-  letter-spacing: 0.10em; text-transform: uppercase;
+  font-size: 12.5px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--rev-4);
   transition: color var(--dur-1) var(--ease-out);
   position: relative; padding: 6px 0;
@@ -548,6 +548,18 @@ body::before {
   animation-delay: 660ms;
 }
 
+.hero-assurance {
+  margin-top: -12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rev-4);
+  animation: fade-up 700ms var(--ease-out) both;
+  animation-delay: 720ms;
+}
+
 .hero-trust-card {
   display: grid;
   grid-template-columns: 1fr;
@@ -604,6 +616,11 @@ body::before {
     width: 100%;
     max-width: 28ch;
     font-size: 14.5px;
+  }
+  .hero-assurance {
+    max-width: 24ch;
+    line-height: 1.5;
+    text-align: center;
   }
   .hero-trust-card {
     width: 100%;
@@ -990,7 +1007,11 @@ body::before {
 }
 .method::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.65 0 0 0 0 0.60 0 0 0 0 0.50 0 0 0 0.10 0'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>");
+  background-image:
+    linear-gradient(rgba(11,12,18,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11,12,18,0.025) 1px, transparent 1px),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.65 0 0 0 0 0.60 0 0 0 0 0.50 0 0 0 0.10 0'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>");
+  background-size: 44px 44px, 44px 44px, 180px 180px;
   opacity: 0.6; mix-blend-mode: multiply;
 }
 
@@ -1010,6 +1031,13 @@ body::before {
               border-color var(--dur-2) var(--ease-out);
   overflow: hidden;
   isolation: isolate;
+}
+.step::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--blue);
+  opacity: 0.75;
 }
 .step::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
@@ -1135,16 +1163,21 @@ body::before {
 @media (min-width: 768px) { .pricing { padding: 140px 0; } }
 .pricing::before {
   content: ""; position: absolute; inset: 0; z-index: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.65 0 0 0 0 0.60 0 0 0 0 0.50 0 0 0 0.10 0'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>");
+  background-image:
+    linear-gradient(rgba(11,12,18,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11,12,18,0.025) 1px, transparent 1px),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.65 0 0 0 0 0.60 0 0 0 0 0.50 0 0 0 0.10 0'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>");
+  background-size: 44px 44px, 44px 44px, 180px 180px;
   opacity: 0.6; mix-blend-mode: multiply; pointer-events: none;
 }
 .pricing .wrap { position: relative; z-index: 1; }
 
 .pricing-card {
-  max-width: 620px; margin: 0 auto;
+  max-width: 680px; margin: 0 auto;
   background: var(--paper);
-  border: 1px solid var(--rule-l);
-  border-radius: var(--r-4);
+  border: 1px solid var(--rule-l-2);
+  border-left: 3px solid var(--blue);
+  border-radius: var(--r-2);
   padding: 56px 40px;
   position: relative;
   box-shadow: 0 48px 120px rgba(11, 12, 18, 0.08);
@@ -1178,9 +1211,9 @@ body::before {
 }
 .pricing-card h3 .accent { font-weight: 400; color: var(--blue); letter-spacing: -0.02em; }
 .pricing-desc {
-  color: var(--ink-3); font-size: 15px; line-height: 1.65;
+  color: var(--ink-3); font-size: 15.5px; line-height: 1.65;
   margin-bottom: 32px;
-  max-width: 50ch;
+  max-width: 58ch;
 }
 
 .pricing-price {
@@ -1232,7 +1265,7 @@ body::before {
 .pricing-fine {
   text-align: center; margin-top: 18px;
   font-family: var(--mono);
-  font-size: 10px; letter-spacing: 0.20em;
+  font-size: 11px; letter-spacing: 0.12em;
   color: var(--ink-4); text-transform: uppercase;
   font-weight: 500;
 }
@@ -1575,20 +1608,20 @@ body::before {
 
 .footer-brand img { height: 30px; width: auto; margin-bottom: 18px; }
 .footer-brand p {
-  font-size: 14px; color: var(--rev-5); line-height: 1.65;
+  font-size: 14.5px; color: var(--rev-4); line-height: 1.65;
   max-width: 280px;
 }
 
 .footer-col h4 {
   font-family: var(--mono);
-  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--rev-4); font-weight: 600;
   margin-bottom: 18px;
 }
 .footer-col ul { list-style: none; }
 .footer-col li { margin-bottom: 12px; }
 .footer-col a {
-  color: var(--rev-5); font-size: 14px;
+  color: var(--rev-4); font-size: 14.5px;
   transition: color var(--dur-1) var(--ease-out);
 }
 .footer-col a:hover { color: var(--rev-1); }
@@ -2318,7 +2351,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
     </div>
 
     <h1>
-      <span class="line preline"><span>Private appearance audit for men.</span></span>
+      <span class="line preline"><span>Private Appearance Audit for Men</span></span>
       <span class="line"><span>Stop guessing</span></span>
       <span class="line"><span class="accent">what's hurting your look.</span></span>
     </h1>
@@ -2332,6 +2365,8 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       </a>
       <a href="#carousel" class="btn btn-ghost btn-lg">View sample report</a>
     </div>
+
+    <p class="hero-assurance">No subscription. Pay once. Private report.</p>
 
     <div class="hero-trust-card" aria-label="Privacy and trust">
       <div class="trust-kicker">Private by default</div>
@@ -2373,12 +2408,12 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         <p>A realistic baseline scorecard with the exact weak points, fastest wins, and execution order called out plainly.</p>
       </div>
       <div class="sample-feature-main">
-        <h3>One readable preview before the detailed cards.</h3>
+        <h3>The first page shows what helps, what hurts, and what to fix first.</h3>
         <ul class="sample-feature-list">
           <li><b>What helps:</b> solid hair shape, good neutral palette, strong shoulder line.</li>
           <li><b>What hurts:</b> pant break, flat lighting, baggy shirt torso, weak profile angle.</li>
           <li><b>First fixes:</b> tailor hem, copy-paste barber script, window-light retakes.</li>
-          <li><b>What you leave with:</b> scorecard, shopping list, 7-day plan, 30-day direction.</li>
+          <li><b>What you leave with:</b> scorecard, shopping list, 7-day upgrade plan, 30-day direction.</li>
         </ul>
         <div class="sample-feature-actions">
           <a href="#carousel-track" class="btn btn-ghost">Open sample report preview</a>
@@ -2915,7 +2950,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         <span>BroGrade Beta Audit</span>
       </div>
       <h3>The full <span class="accent">appearance audit</span></h3>
-      <p class="pricing-desc">Personalized to your photos, build, and target aesthetic. Delivered as a private PDF report within 24&ndash;72 hours of payment confirmation.</p>
+      <p class="pricing-desc">Personalized to your photos, build, and target aesthetic. Your private PDF is delivered within 24&ndash;72 hours of payment confirmation.</p>
 
       <div class="pricing-price">
         <span class="num">$19</span>
