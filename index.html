@@ -6,17 +6,101 @@
 <meta name="theme-color" content="#08090C"/>
 <meta name="color-scheme" content="dark"/>
 
-<title>BroGrade · Vol. 01 · Upload yourself. Get graded.</title>
-<meta name="description" content="A personalized appearance audit for men. Style, hair, grooming, physique, and photos, graded honestly. A clear upgrade plan delivered in 24 to 72 hours. $19 CAD beta audit."/>
+<title>BroGrade | Private Appearance Audit for Men</title>
+<meta name="description" content="Upload body, face/hair, and outfit photos. Get a private men's appearance audit with style, grooming, physique, photo feedback, shopping list, and a 7-day plan."/>
 
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="BroGrade · Vol. 01 · Upload yourself. Get graded."/>
-<meta property="og:description" content="A personalized appearance audit for men. Style, hair, physique, grooming, photos. Vol. 01 beta cohort open."/>
+<meta property="og:title" content="BroGrade | Private Appearance Audit for Men"/>
+<meta property="og:description" content="Upload body, face/hair, and outfit photos. Get a private men's appearance audit with style, grooming, physique, photo feedback, shopping list, and a 7-day plan."/>
 <meta property="og:image" content="assets/logo-horizontal.png"/>
+<meta property="og:url" content="https://brograde.com/"/>
 <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="BroGrade | Private Appearance Audit for Men"/>
+<meta name="twitter:description" content="Private men's appearance audit covering style, hair, grooming, physique, photos, shopping priorities, and a 7-day plan."/>
 
 <link rel="icon" type="image/png" href="assets/logo-mark.png"/>
 <link rel="apple-touch-icon" href="assets/logo-mark.png"/>
+<link rel="canonical" href="https://brograde.com/"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://brograde.com/#organization",
+      "name": "BroGrade",
+      "url": "https://brograde.com/",
+      "logo": "https://brograde.com/assets/logo-horizontal.png",
+      "sameAs": [
+        "https://instagram.com/brograde",
+        "https://tiktok.com/@brograde"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "getbrograde@gmail.com",
+        "contactType": "customer support"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://brograde.com/#service",
+      "name": "BroGrade Private Appearance Audit",
+      "serviceType": "Private appearance audit for men",
+      "provider": {
+        "@id": "https://brograde.com/#organization"
+      },
+      "areaServed": "Canada",
+      "description": "A private men's appearance audit covering style, hair, grooming, physique, photos, shopping priorities, and a 7-day plan.",
+      "offers": {
+        "@type": "Offer",
+        "price": "19",
+        "priceCurrency": "CAD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://brograde.com/#pricing"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://brograde.com/#faq-schema",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What photos do I need to submit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A clear front body photo, a side body photo, a face and hair photo, and one to five recent outfit photos. Optional but useful: a back body photo and a few wardrobe shots."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after I pay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You submit the form, complete the $19 CAD payment link, and your photos are reviewed against your goal. Your private PDF report is emailed within 24 to 72 hours of payment confirmation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will my photos be shared anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Your photos are used to build your audit and nothing else. They are not posted, sold, or used as marketing material without explicit written consent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the audit AI-generated or written by a person?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a hybrid: trained visual judgement plus AI-assisted speed. Every audit is reviewed and finalized by a person before it is delivered."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <script>document.documentElement.classList.replace('no-js','js')</script>
 
@@ -295,7 +379,7 @@ body::before {
 .nav {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 50;
-  padding: 16px 0;
+  padding: 18px 0;
   background: rgba(10, 11, 17, 0.66);
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
@@ -303,16 +387,16 @@ body::before {
   transition: padding var(--dur-2) var(--ease-out),
               background var(--dur-2) var(--ease-out);
 }
-.nav.scrolled { padding: 10px 0; background: rgba(10, 11, 17, 0.86); }
+.nav.scrolled { padding: 11px 0; background: rgba(10, 11, 17, 0.86); }
 .nav .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
 .nav-logo { display: flex; align-items: center; gap: 12px; }
-.nav-logo img { height: 78px; width: auto; transition: height var(--dur-2) var(--ease-out); margin: -24px 0; }
-.nav.scrolled .nav-logo img { height: 50px; margin: -10px 0; }
-.nav-links { display: none; align-items: center; justify-content: center; gap: 28px; }
+.nav-logo img { height: 86px; width: auto; transition: height var(--dur-2) var(--ease-out); margin: -26px 0; }
+.nav.scrolled .nav-logo img { height: 56px; margin: -12px 0; }
+.nav-links { display: none; align-items: center; justify-content: center; gap: 30px; }
 .nav-links a {
   font-family: var(--mono);
-  font-size: 11px; font-weight: 500;
-  letter-spacing: 0.16em; text-transform: uppercase;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.10em; text-transform: uppercase;
   color: var(--rev-4);
   transition: color var(--dur-1) var(--ease-out);
   position: relative; padding: 6px 0;
@@ -327,9 +411,23 @@ body::before {
 .nav-links a:hover::after { left: 0; right: 0; }
 .nav-cta { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
 .nav-cta .btn-quiet { display: none; }
+.nav-cta .btn { padding: 13px 18px; }
 @media (min-width: 920px) {
   .nav-links { display: flex; }
   .nav-cta .btn-quiet { display: inline-flex; }
+}
+@media (max-width: 560px) {
+  .nav { padding: 14px 0; }
+  .nav.scrolled { padding: 9px 0; }
+  .nav .wrap { gap: 12px; padding: 0 16px; }
+  .nav-logo img { height: 54px; margin: -12px 0; }
+  .nav.scrolled .nav-logo img { height: 44px; margin: -8px 0; }
+  .nav-cta .btn { padding: 10px 12px; font-size: 12px; }
+}
+@media (max-width: 420px) {
+  .nav-cta .btn .arrow { display: none; }
+  .nav-logo img { height: 48px; }
+  .nav-cta .btn { padding: 9px 10px; font-size: 11px; }
 }
 
 /* ============================================================
@@ -404,7 +502,8 @@ body::before {
   line-height: 0.98;
   letter-spacing: -0.04em;
   color: var(--rev-1);
-  max-width: 16ch;
+  max-width: 18ch;
+  width: 100%;
   text-wrap: balance;
 }
 .hero h1 .line { display: block; overflow: hidden; padding: 0.06em 0.04em; }
@@ -415,6 +514,16 @@ body::before {
 }
 .hero h1 .line:nth-of-type(1) > span { animation-delay: 220ms; }
 .hero h1 .line:nth-of-type(2) > span { animation-delay: 380ms; }
+.hero h1 .line:nth-of-type(3) > span { animation-delay: 500ms; }
+.hero h1 .preline > span {
+  font-family: var(--mono);
+  font-size: clamp(13px, 1.45vw, 18px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-2);
+  margin-bottom: 6px;
+}
 .hero h1 .accent {
   font-weight: 400;
   color: var(--blue-2);
@@ -425,6 +534,7 @@ body::before {
   font-size: clamp(15px, 1.9vw, 18px);
   line-height: 1.6;
   color: var(--rev-3);
+  width: min(100%, 54ch);
   max-width: 54ch;
   font-weight: 400;
   text-wrap: pretty;
@@ -436,6 +546,74 @@ body::before {
   display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
   animation: fade-up 700ms var(--ease-out) both;
   animation-delay: 660ms;
+}
+
+.hero-trust-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  max-width: 680px;
+  width: min(100%, 680px);
+  padding: 16px 18px;
+  text-align: left;
+  background: rgba(244, 239, 229, 0.035);
+  border: 1px solid rgba(244, 239, 229, 0.14);
+  border-left: 2px solid var(--blue-2);
+  border-radius: var(--r-2);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.22);
+  animation: fade-up 700ms var(--ease-out) both;
+  animation-delay: 760ms;
+}
+.hero-trust-card .trust-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue-2);
+}
+.hero-trust-card p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--rev-3);
+}
+.hero-trust-card p { overflow-wrap: anywhere; }
+@media (min-width: 680px) {
+  .hero-trust-card { grid-template-columns: auto 1fr; align-items: center; gap: 18px; padding: 17px 22px; }
+  .hero-trust-card .trust-kicker { white-space: nowrap; }
+}
+@media (max-width: 560px) {
+  .hero { padding: 134px 0 76px; }
+  .cover-meta { gap: 14px; margin-bottom: 32px; }
+  .cover-meta .rule { display: none; }
+  .cover-meta .label.copper { flex-basis: 100%; text-align: center; }
+  .tag-pill { padding: 7px 12px; font-size: 10px; letter-spacing: 0.12em; }
+  .hero-inner { gap: 24px; }
+  .hero h1 {
+    font-size: clamp(38px, 10vw, 40px);
+    max-width: 9.8ch;
+  }
+  .hero h1 .line { overflow: visible; }
+  .hero h1 .preline > span {
+    max-width: 30ch;
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: 0.09em;
+  }
+  .hero-lead {
+    width: 100%;
+    max-width: 28ch;
+    font-size: 14.5px;
+  }
+  .hero-trust-card {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 17px;
+  }
+  .hero-trust-card p {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
 }
 
 .hero-fact-row {
@@ -479,7 +657,7 @@ body::before {
    ============================================================ */
 .marquee {
   position: relative;
-  padding: 32px 0;
+  padding: 22px 0;
   border-top: 1px solid var(--rule-d);
   border-bottom: 1px solid var(--rule-d);
   overflow: hidden;
@@ -488,16 +666,16 @@ body::before {
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
 }
 .marquee-track {
-  display: flex; align-items: center; gap: 56px;
+  display: flex; align-items: center; gap: 44px;
   width: max-content;
   animation: marquee 42s linear infinite;
 }
-@media (max-width: 640px) { .marquee-track { gap: 36px; animation-duration: 28s; } }
+@media (max-width: 640px) { .marquee { padding: 16px 0; } .marquee-track { gap: 28px; animation-duration: 28s; } }
 .marquee-item {
-  display: flex; align-items: center; gap: 56px;
+  display: flex; align-items: center; gap: 44px;
   font-family: var(--sans);
   font-weight: 700;
-  font-size: clamp(26px, 4vw, 46px);
+  font-size: clamp(22px, 3.2vw, 36px);
   letter-spacing: -0.025em;
   color: var(--rev-2);
 }
@@ -823,8 +1001,8 @@ body::before {
 
 .step {
   background: var(--paper);
-  border: 1px solid var(--rule-l);
-  border-radius: var(--r-4);
+  border: 1px solid var(--rule-l-2);
+  border-radius: var(--r-2);
   padding: 36px 30px;
   position: relative;
   transition: transform var(--dur-2) var(--ease-out),
@@ -977,7 +1155,7 @@ body::before {
 .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 56px 140px rgba(11, 12, 18, 0.12); }
 
 .pricing-card::before {
-  content: "VOL. 01 · LIMITED COHORT";
+  content: "VOL. 01 · BETA PRICING · $19 CAD";
   position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
   background: var(--ink-1); color: var(--cream);
   font-family: var(--mono);
@@ -1256,23 +1434,23 @@ body::before {
 .faq-item.open .faq-a { max-height: 480px; }
 
 /* ============================================================
-   WAITLIST
+   COHORT CTA
    ============================================================ */
-.waitlist {
+.cohort-section {
   padding: 100px 0;
   position: relative; overflow: hidden;
   isolation: isolate;
 }
-@media (min-width: 768px) { .waitlist { padding: 140px 0; } }
-.waitlist::before {
+@media (min-width: 768px) { .cohort-section { padding: 140px 0; } }
+.cohort-section::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background:
     radial-gradient(ellipse 70% 100% at 50% 50%, var(--blue-soft), transparent 70%),
     linear-gradient(180deg, var(--obsidian) 0%, var(--obsidian-1) 100%);
 }
-.waitlist .wrap { max-width: 700px; text-align: center; }
-.waitlist .chapter { justify-content: center; }
-.waitlist h2 {
+.cohort-section .wrap { max-width: 700px; text-align: center; }
+.cohort-section .chapter { justify-content: center; }
+.cohort-section h2 {
   font-family: var(--sans); font-weight: 800;
   font-size: clamp(34px, 5vw, 56px);
   line-height: 1.05;
@@ -1281,61 +1459,37 @@ body::before {
   margin: 18px 0 18px;
   text-wrap: balance;
 }
-.waitlist h2 .accent { font-weight: 400; color: var(--blue-2); letter-spacing: -0.03em; }
-.waitlist-lead {
+.cohort-section h2 .accent { font-weight: 400; color: var(--blue-2); letter-spacing: -0.03em; }
+.cohort-lead {
   font-size: 17px; color: var(--rev-4);
   margin-bottom: 36px; line-height: 1.6;
 }
-
-.waitlist-form {
-  display: flex; gap: 6px; padding: 6px;
-  background: rgba(244, 239, 229, 0.04);
+.cohort-cta {
+  display: flex;
+  justify-content: center;
+}
+.cohort-points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 28px;
+}
+.cohort-points span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 12px;
   border: 1px solid var(--rule-d-2);
   border-radius: var(--r-2);
-  max-width: 460px; margin: 0 auto;
-  transition: border-color var(--dur-2) var(--ease-out),
-              box-shadow var(--dur-3) var(--ease-out);
-}
-.waitlist-form:focus-within {
-  border-color: var(--blue-1);
-  box-shadow: 0 0 0 4px var(--blue-soft);
-}
-.waitlist-form input {
-  flex: 1; min-width: 0;
-  background: none; border: none; outline: none;
-  color: var(--rev-1); font-size: 15px; padding: 12px 14px;
-  font-family: var(--sans);
-  border-radius: var(--r-1);
-  letter-spacing: -0.005em;
-}
-.waitlist-form input::placeholder { color: var(--rev-5); }
-.waitlist-form button { padding: 12px 20px; }
-@media (max-width: 480px) {
-  .waitlist-form { flex-direction: column; padding: 8px; gap: 8px; }
-  .waitlist-form button { width: 100%; justify-content: center; }
-}
-
-.waitlist-note {
-  margin-top: 16px;
+  background: rgba(244,239,229,0.035);
   font-family: var(--mono);
-  font-size: 11px; color: var(--rev-5);
-  letter-spacing: 0.10em;
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rev-3);
 }
-.waitlist-success {
-  display: none;
-  margin-top: 24px;
-  padding: 16px 22px;
-  background: rgba(86, 134, 248, 0.08);
-  border: 1px solid rgba(86, 134, 248, 0.30);
-  border-radius: var(--r-2);
-  color: var(--blue-3);
-  font-size: 14px;
-  max-width: 460px; margin-left: auto; margin-right: auto;
-  font-family: var(--mono);
-  letter-spacing: 0.04em;
-}
-.waitlist-success.show { display: block; animation: fade-up 400ms var(--ease-out); }
 
 /* ============================================================
    FINAL
@@ -1546,7 +1700,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 
 .carousel-track-wrap {
   position: relative;
-  margin-top: 72px;
+  margin-top: 52px;
   overflow: hidden;
 }
 .carousel-track-wrap::before,
@@ -1579,14 +1733,19 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 
 .carousel-slide {
   flex-shrink: 0;
-  width: clamp(280px, 40vw, 400px);
+  width: clamp(300px, 42vw, 440px);
   scroll-snap-align: center;
   background: var(--obsidian-1);
   border: 1px solid var(--rule-d-2);
-  border-radius: var(--r-4);
+  border-radius: var(--r-3);
   overflow: hidden;
-  transition: transform 400ms var(--ease-out), box-shadow 400ms var(--ease-out), border-color 300ms;
+  transition: width 420ms var(--ease-out), transform 400ms var(--ease-out), box-shadow 400ms var(--ease-out), border-color 300ms;
   position: relative;
+}
+.carousel-slide.expanded {
+  width: clamp(320px, 66vw, 620px);
+  border-color: rgba(86,134,248,0.34);
+  box-shadow: 0 36px 90px rgba(0,0,0,0.56), 0 0 0 1px rgba(86,134,248,0.14);
 }
 .carousel-slide:hover {
   transform: translateY(-6px) scale(1.01);
@@ -1611,7 +1770,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   color: var(--blue-2);
 }
 
-.cs-body { padding: 28px 22px; }
+.cs-body { padding: 30px 26px; }
 
 .cs-score-row {
   display: flex; align-items: baseline; gap: 12px;
@@ -1644,8 +1803,8 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 .cs-bar-group { margin-bottom: 18px; }
 .cs-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
 .cs-bar-name {
-  font-size: 12px; color: var(--rev-3); font-weight: 500;
-  width: 80px; flex-shrink: 0;
+  font-size: 13px; color: var(--rev-3); font-weight: 500;
+  width: 92px; flex-shrink: 0;
 }
 .cs-bar-track {
   flex: 1; height: 4px; border-radius: 99px;
@@ -1673,12 +1832,35 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 }
 
 .cs-finding {
-  font-size: 13px; line-height: 1.6; color: var(--rev-4);
+  font-size: 14px; line-height: 1.65; color: var(--rev-3);
   padding-top: 16px;
   border-top: 1px solid var(--rule-d);
   margin-top: 16px;
 }
 .cs-finding b { color: var(--rev-2); font-weight: 600; }
+.carousel-slide.expanded .cs-finding {
+  font-size: 15px;
+  color: var(--rev-2);
+}
+
+.cs-expand {
+  width: 100%;
+  padding: 14px 22px;
+  border-top: 1px solid var(--rule-d);
+  background: rgba(244,239,229,0.018);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue-2);
+  transition: background 200ms var(--ease-out), color 200ms var(--ease-out);
+}
+.cs-expand:hover,
+.cs-expand:focus-visible {
+  background: var(--blue-soft);
+  color: var(--rev-1);
+}
 
 .cs-tag-row {
   display: flex; gap: 6px; flex-wrap: wrap;
@@ -1707,6 +1889,93 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 .carousel-dot.active {
   background: var(--blue-2);
   width: 20px; border-radius: 3px;
+}
+
+.sample-feature {
+  max-width: 1168px;
+  margin: -8px auto 18px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(244,239,229,0.045), rgba(244,239,229,0.018));
+  border: 1px solid var(--rule-d-2);
+  border-radius: var(--r-3);
+  box-shadow: 0 32px 90px rgba(0,0,0,0.28);
+}
+@media (min-width: 900px) { .sample-feature { grid-template-columns: 0.95fr 1.4fr; } }
+.sample-feature-aside {
+  padding: 30px;
+  border-bottom: 1px solid var(--rule-d);
+  background:
+    linear-gradient(180deg, rgba(86,134,248,0.12), transparent),
+    rgba(5,6,9,0.26);
+}
+@media (min-width: 900px) { .sample-feature-aside { border-bottom: none; border-right: 1px solid var(--rule-d); } }
+.sample-feature-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--blue-2);
+  margin-bottom: 16px;
+}
+.sample-feature-score {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(52px, 7vw, 86px);
+  line-height: 0.95;
+  color: var(--rev-1);
+  letter-spacing: -0.05em;
+  margin-bottom: 12px;
+}
+.sample-feature-score span {
+  font-size: 20px;
+  color: var(--rev-5);
+  letter-spacing: -0.02em;
+}
+.sample-feature-aside p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--rev-3);
+  max-width: 36ch;
+}
+.sample-feature-main {
+  padding: 30px;
+}
+.sample-feature-main h3 {
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--rev-1);
+  margin-bottom: 18px;
+}
+.sample-feature-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+@media (min-width: 680px) { .sample-feature-list { grid-template-columns: 1fr 1fr; } }
+.sample-feature-list li {
+  padding: 14px 15px;
+  border: 1px solid var(--rule-d);
+  border-radius: var(--r-2);
+  background: rgba(5,6,9,0.18);
+  color: var(--rev-3);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.sample-feature-list b {
+  color: var(--rev-1);
+  font-weight: 650;
+}
+.sample-feature-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 /* ============================================================
@@ -2021,7 +2290,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
     </div>
     <div class="nav-cta">
       <a href="#pricing" class="btn btn-primary">
-        Start audit
+        Start my $19 beta audit
         <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
@@ -2049,11 +2318,12 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
     </div>
 
     <h1>
+      <span class="line preline"><span>Private appearance audit for men.</span></span>
       <span class="line"><span>Stop guessing</span></span>
       <span class="line"><span class="accent">what's hurting your look.</span></span>
     </h1>
 
-    <p class="hero-lead">Upload your body, face, and outfit photos. Get a private BroGrade report showing what helps, what hurts, and the exact fixes to make this week.</p>
+    <p class="hero-lead">Upload your body, face/hair, and outfit photos. Get a private BroGrade report showing what helps, what hurts, and the exact fixes to make this week.</p>
 
     <div class="hero-ctas">
       <a href="https://forms.gle/s58S8b6sq6drfv188" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
@@ -2063,15 +2333,10 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       <a href="#carousel" class="btn btn-ghost btn-lg">View sample report</a>
     </div>
 
-    <p class="hero-trust" aria-label="Trust signals">
-      <span>Private report</span>
-      <span class="sep">·</span>
-      <span>24&ndash;72h delivery</span>
-      <span class="sep">·</span>
-      <span>Photos used only for your audit</span>
-      <span class="sep">·</span>
-      <span>18+ only</span>
-    </p>
+    <div class="hero-trust-card" aria-label="Privacy and trust">
+      <div class="trust-kicker">Private by default</div>
+      <p>Photos used only for your audit. Never posted, shared, or used for marketing without permission. 18+ only.</p>
+    </div>
 
     <div class="scroll-hint" aria-hidden="true">
       <span class="sh-text">Scroll</span>
@@ -2097,8 +2362,28 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         <span class="rule"></span>
         <span>Inside the report</span>
       </div>
-      <h2>See exactly what <span class="accent">ships to you.</span></h2>
-      <p class="lead">A preview of exactly what ships to you. Scored, specific, and ready to execute on the same day you receive it.</p>
+      <h2>Preview exactly what <span class="accent">you receive.</span></h2>
+      <p class="lead">Scored, specific, and formatted like the private report you'll get.</p>
+    </div>
+
+    <div class="sample-feature reveal" data-delay="100">
+      <div class="sample-feature-aside">
+        <div class="sample-feature-kicker">Sample report preview</div>
+        <div class="sample-feature-score">6.4<span>/10</span></div>
+        <p>A realistic baseline scorecard with the exact weak points, fastest wins, and execution order called out plainly.</p>
+      </div>
+      <div class="sample-feature-main">
+        <h3>One readable preview before the detailed cards.</h3>
+        <ul class="sample-feature-list">
+          <li><b>What helps:</b> solid hair shape, good neutral palette, strong shoulder line.</li>
+          <li><b>What hurts:</b> pant break, flat lighting, baggy shirt torso, weak profile angle.</li>
+          <li><b>First fixes:</b> tailor hem, copy-paste barber script, window-light retakes.</li>
+          <li><b>What you leave with:</b> scorecard, shopping list, 7-day plan, 30-day direction.</li>
+        </ul>
+        <div class="sample-feature-actions">
+          <a href="#carousel-track" class="btn btn-ghost">Open sample report preview</a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -2126,6 +2411,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           </div>
           <div class="cs-finding"><b>Primary liability:</b> Photo presentation is killing a solid baseline. Lighting, angle, and composition are all fixable in one afternoon.</div>
         </div>
+        <button type="button" class="cs-expand" aria-expanded="false">Open preview</button>
       </div>
 
       <!-- Slide 2: Style Audit -->
@@ -2153,6 +2439,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
             <span class="cs-tag">Tuck test</span>
           </div>
         </div>
+        <button type="button" class="cs-expand" aria-expanded="false">Open preview</button>
       </div>
 
       <!-- Slide 3: Hair -->
@@ -2178,6 +2465,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
             <span class="cs-tag">Texture paste</span>
           </div>
         </div>
+        <button type="button" class="cs-expand" aria-expanded="false">Open preview</button>
       </div>
 
       <!-- Slide 4: Photo Audit -->
@@ -2200,6 +2488,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           </div>
           <div class="cs-finding"><b>Fix order:</b> 1. Move to window light, camera at eye level. 2. Drop the chin 5°, turn 15° off-center. 3. Shoot outdoors at golden hour. Entire session can happen this weekend.</div>
         </div>
+        <button type="button" class="cs-expand" aria-expanded="false">Open preview</button>
       </div>
 
       <!-- Slide 5: 7-Day Sprint -->
@@ -2219,6 +2508,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           </ul>
           <div class="cs-finding" style="margin-top:16px"><b>Projected score after execution:</b> 8.4–8.7 / 10. Biggest jump from photos alone: +1.8pt.</div>
         </div>
+        <button type="button" class="cs-expand" aria-expanded="false">Open preview</button>
       </div>
 
     </div><!-- /carousel-track -->
@@ -2243,21 +2533,21 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         <span>The pillars</span>
       </div>
       <h2>Every audit grades <span class="accent">the full picture.</span></h2>
-      <p class="lead">Not just outfits. Not just hair. The complete visual stack. Every variable you can move this week.</p>
+      <p class="lead">Not just outfits. Not just hair. BroGrade looks at the full picture: fit, hair, grooming, physique, posture, and photos.</p>
     </div>
 
     <div class="pillar-grid">
       <article class="pillar reveal">
         <div class="pillar-num">01</div>
         <div class="pillar-cat">Category · Style</div>
-        <h3 class="pillar-name">Outfit fit and direction</h3>
+        <h3 class="pillar-name">Style and fit direction</h3>
         <p class="pillar-desc">Garment fit, silhouette, color palette, and aesthetic cohesion graded against your target.</p>
       </article>
 
       <article class="pillar reveal" data-delay="100">
         <div class="pillar-num">02</div>
         <div class="pillar-cat">Category · Hair</div>
-        <h3 class="pillar-name">Cut and framing</h3>
+        <h3 class="pillar-name">Haircut and texture</h3>
         <p class="pillar-desc">Cut, texture, length, and styling. Plus a barber-ready script you can hand over verbatim.</p>
       </article>
 
@@ -2271,14 +2561,14 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       <article class="pillar reveal" data-delay="300">
         <div class="pillar-num">04</div>
         <div class="pillar-cat">Category · Grooming</div>
-        <h3 class="pillar-name">Facial framing</h3>
+        <h3 class="pillar-name">Face and grooming</h3>
         <p class="pillar-desc">Facial hair, skin presentation, and a baseline protocol you can run in five minutes a day.</p>
       </article>
 
       <article class="pillar reveal" data-delay="400">
         <div class="pillar-num">05</div>
         <div class="pillar-cat">Category · Photos</div>
-        <h3 class="pillar-name">Digital presence</h3>
+        <h3 class="pillar-name">Photo presence</h3>
         <p class="pillar-desc">Lighting, angle, pose, environment. The exact reasons your photos undersell you and how to retake.</p>
       </article>
     </div>
@@ -2286,7 +2576,8 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 </section>
 
 <!-- ===== II. AUDIT REPORT ===== -->
-<section class="report section" id="report">  <div class="wrap">
+<section class="report section" id="report">
+  <div class="wrap">
     <div class="report-grid">
       <div class="report-copy reveal">
         <div class="chapter">
@@ -2295,15 +2586,15 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           <span>Inside the audit</span>
         </div>
         <h2>A real report. <span class="accent">Not a chatbot reply.</span></h2>
-        <p class="lead">Every audit ships as a designed report covering your appearance scorecard, style and fit breakdown, hair and grooming direction, physique priorities, photo presence review, shopping list, and a seven-day upgrade plan. Personalized to your photos, build, and target aesthetic.</p>
+        <p class="lead">Every audit is delivered as a designed report covering your appearance scorecard, style and fit breakdown, hair and grooming direction, physique priorities, photo presence review, shopping list, and a seven-day upgrade plan. Personalized to your photos, build, and target aesthetic.</p>
         <ul class="deliv">
-          <li><span class="deliv-no">01</span><span><b>Appearance scorecard</b> across six categories</span></li>
-          <li><span class="deliv-no">02</span><span><b>Style and fit architecture</b> covering tops, pants, footwear, layering</span></li>
-          <li><span class="deliv-no">03</span><span><b>Hair plan plus barber script</b> ready to copy-paste at the chair</span></li>
-          <li><span class="deliv-no">04</span><span><b>Physique direction</b> with priority muscle groups</span></li>
-          <li><span class="deliv-no">05</span><span><b>Photo audit</b> covering lighting, angle, and pose</span></li>
-          <li><span class="deliv-no">06</span><span><b>Procurement list</b> ranked, with budget</span></li>
-          <li><span class="deliv-no">07</span><span><b>Seven-day execution sprint</b> mapped day by day</span></li>
+          <li><span class="deliv-no">01</span><span><b>Appearance scorecard</b> across key categories</span></li>
+          <li><span class="deliv-no">02</span><span><b>Style and fit breakdown</b> covering silhouette, colour, and outfit structure</span></li>
+          <li><span class="deliv-no">03</span><span><b>Hair and grooming direction</b> including a copy-paste barber script</span></li>
+          <li><span class="deliv-no">04</span><span><b>Physique and posture priorities</b> based on visual impact</span></li>
+          <li><span class="deliv-no">05</span><span><b>Photo presence review</b> covering lighting, angle, pose, and retake instructions</span></li>
+          <li><span class="deliv-no">06</span><span><b>Ranked shopping list</b> matched to your budget</span></li>
+          <li><span class="deliv-no">07</span><span><b>7-day upgrade plan</b> plus 30-day direction</span></li>
         </ul>
       </div>
 
@@ -2341,8 +2632,8 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         <span class="rule"></span>
         <span>The rubric</span>
       </div>
-      <h2>Every variable we <span class="accent">grade against you.</span></h2>
-      <p class="lead">Not vibes. Not generics. A grid of specific, observable, fixable signals. All graded in every audit.</p>
+      <h2>The rubric behind <span class="accent">every audit.</span></h2>
+      <p class="lead">Specific, observable signals we check in every audit. No vague "just be confident" advice.</p>
     </div>
 
     <div class="rubric-grid">
@@ -2352,7 +2643,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="8" height="8" rx="1"/><path d="M3 5h4M5 3v4"/></svg></div>
           Style
         </div>
-        <div class="rc-name">Outfit Fit &amp; Direction</div>
+        <div class="rc-name">Style &amp; Fit Direction</div>
         <ul class="rc-items">
           <li class="rc-item"><b>Silhouette read:</b> shoulder seam placement, torso taper</li>
           <li class="rc-item"><b>Pant break:</b> stack, hem, ankle exposure</li>
@@ -2368,7 +2659,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 1c0 0 3 2 3 5s-3 3-3 3-3 0-3-3 3-5 3-5z"/></svg></div>
           Hair
         </div>
-        <div class="rc-name">Cut &amp; Texture Architecture</div>
+        <div class="rc-name">Haircut &amp; Texture</div>
         <ul class="rc-items">
           <li class="rc-item"><b>Face-shape framing:</b> how the cut works with your bone structure</li>
           <li class="rc-item"><b>Fade taper logic:</b> guard lengths, blend zones</li>
@@ -2399,11 +2690,11 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="5" r="3.5"/><path d="M3.5 5c0-1 .5-2 1.5-2s1.5 1 1.5 2"/></svg></div>
           Grooming
         </div>
-        <div class="rc-name">Facial Framing</div>
+        <div class="rc-name">Face &amp; Grooming</div>
         <ul class="rc-items">
           <li class="rc-item"><b>Facial hair strategy:</b> beard, stubble, or clean shave graded against your face shape</li>
           <li class="rc-item"><b>Skin presentation:</b> texture, uniformity, any flags</li>
-          <li class="rc-item"><b>Eyebrow architecture:</b> shape, weight, and grooming need</li>
+          <li class="rc-item"><b>Eyebrow shape:</b> weight, cleanup, and grooming need</li>
           <li class="rc-item"><b>5-minute baseline protocol:</b> what to add this week</li>
         </ul>
         <div class="rc-verdict">Outputs: Daily protocol + beard direction + product list</div>
@@ -2414,7 +2705,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="2.5" width="7" height="5" rx="1"/><circle cx="5" cy="5" r="1.5"/></svg></div>
           Photos
         </div>
-        <div class="rc-name">Digital Presence</div>
+        <div class="rc-name">Photo Presence</div>
         <ul class="rc-items">
           <li class="rc-item"><b>Lighting read:</b> source, direction, quality, shadows</li>
           <li class="rc-item"><b>Angle and height:</b> camera position relative to face and body</li>
@@ -2430,11 +2721,11 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9l3-3 2 2 3-6"/></svg></div>
           Upgrade Plan
         </div>
-        <div class="rc-name">7-Day &amp; 30-Day Trajectory</div>
+        <div class="rc-name">7-Day Action Plan</div>
         <ul class="rc-items">
           <li class="rc-item"><b>Highest-ROI moves:</b> ranked by impact per dollar and effort</li>
           <li class="rc-item"><b>Day-by-day sprint:</b> what to do each day this week</li>
-          <li class="rc-item"><b>Procurement list:</b> items ranked, with budget guidance</li>
+          <li class="rc-item"><b>Shopping list:</b> items ranked, with budget guidance</li>
           <li class="rc-item"><b>30-day trajectory:</b> where you land if you execute</li>
         </ul>
         <div class="rc-verdict">Outputs: Action sprint + shopping list + projected score</div>
@@ -2474,9 +2765,8 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 
         <div class="founder-text reveal" data-delay="200">
           <p>I built BroGrade because I was the guy who thought he was doing fine until someone gave me one specific note. It changed everything. <b>The feedback wasn't harsh. It was precise.</b> That's the whole difference.</p>
-          <p>Most style advice is too vague to act on. "Wear better clothes." "Get a better haircut." <b>None of that tells you what's actually wrong with your look right now.</b> BroGrade does.</p>
-          <p>Every audit I write, I ask one question: if I had five minutes with this person, <b>what's the single callout that would move the needle fastest?</b> Then I find the next four. That's what ships to you.</p>
-          <p>Beta pricing exists because I'm learning as much as you are. You get an honest audit at a fraction of what this should cost. I get signal. That's the deal.</p>
+          <p>Most style advice is too vague to act on. "Wear better clothes." "Get a better haircut." <b>None of that tells you what's actually wrong with your look right now.</b></p>
+          <p>Built by someone obsessed with menswear, grooming, physique, and appearance systems. Every beta report is reviewed before it is sent, so you get specific calls instead of generic encouragement.</p>
           <div class="sig">
             <span class="rule" style="width:28px"></span>
             <span>J. Brousseau · Founder</span>
@@ -2488,50 +2778,13 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   </div>
 </section>
 
-<!-- ===== III. METHOD ===== -->
-<section class="method section" id="method">
-  <div class="wrap">
-    <div class="section-head dark center reveal">
-      <div class="chapter">
-        <span class="rule dark"></span>
-        <span class="roman dark">III.</span>
-        <span>The method</span>
-        <span class="rule dark"></span>
-      </div>
-      <h2>Three steps. <span class="accent">One personalized plan.</span></h2>
-      <p class="lead">No app to download. No subscription. Submit photos, get the audit, execute the plan.</p>
-    </div>
-
-    <div class="steps">
-      <article class="step reveal">
-        <div class="step-label">Step One</div>
-        <div class="step-num">01</div>
-        <h3>Submit your photos</h3>
-        <p>Front, side, face, and a few outfit shots. Answer a short questionnaire about your goals, environment, and target aesthetic. Takes about five minutes.</p>
-      </article>
-      <article class="step reveal" data-delay="150">
-        <div class="step-label">Step Two</div>
-        <div class="step-num">02</div>
-        <h3>We audit the full picture</h3>
-        <p>Style, hair, physique direction, grooming, and digital presence all graded against your goal. No generic advice. No fake compliments. Just specific calls.</p>
-      </article>
-      <article class="step reveal" data-delay="300">
-        <div class="step-label">Step Three</div>
-        <div class="step-num">03</div>
-        <h3>Execute the upgrade plan</h3>
-        <p>You get a personalized BroGrade report inside 24 to 72 hours. Scorecard, weak points, fastest wins, shopping list, and a seven-day action plan.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ===== WHO THIS IS FOR ===== -->
 <section class="for-section section" id="for-who">
   <div class="wrap">
     <div class="section-head center reveal">
       <div class="chapter">
         <span class="rule"></span>
-        <span class="roman">III.5</span>
+        <span class="roman">III.</span>
         <span>Is this for you?</span>
         <span class="rule"></span>
       </div>
@@ -2563,6 +2816,43 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   </div>
 </section>
 
+<!-- ===== IV. METHOD ===== -->
+<section class="method section" id="method">
+  <div class="wrap">
+    <div class="section-head dark center reveal">
+      <div class="chapter">
+        <span class="rule dark"></span>
+        <span class="roman dark">IV.</span>
+        <span>The method</span>
+        <span class="rule dark"></span>
+      </div>
+      <h2>Three steps. <span class="accent">One personalized plan.</span></h2>
+      <p class="lead">No app to download. No subscription. Submit photos, get the audit, execute the plan.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step reveal">
+        <div class="step-label">Step One</div>
+        <div class="step-num">01</div>
+        <h3>Submit your photos</h3>
+        <p>Front, side, face, and a few outfit shots. Answer a short questionnaire about your goals, environment, and target aesthetic. Takes about five minutes.</p>
+      </article>
+      <article class="step reveal" data-delay="150">
+        <div class="step-label">Step Two</div>
+        <div class="step-num">02</div>
+        <h3>We audit the full picture</h3>
+        <p>Style, hair, grooming, physique direction, photo presence, and shopping priorities are reviewed against your goal.</p>
+      </article>
+      <article class="step reveal" data-delay="300">
+        <div class="step-label">Step Three</div>
+        <div class="step-num">03</div>
+        <h3>Execute the upgrade plan</h3>
+        <p>You get a personalized BroGrade report inside 24 to 72 hours. Scorecard, weak points, fastest wins, shopping list, and a seven-day action plan.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ===== STATEMENT ===== -->
 <section class="statement section">
   <div class="wrap">
@@ -2582,7 +2872,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 </section>
 
 <!-- ===== PRIVACY STRIP ===== -->
-<section class="privacy-strip section" aria-label="Privacy and trust">
+<section class="privacy-strip section" id="privacy" aria-label="Privacy and trust">
   <div class="wrap">
     <div class="privacy-inner reveal">
       <div class="privacy-label">
@@ -2593,30 +2883,30 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           </svg>
         </div>
         <div class="pl-title">Private by default.</div>
-        <div class="pl-sub">No exceptions</div>
+        <div class="pl-sub">Built for trust</div>
       </div>
       <div class="privacy-points">
-        <div class="privacy-point"><span class="pp-bullet"></span><span><b>Photos stay private.</b> Used only to create your audit. Never posted, shared, or sold without your explicit written consent.</span></div>
-        <div class="privacy-point"><span class="pp-bullet"></span><span><b>No marketing use.</b> We ask separately before using anything for promotional purposes. You control that.</span></div>
-        <div class="privacy-point"><span class="pp-bullet"></span><span><b>Secure submission.</b> Your form and photos go directly to us, not a third-party platform with public access.</span></div>
-        <div class="privacy-point"><span class="pp-bullet"></span><span><b>Style feedback only.</b> BroGrade covers appearance, grooming, and fitness direction. Not medical, dermatological, or mental health advice.</span></div>
+        <div class="privacy-point"><span class="pp-bullet"></span><span><b>Photos stay private.</b> Used only to create your audit. Never posted, shared, or used for marketing without permission.</span></div>
+        <div class="privacy-point"><span class="pp-bullet"></span><span><b>Secure submission.</b> Your form and photos go directly to BroGrade.</span></div>
+        <div class="privacy-point"><span class="pp-bullet"></span><span><b>No marketing use.</b> You control whether anything can be used publicly.</span></div>
+        <div class="privacy-point"><span class="pp-bullet"></span><span><b>Style feedback only.</b> Not medical, dermatology, mental health, or professional fitness advice.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== IV. PRICING ===== -->
+<!-- ===== V. PRICING ===== -->
 <section class="pricing section" id="pricing">
   <div class="wrap">
     <div class="section-head dark center reveal">
       <div class="chapter">
         <span class="rule dark"></span>
-        <span class="roman dark">IV.</span>
+        <span class="roman dark">V.</span>
         <span>The audit</span>
         <span class="rule dark"></span>
       </div>
       <h2>One audit. One price. <span class="accent">Honest feedback.</span></h2>
-      <p class="lead">Beta pricing while we onboard the first cohort. No subscription. Pay once, audit shipped within seventy-two hours.</p>
+      <p class="lead">Vol. 01 beta pricing: $19 CAD. Pay once. No subscription. Form first, payment link after, private report delivered in 24&ndash;72 hours.</p>
     </div>
 
     <div class="pricing-card reveal">
@@ -2625,7 +2915,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         <span>BroGrade Beta Audit</span>
       </div>
       <h3>The full <span class="accent">appearance audit</span></h3>
-      <p class="pricing-desc">Personalized to your photos, build, and target aesthetic. Delivered as a private PDF report within 24&ndash;72 hours of payment.</p>
+      <p class="pricing-desc">Personalized to your photos, build, and target aesthetic. Delivered as a private PDF report within 24&ndash;72 hours of payment confirmation.</p>
 
       <div class="pricing-price">
         <span class="num">$19</span>
@@ -2635,12 +2925,12 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 
       <ul class="price-list">
         <li><span class="num">01</span><span><b>Appearance scorecard</b> across five categories with numeric grades</span></li>
-        <li><span class="num">02</span><span><b>Style and fit breakdown</b> covering silhouette, color, and fit architecture</span></li>
+        <li><span class="num">02</span><span><b>Style and fit breakdown</b> covering silhouette, color, and outfit structure</span></li>
         <li><span class="num">03</span><span><b>Hair and grooming direction</b> including a verbatim barber script</span></li>
-        <li><span class="num">04</span><span><b>Physique and posture priorities</b> with a targeted training call</span></li>
+        <li><span class="num">04</span><span><b>Physique and posture priorities</b> based on visual impact</span></li>
         <li><span class="num">05</span><span><b>Photo presence review</b> covering lighting, angle, pose, and a retake brief</span></li>
         <li><span class="num">06</span><span><b>Ranked shopping list</b> with budget guidance for immediate purchases</span></li>
-        <li><span class="num">07</span><span><b>7-day upgrade plan</b> mapped day by day, plus a 30-day trajectory</span></li>
+        <li><span class="num">07</span><span><b>7-day upgrade plan</b> plus 30-day direction</span></li>
       </ul>
 
       <div class="pricing-steps">
@@ -2658,18 +2948,18 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
-      <p class="pricing-fine">Not satisfied? Reply to your report and we'll revise any unclear section once, during beta.</p>
+      <p class="pricing-fine">During beta, unclear sections can be revised once by email.</p>
     </div>
   </div>
 </section>
 
-<!-- ===== V. FAQ ===== -->
+<!-- ===== VI. FAQ ===== -->
 <section class="faq section" id="faq">
   <div class="wrap">
     <div class="section-head center reveal">
       <div class="chapter">
         <span class="rule"></span>
-        <span class="roman">V.</span>
+        <span class="roman">VI.</span>
         <span>The questions</span>
         <span class="rule"></span>
       </div>
@@ -2677,25 +2967,33 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
     </div>
 
     <div class="faq-list">
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
+      <div class="faq-item reveal open">
+        <button class="faq-q" aria-expanded="true">
           <span class="q-no">01</span>
           <span class="faq-q-text">What photos do I need to submit?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-a"><div class="faq-a-inner">A clear front body photo, a side body photo, a face and hair photo, and one to five recent outfit photos. Optional but useful: a back body photo and a few wardrobe shots. Natural lighting, no filters, full-body shots if possible. The better the photos, the sharper the audit.</div></div>
       </div>
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
+      <div class="faq-item reveal open">
+        <button class="faq-q" aria-expanded="true">
           <span class="q-no">02</span>
-          <span class="faq-q-text">How long until I get my audit?</span>
+          <span class="faq-q-text">What happens after I pay?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Within 24 to 72 hours of payment confirmation. We deliver it as a designed PDF report. Most beta audits ship inside 48 hours.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">You submit the form, complete the $19 CAD payment link, and your photos are reviewed against your goal. Your private PDF report is then emailed within 24 to 72 hours of payment confirmation.</div></div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">
           <span class="q-no">03</span>
+          <span class="faq-q-text">How long until I get my audit?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Within 24 to 72 hours of payment confirmation. We deliver it as a designed PDF report. Most beta audits are delivered inside 48 hours.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span class="q-no">04</span>
           <span class="faq-q-text">Is this just for fit or attractive guys?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
@@ -2703,15 +3001,15 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">
-          <span class="q-no">04</span>
+          <span class="q-no">05</span>
           <span class="faq-q-text">Is the audit AI-generated or written by a person?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">It's a hybrid. Trained visual judgement plus AI-assisted speed. Every audit is reviewed and finalized by a human before it ships. You get real, considered feedback, not a chatbot reply.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">It's a hybrid: trained visual judgement plus AI-assisted speed. Every audit is reviewed and finalized by a person before it is delivered. You get real, considered feedback, not a chatbot reply.</div></div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">
-          <span class="q-no">05</span>
+          <span class="q-no">06</span>
           <span class="faq-q-text">What if I disagree with the audit?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
@@ -2719,7 +3017,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">
-          <span class="q-no">06</span>
+          <span class="q-no">07</span>
           <span class="faq-q-text">Will my photos be shared anywhere?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
@@ -2727,15 +3025,15 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">
-          <span class="q-no">07</span>
+          <span class="q-no">08</span>
           <span class="faq-q-text">What if I'm short, bald, or out of shape?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">That's exactly the audience. BroGrade focuses on what you can change, fast: fit, hair architecture, grooming, posture, photos, and training direction. Genetic traits aren't the lever. Execution is.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">That's exactly the audience. BroGrade focuses on what you can change, fast: fit, haircut direction, grooming, posture, photos, and training direction. Genetic traits aren't the lever. Execution is.</div></div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">
-          <span class="q-no">08</span>
+          <span class="q-no">09</span>
           <span class="faq-q-text">What exactly do I receive?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
@@ -2743,7 +3041,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">
-          <span class="q-no">09</span>
+          <span class="q-no">10</span>
           <span class="faq-q-text">How private is my submission?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
@@ -2751,7 +3049,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">
-          <span class="q-no">10</span>
+          <span class="q-no">11</span>
           <span class="faq-q-text">Is this medical or fitness coaching?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
@@ -2759,7 +3057,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" aria-expanded="false">
-          <span class="q-no">11</span>
+          <span class="q-no">12</span>
           <span class="faq-q-text">Refund policy?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
@@ -2769,41 +3067,39 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   </div>
 </section>
 
-<!-- ===== VI. NOTIFY ===== -->
-<section class="waitlist section" id="notify">
-  <div class="wrap">
-    <div class="chapter reveal">
-      <span class="rule"></span>
-      <span class="roman">VI.</span>
-      <span>Stay in the loop</span>
-      <span class="rule"></span>
-    </div>
-    <h2 class="reveal">Beta is limited. <span class="accent">Get notified first.</span></h2>
-    <p class="waitlist-lead reveal">When this cohort fills, the next round goes to this list first. Drop your email and we'll send you the link before it opens publicly.</p>
-
-    <form class="waitlist-form reveal" action="https://formsubmit.co/getbrograde@gmail.com" method="POST" id="waitlist-form" novalidate>
-      <input type="hidden" name="_subject" value="New BroGrade waitlist signup">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://brograde.com/#waitlist-success">
-      <label for="wl-email" class="sr-only">Email address</label>
-      <input type="email" id="wl-email" name="email" placeholder="you@email.com" required autocomplete="email"/>
-      <button type="submit" class="btn btn-primary">
-        Join waitlist
-        <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </form>
-    <p class="waitlist-note">No spam · One email when the next cohort opens</p>
-    <div class="waitlist-success" id="waitlist-success" role="status">You're on the list. We'll be in touch when the next cohort opens.</div>
-  </div>
-</section>
-
-<!-- ===== VII. FINAL ===== -->
-<section class="final section">
+<!-- ===== VII. COHORT CTA ===== -->
+<section class="cohort-section section" id="cohort">
   <div class="wrap">
     <div class="chapter reveal">
       <span class="rule"></span>
       <span class="roman">VII.</span>
+      <span>Beta cohort</span>
+      <span class="rule"></span>
+    </div>
+    <h2 class="reveal">Vol. 01 beta pricing. <span class="accent">$19 CAD.</span></h2>
+    <p class="cohort-lead reveal">The audit is live for the first cohort. Submit the form, upload your photos, then complete the payment link after.</p>
+
+    <div class="cohort-points reveal" data-delay="100">
+      <span>Pay once</span>
+      <span>Private report</span>
+      <span>24&ndash;72h delivery</span>
+    </div>
+
+    <div class="cohort-cta reveal" data-delay="200">
+      <a href="https://forms.gle/s58S8b6sq6drfv188" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+        Start my $19 beta audit
+        <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIII. FINAL ===== -->
+<section class="final section">
+  <div class="wrap">
+    <div class="chapter reveal">
+      <span class="rule"></span>
+      <span class="roman">VIII.</span>
       <span>The mark</span>
       <span class="rule"></span>
     </div>
@@ -2811,7 +3107,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       <img src="assets/logo-mark.png" alt="BroGrade"/>
     </div>
     <h2 class="reveal" data-delay="200">Upload yourself.<br/><span class="accent">Get graded. Get upgraded.</span></h2>
-    <p class="reveal" data-delay="300">The first version of you was random. The next one is intentional. BroGrade gets you there in a week.</p>
+    <p class="reveal" data-delay="300">Your current look is a first draft. The next one should be intentional. BroGrade gives you the plan this week.</p>
     <div class="reveal" data-delay="400">
       <a href="https://forms.gle/s58S8b6sq6drfv188" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
         Start my $19 beta audit
@@ -2839,20 +3135,20 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       <div class="footer-col">
         <h4>Product</h4>
         <ul>
-          <li><a href="#pillars">Pillars</a></li>
-          <li><a href="#report">Report</a></li>
-          <li><a href="#method">Method</a></li>
+          <li><a href="#report">What You Get</a></li>
+          <li><a href="#carousel">Sample Report</a></li>
+          <li><a href="#method">How It Works</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#waitlist">Waitlist</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
           <li><a href="mailto:getbrograde@gmail.com">Contact</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Terms</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#for-who">Who It's For</a></li>
+          <li><a href="mailto:getbrograde@gmail.com?subject=BroGrade%20terms">Terms</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -2937,15 +3233,6 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
     countEls.forEach(el => co.observe(el));
   }
 
-  /* ── Waitlist form ── */
-  const form = document.getElementById('waitlist-form');
-  form?.addEventListener('submit', () => {
-    setTimeout(() => {
-      document.getElementById('waitlist-success').classList.add('show');
-      form.reset();
-    }, 200);
-  });
-
   /* ── Scroll progress bar ── */
   const scrollBar = document.getElementById('scroll-bar');
   if (scrollBar) {
@@ -3007,6 +3294,16 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       d.addEventListener('click', () => {
         const slideW = track.querySelector('.carousel-slide')?.offsetWidth + 20 || 320;
         track.scrollTo({ left: i * slideW, behavior: 'smooth' });
+      });
+    });
+
+    track.querySelectorAll('.cs-expand').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const slide = btn.closest('.carousel-slide');
+        const expanded = slide.classList.toggle('expanded');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        btn.textContent = expanded ? 'Close preview' : 'Open preview';
+        if (expanded) slide.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       });
     });
 
