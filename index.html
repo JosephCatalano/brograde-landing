@@ -2240,6 +2240,15 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   color: var(--rev-5);
 }
 @media (max-width: 560px) {
+  .carousel-section .section-head,
+  .beta-proof .section-head,
+  .sample-feature,
+  .proof-layout {
+    width: min(100%, 300px);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .sample-feature-main,
   .sample-feature-aside,
   .proof-card,
@@ -2247,7 +2256,10 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   .proof-snapshot-body {
     padding: 22px;
   }
-  .sample-feature-main h3,
+  .sample-feature-main h3 {
+    font-size: 24px;
+    line-height: 1.12;
+  }
   .beta-proof .section-head h2 {
     font-size: 30px;
     line-height: 1.08;
