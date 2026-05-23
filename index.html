@@ -1354,43 +1354,6 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 .sr-only { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* ============================================================
-   CUSTOM CURSOR · Desktop only
-   ============================================================ */
-@media (pointer: fine) {
-  body { cursor: none; }
-  a, button, [role="button"], label[for], .pillar, .step, .faq-q { cursor: none; }
-}
-#cursor-dot {
-  position: fixed;
-  top: 0; left: 0;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--blue-1);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 200ms var(--ease-out), height 200ms var(--ease-out),
-              background 200ms var(--ease-out), opacity 300ms;
-  mix-blend-mode: screen;
-}
-#cursor-ring {
-  position: fixed;
-  top: 0; left: 0;
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(86, 134, 248, 0.44);
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 380ms var(--ease-out), height 380ms var(--ease-out),
-              border-color 200ms, opacity 300ms;
-}
-body.cursor-hover #cursor-dot { width: 14px; height: 14px; background: var(--blue-2); }
-body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: rgba(86, 134, 248, 0.28); }
-body.cursor-click #cursor-dot { width: 6px; height: 6px; }
-body.cursor-click #cursor-ring { width: 28px; height: 28px; border-color: rgba(86, 134, 248, 0.7); }
-
-/* ============================================================
    SCROLL PROGRESS BAR
    ============================================================ */
 #scroll-bar {
@@ -1896,9 +1859,7 @@ body.cursor-click #cursor-ring { width: 28px; height: 28px; border-color: rgba(8
 <!-- Scroll progress bar -->
 <div id="scroll-bar" aria-hidden="true"></div>
 
-<!-- Custom cursor (desktop only) -->
-<div id="cursor-dot" aria-hidden="true"></div>
-<div id="cursor-ring" aria-hidden="true"></div>
+
 
 <!-- ===== NAV ===== -->
 <nav class="nav" id="nav" aria-label="Primary">
@@ -2749,45 +2710,6 @@ body.cursor-click #cursor-ring { width: 28px; height: 28px; border-color: rgba(8
       const max = document.documentElement.scrollHeight - window.innerHeight;
       scrollBar.style.width = (window.scrollY / max * 100).toFixed(2) + '%';
     }, { passive: true });
-  }
-
-  /* ── Custom cursor (pointer devices only) ── */
-  if (window.matchMedia('(pointer: fine)').matches && !reduce) {
-    const dot = document.getElementById('cursor-dot');
-    const ring = document.getElementById('cursor-ring');
-    let mx = -200, my = -200, rx = -200, ry = -200;
-    let rafId;
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top  = my + 'px';
-      if (!rafId) rafId = requestAnimationFrame(animateRing);
-    });
-
-    function animateRing() {
-      rafId = null;
-      rx += (mx - rx) * 0.14;
-      ry += (my - ry) * 0.14;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      if (Math.abs(mx - rx) > 0.5 || Math.abs(my - ry) > 0.5) {
-        rafId = requestAnimationFrame(animateRing);
-      }
-    }
-
-    const hoverTargets = 'a, button, [role="button"], .pillar, .step, .carousel-slide, .rubric-cell';
-    document.addEventListener('mouseover', e => {
-      if (e.target.closest(hoverTargets)) document.body.classList.add('cursor-hover');
-    });
-    document.addEventListener('mouseout', e => {
-      if (e.target.closest(hoverTargets)) document.body.classList.remove('cursor-hover');
-    });
-    document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
-    document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-click'));
-
-    document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
-    document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
   }
 
   /* ── Active nav link on scroll ── */
