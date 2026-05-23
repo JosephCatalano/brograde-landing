@@ -1352,11 +1352,553 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 .skip:focus { left: 0; }
 
 .sr-only { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* ============================================================
+   CUSTOM CURSOR · Desktop only
+   ============================================================ */
+@media (pointer: fine) {
+  body { cursor: none; }
+  a, button, [role="button"], label[for], .pillar, .step, .faq-q { cursor: none; }
+}
+#cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--blue-1);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 200ms var(--ease-out), height 200ms var(--ease-out),
+              background 200ms var(--ease-out), opacity 300ms;
+  mix-blend-mode: screen;
+}
+#cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(86, 134, 248, 0.44);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 380ms var(--ease-out), height 380ms var(--ease-out),
+              border-color 200ms, opacity 300ms;
+}
+body.cursor-hover #cursor-dot { width: 14px; height: 14px; background: var(--blue-2); }
+body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: rgba(86, 134, 248, 0.28); }
+body.cursor-click #cursor-dot { width: 6px; height: 6px; }
+body.cursor-click #cursor-ring { width: 28px; height: 28px; border-color: rgba(86, 134, 248, 0.7); }
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+#scroll-bar {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0%;
+  background: linear-gradient(90deg, var(--blue), var(--blue-2));
+  z-index: 200;
+  transition: width 60ms linear;
+  pointer-events: none;
+}
+
+/* ============================================================
+   HERO UPGRADES
+   ============================================================ */
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--rev-5);
+  margin-bottom: 12px;
+  animation: fade-up 600ms var(--ease-out) both;
+  animation-delay: 100ms;
+}
+.hero-eyebrow .sep { color: var(--rev-6); }
+
+/* ============================================================
+   AUDIT PREVIEW CAROUSEL
+   ============================================================ */
+.carousel-section {
+  padding: 100px 0 120px;
+  border-top: 1px solid var(--rule-d);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) { .carousel-section { padding: 140px 0 160px; } }
+
+.carousel-section::before {
+  content: "";
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 300px;
+  background: linear-gradient(0deg, var(--obsidian) 0%, transparent 100%);
+  z-index: 2; pointer-events: none;
+}
+
+.carousel-track-wrap {
+  position: relative;
+  margin-top: 72px;
+  overflow: hidden;
+}
+.carousel-track-wrap::before,
+.carousel-track-wrap::after {
+  content: ""; position: absolute; top: 0; bottom: 0;
+  width: 120px; z-index: 3; pointer-events: none;
+}
+.carousel-track-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--obsidian), transparent);
+}
+.carousel-track-wrap::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--obsidian), transparent);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 20px 60px 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track.dragging { cursor: grabbing; }
+
+.carousel-slide {
+  flex-shrink: 0;
+  width: clamp(280px, 40vw, 400px);
+  scroll-snap-align: center;
+  background: var(--obsidian-1);
+  border: 1px solid var(--rule-d-2);
+  border-radius: var(--r-4);
+  overflow: hidden;
+  transition: transform 400ms var(--ease-out), box-shadow 400ms var(--ease-out), border-color 300ms;
+  position: relative;
+}
+.carousel-slide:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(86,134,248,0.15);
+  border-color: rgba(86,134,248,0.22);
+}
+
+.cs-header {
+  padding: 18px 22px 16px;
+  border-bottom: 1px solid var(--rule-d);
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(244,239,229,0.01);
+}
+.cs-header .cs-title {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--rev-4); font-weight: 600;
+}
+.cs-header .cs-num {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.16em;
+  color: var(--blue-2);
+}
+
+.cs-body { padding: 28px 22px; }
+
+.cs-score-row {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 20px;
+}
+.cs-score {
+  font-family: var(--sans); font-weight: 800;
+  font-size: 52px; line-height: 1;
+  color: var(--rev-1); letter-spacing: -0.04em;
+}
+.cs-score .of { font-size: 18px; color: var(--rev-5); font-weight: 500; }
+.cs-badge {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 5px 10px; border-radius: var(--r-full);
+  background: rgba(86,134,248,0.12);
+  color: var(--blue-2);
+  border: 1px solid rgba(86,134,248,0.24);
+}
+.cs-badge.green { background: rgba(52,199,89,0.10); color: #4ade80; border-color: rgba(52,199,89,0.24); }
+.cs-badge.amber { background: rgba(255,185,0,0.10); color: #fbbf24; border-color: rgba(255,185,0,0.24); }
+.cs-badge.red   { background: rgba(255,59,48,0.10);  color: #f87171; border-color: rgba(255,59,48,0.24);  }
+
+.cs-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.20em;
+  text-transform: uppercase; color: var(--rev-5); font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.cs-bar-group { margin-bottom: 18px; }
+.cs-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.cs-bar-name {
+  font-size: 12px; color: var(--rev-3); font-weight: 500;
+  width: 80px; flex-shrink: 0;
+}
+.cs-bar-track {
+  flex: 1; height: 4px; border-radius: 99px;
+  background: rgba(244,239,229,0.07);
+  overflow: hidden;
+}
+.cs-bar-fill {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-2));
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 900ms var(--ease-out);
+}
+.cs-bar-fill.green { background: linear-gradient(90deg, #22c55e, #4ade80); }
+.cs-bar-fill.amber { background: linear-gradient(90deg, #d97706, #fbbf24); }
+.cs-bar-fill.red   { background: linear-gradient(90deg, #dc2626, #f87171); }
+.carousel-slide.bars-in .cs-bar-row:nth-child(1) .cs-bar-fill { transform: scaleX(var(--w)); transition-delay: 0ms; }
+.carousel-slide.bars-in .cs-bar-row:nth-child(2) .cs-bar-fill { transform: scaleX(var(--w)); transition-delay: 100ms; }
+.carousel-slide.bars-in .cs-bar-row:nth-child(3) .cs-bar-fill { transform: scaleX(var(--w)); transition-delay: 200ms; }
+.carousel-slide.bars-in .cs-bar-row:nth-child(4) .cs-bar-fill { transform: scaleX(var(--w)); transition-delay: 300ms; }
+.carousel-slide.bars-in .cs-bar-row:nth-child(5) .cs-bar-fill { transform: scaleX(var(--w)); transition-delay: 400ms; }
+.cs-bar-num {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  color: var(--rev-3); width: 24px; text-align: right;
+}
+
+.cs-finding {
+  font-size: 13px; line-height: 1.6; color: var(--rev-4);
+  padding-top: 16px;
+  border-top: 1px solid var(--rule-d);
+  margin-top: 16px;
+}
+.cs-finding b { color: var(--rev-2); font-weight: 600; }
+
+.cs-tag-row {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  margin-top: 16px;
+}
+.cs-tag {
+  font-family: var(--mono); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 4px 9px; border-radius: var(--r-full);
+  background: rgba(244,239,229,0.05);
+  border: 1px solid var(--rule-d);
+  color: var(--rev-5);
+}
+
+.carousel-dots {
+  display: flex; justify-content: center; gap: 8px;
+  margin-top: 36px;
+}
+.carousel-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--rev-6);
+  transition: background 200ms, width 200ms, border-radius 200ms;
+  cursor: pointer;
+  border: none;
+}
+.carousel-dot.active {
+  background: var(--blue-2);
+  width: 20px; border-radius: 3px;
+}
+
+/* ============================================================
+   RUBRIC · WHAT WE GRADE
+   ============================================================ */
+.rubric {
+  padding: 100px 0 120px;
+  border-top: 1px solid var(--rule-d);
+  position: relative;
+}
+@media (min-width: 768px) { .rubric { padding: 140px 0 160px; } }
+
+.rubric-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  margin-top: 64px;
+  border: 1px solid var(--rule-d);
+  border-radius: var(--r-3);
+  overflow: hidden;
+}
+@media (min-width: 760px) { .rubric-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .rubric-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.rubric-cell {
+  padding: 32px 28px;
+  background: rgba(244,239,229,0.01);
+  border: 1px solid var(--rule-d);
+  position: relative;
+  overflow: hidden;
+  transition: background 300ms var(--ease-out);
+  cursor: default;
+}
+.rubric-cell:hover { background: rgba(86,134,248,0.04); }
+.rubric-cell::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue-soft), transparent);
+  opacity: 0; transition: opacity 300ms;
+}
+.rubric-cell:hover::before { opacity: 1; }
+
+.rc-cat {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--blue-2);
+  margin-bottom: 6px;
+}
+.rc-cat .rc-icon {
+  width: 20px; height: 20px; flex-shrink: 0;
+  border-radius: 4px;
+  background: var(--blue-soft);
+  border: 1px solid rgba(86,134,248,0.20);
+  display: grid; place-items: center;
+}
+.rc-cat .rc-icon svg { width: 10px; height: 10px; color: var(--blue-2); }
+
+.rc-name {
+  font-family: var(--sans); font-weight: 700;
+  font-size: 18px; line-height: 1.25;
+  color: var(--rev-1); letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.rc-items { list-style: none; }
+.rc-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--rule-d);
+  font-size: 13px; color: var(--rev-4); line-height: 1.45;
+}
+.rc-item:last-child { border-bottom: none; }
+.rc-item::before {
+  content: "—";
+  font-family: var(--mono); font-size: 10px;
+  color: var(--rev-6); flex-shrink: 0;
+  margin-top: 2px;
+}
+.rc-item b { color: var(--rev-2); font-weight: 600; }
+
+.rc-verdict {
+  margin-top: 16px;
+  padding: 10px 12px;
+  background: var(--blue-soft);
+  border: 1px solid rgba(86,134,248,0.18);
+  border-radius: var(--r-2);
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--blue-3);
+}
+
+/* ============================================================
+   FOUNDER NOTE
+   ============================================================ */
+.founder {
+  padding: 100px 0 120px;
+  border-top: 1px solid var(--rule-d);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) { .founder { padding: 140px 0 160px; } }
+
+.founder::before {
+  content: "";
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,167,118,0.06), transparent 60%);
+  pointer-events: none;
+}
+
+.founder-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.founder-pull {
+  position: relative;
+  padding: 0 0 0 32px;
+  margin-bottom: 48px;
+}
+.founder-pull::before {
+  content: "";
+  position: absolute; top: 0; left: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--copper), transparent);
+}
+.founder-pull blockquote {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(22px, 3.4vw, 36px);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  color: var(--rev-1);
+  text-wrap: balance;
+}
+.founder-pull blockquote .accent { font-weight: 400; color: var(--blue-2); }
+
+.founder-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+@media (min-width: 700px) {
+  .founder-body { grid-template-columns: 1fr 2fr; gap: 56px; align-items: start; }
+}
+
+.founder-id {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.founder-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--obsidian-2);
+  border: 1px solid var(--rule-d-2);
+  overflow: hidden;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.founder-avatar svg { width: 36px; height: 36px; color: var(--rev-5); }
+.founder-name {
+  font-family: var(--sans); font-weight: 700;
+  font-size: 16px; color: var(--rev-1); letter-spacing: -0.01em;
+}
+.founder-role {
+  font-family: var(--mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.20em; text-transform: uppercase;
+  color: var(--copper);
+}
+.founder-meta {
+  display: flex; flex-direction: column; gap: 6px;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule-d);
+}
+.founder-meta-line {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.12em; color: var(--rev-5);
+  font-weight: 500;
+}
+
+.founder-text {
+  display: flex; flex-direction: column; gap: 18px;
+}
+.founder-text p {
+  font-size: 16px; line-height: 1.75;
+  color: var(--rev-4);
+}
+.founder-text p b { color: var(--rev-2); font-weight: 600; }
+.founder-text .sig {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 8px;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.20em; text-transform: uppercase;
+  color: var(--copper);
+  font-weight: 600;
+}
+.founder-text .sig .rule { background: rgba(200,167,118,0.35); }
+
+/* ============================================================
+   ENHANCED STATEMENT · social proof numbers
+   ============================================================ */
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  border: 1px solid var(--rule-d);
+  border-radius: var(--r-3);
+  overflow: hidden;
+  margin-top: 64px;
+}
+@media (min-width: 640px) { .proof-strip { grid-template-columns: repeat(4, 1fr); } }
+
+.proof-cell {
+  padding: 28px 24px;
+  background: rgba(244,239,229,0.01);
+  border: 1px solid var(--rule-d);
+  text-align: center;
+  transition: background 200ms;
+}
+.proof-cell:hover { background: rgba(244,239,229,0.025); }
+.proof-cell .pv {
+  font-family: var(--sans); font-weight: 800;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1; letter-spacing: -0.04em;
+  color: var(--rev-1);
+  margin-bottom: 8px;
+}
+.proof-cell .pl {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.20em; text-transform: uppercase;
+  color: var(--rev-5); font-weight: 500;
+}
+
+/* ============================================================
+   MARQUEE UPGRADE · second track reverse
+   ============================================================ */
+.marquee-dual { display: flex; flex-direction: column; gap: 0; }
+.marquee-track.reverse { animation-direction: reverse; }
+
+/* ============================================================
+   ENHANCED HERO SCROLL HINT
+   ============================================================ */
+.scroll-hint {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  margin-top: 56px;
+  animation: fade-up 700ms var(--ease-out) both;
+  animation-delay: 1000ms;
+}
+.scroll-hint .sh-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, transparent, var(--blue-2), transparent);
+  animation: sh-pulse 2s ease-in-out infinite;
+}
+.scroll-hint .sh-text {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--rev-6);
+}
+@keyframes sh-pulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ============================================================
+   NAV UPGRADE · active indicator
+   ============================================================ */
+.nav-links a.active { color: var(--rev-1); }
+.nav-links a.active::after { left: 0; right: 0; }
+
+/* ============================================================
+   ENHANCED PILLAR HOVER · number glow
+   ============================================================ */
+.pillar:hover .pillar-num { color: var(--blue-1); text-shadow: 0 0 40px var(--blue-glow); }
+
+/* ============================================================
+   SECTION TRANSITION LINES
+   ============================================================ */
+.section-rule {
+  display: flex; align-items: center; gap: 20px;
+  padding: 0 0 48px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--rev-6); font-weight: 500;
+}
+.section-rule .rule { flex: 1; }
 </style>
 </head>
 <body>
 
 <a href="#main" class="skip">Skip to content</a>
+
+<!-- Scroll progress bar -->
+<div id="scroll-bar" aria-hidden="true"></div>
+
+<!-- Custom cursor (desktop only) -->
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 
 <!-- ===== NAV ===== -->
 <nav class="nav" id="nav" aria-label="Primary">
@@ -1413,13 +1955,18 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
         Get the beta audit
         <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="#waitlist" class="btn btn-ghost btn-lg">Join the waitlist</a>
+      <a href="#carousel" class="btn btn-ghost btn-lg">See a sample report</a>
     </div>
 
     <div class="hero-fact-row">
       <div class="hero-fact"><span class="val">24–72h</span> delivery window</div>
       <div class="hero-fact"><span class="val">12</span> sections, designed</div>
       <div class="hero-fact"><span class="val">5</span> categories graded</div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span class="sh-text">Scroll</span>
+      <span class="sh-line"></span>
     </div>
   </div>
 </section>
@@ -1429,6 +1976,151 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
   <div class="marquee-track">
     <div class="marquee-item"><span>Style</span><span class="dot"></span><span class="alt">Hair</span><span class="dot"></span><span>Physique</span><span class="dot"></span><span class="alt">Grooming</span><span class="dot"></span><span>Photos</span><span class="dot"></span><span class="alt">Posture</span><span class="dot"></span><span>Fit</span><span class="dot"></span><span class="alt">Proportion</span><span class="dot"></span></div>
     <div class="marquee-item"><span>Style</span><span class="dot"></span><span class="alt">Hair</span><span class="dot"></span><span>Physique</span><span class="dot"></span><span class="alt">Grooming</span><span class="dot"></span><span>Photos</span><span class="dot"></span><span class="alt">Posture</span><span class="dot"></span><span>Fit</span><span class="dot"></span><span class="alt">Proportion</span><span class="dot"></span></div>
+  </div>
+</section>
+
+<!-- ===== AUDIT PREVIEW CAROUSEL ===== -->
+<section class="carousel-section section" id="carousel">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="chapter">
+        <span class="roman">→</span>
+        <span class="rule"></span>
+        <span>Inside the report</span>
+      </div>
+      <h2>See exactly what <span class="accent">ships to you.</span></h2>
+      <p class="lead">Five of the twelve report sections — scored, annotated, and ready to execute. No redacted demos. No mockups.</p>
+    </div>
+  </div>
+
+  <div class="carousel-track-wrap">
+    <div class="carousel-track" id="carousel-track" role="list">
+
+      <!-- Slide 1: Overall Scorecard -->
+      <div class="carousel-slide" role="listitem">
+        <div class="cs-header">
+          <span class="cs-title">Sec. 01 · Scorecard</span>
+          <span class="cs-num">File #0001</span>
+        </div>
+        <div class="cs-body">
+          <div class="cs-score-row">
+            <span class="cs-score">6.4<span class="of">/10</span></span>
+            <span class="cs-badge amber">Needs work</span>
+          </div>
+          <div class="cs-label">Category breakdown</div>
+          <div class="cs-bar-group">
+            <div class="cs-bar-row"><span class="cs-bar-name">Style</span><div class="cs-bar-track"><div class="cs-bar-fill amber" style="--w:0.58"></div></div><span class="cs-bar-num">5.8</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Hair</span><div class="cs-bar-track"><div class="cs-bar-fill green" style="--w:0.74"></div></div><span class="cs-bar-num">7.4</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Physique</span><div class="cs-bar-track"><div class="cs-bar-fill amber" style="--w:0.62"></div></div><span class="cs-bar-num">6.2</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Grooming</span><div class="cs-bar-track"><div class="cs-bar-fill amber" style="--w:0.65"></div></div><span class="cs-bar-num">6.5</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Photos</span><div class="cs-bar-track"><div class="cs-bar-fill red" style="--w:0.42"></div></div><span class="cs-bar-num">4.2</span></div>
+          </div>
+          <div class="cs-finding"><b>Primary liability:</b> Photo presentation is killing a solid baseline. Lighting, angle, and composition — all fixable in one afternoon.</div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Style Audit -->
+      <div class="carousel-slide" role="listitem">
+        <div class="cs-header">
+          <span class="cs-title">Sec. 03 · Style &amp; Fit</span>
+          <span class="cs-num">File #0001</span>
+        </div>
+        <div class="cs-body">
+          <div class="cs-score-row">
+            <span class="cs-score">5.8<span class="of">/10</span></span>
+            <span class="cs-badge amber">Fix pant break</span>
+          </div>
+          <div class="cs-label">Diagnostics</div>
+          <div class="cs-bar-group">
+            <div class="cs-bar-row"><span class="cs-bar-name">Silhouette</span><div class="cs-bar-track"><div class="cs-bar-fill amber" style="--w:0.55"></div></div><span class="cs-bar-num">5.5</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Fit precision</span><div class="cs-bar-track"><div class="cs-bar-fill red" style="--w:0.48"></div></div><span class="cs-bar-num">4.8</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Color palette</span><div class="cs-bar-track"><div class="cs-bar-fill green" style="--w:0.72"></div></div><span class="cs-bar-num">7.2</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Cohesion</span><div class="cs-bar-track"><div class="cs-bar-fill amber" style="--w:0.60"></div></div><span class="cs-bar-num">6.0</span></div>
+          </div>
+          <div class="cs-finding"><b>Immediate fix:</b> Trousers are breaking at the ankle — one tailor visit closes a 1.8pt gap. Shirt is baggy through the torso, add a side tuck or size down.</div>
+          <div class="cs-tag-row">
+            <span class="cs-tag">Slim taper</span>
+            <span class="cs-tag">No break</span>
+            <span class="cs-tag">Tuck test</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Hair -->
+      <div class="carousel-slide" role="listitem">
+        <div class="cs-header">
+          <span class="cs-title">Sec. 05 · Hair</span>
+          <span class="cs-num">File #0001</span>
+        </div>
+        <div class="cs-body">
+          <div class="cs-score-row">
+            <span class="cs-score">7.4<span class="of">/10</span></span>
+            <span class="cs-badge green">Strong base</span>
+          </div>
+          <div class="cs-label">Assessment</div>
+          <div class="cs-bar-group">
+            <div class="cs-bar-row"><span class="cs-bar-name">Cut shape</span><div class="cs-bar-track"><div class="cs-bar-fill green" style="--w:0.78"></div></div><span class="cs-bar-num">7.8</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Texture work</span><div class="cs-bar-track"><div class="cs-bar-fill amber" style="--w:0.65"></div></div><span class="cs-bar-num">6.5</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Face framing</span><div class="cs-bar-track"><div class="cs-bar-fill green" style="--w:0.76"></div></div><span class="cs-bar-num">7.6</span></div>
+          </div>
+          <div class="cs-finding"><b>Barber script:</b> "Keep the length on top, tighten the sides to a 1.5 fade blending into a 2 at the occipital. Disconnect the top by 30%. Texturize the crown."</div>
+          <div class="cs-tag-row">
+            <span class="cs-tag">Disconnected fade</span>
+            <span class="cs-tag">Texture paste</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Photo Audit -->
+      <div class="carousel-slide" role="listitem">
+        <div class="cs-header">
+          <span class="cs-title">Sec. 09 · Photo Audit</span>
+          <span class="cs-num">File #0001</span>
+        </div>
+        <div class="cs-body">
+          <div class="cs-score-row">
+            <span class="cs-score">4.2<span class="of">/10</span></span>
+            <span class="cs-badge red">Critical fix</span>
+          </div>
+          <div class="cs-label">Photo variables</div>
+          <div class="cs-bar-group">
+            <div class="cs-bar-row"><span class="cs-bar-name">Lighting</span><div class="cs-bar-track"><div class="cs-bar-fill red" style="--w:0.35"></div></div><span class="cs-bar-num">3.5</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Angle</span><div class="cs-bar-track"><div class="cs-bar-fill amber" style="--w:0.52"></div></div><span class="cs-bar-num">5.2</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Pose</span><div class="cs-bar-track"><div class="cs-bar-fill red" style="--w:0.40"></div></div><span class="cs-bar-num">4.0</span></div>
+            <div class="cs-bar-row"><span class="cs-bar-name">Environment</span><div class="cs-bar-track"><div class="cs-bar-fill amber" style="--w:0.55"></div></div><span class="cs-bar-num">5.5</span></div>
+          </div>
+          <div class="cs-finding"><b>Fix order:</b> 1. Move to window light, camera at eye level. 2. Drop the chin 5°, turn 15° off-center. 3. Shoot outdoors at golden hour. Entire session can happen this weekend.</div>
+        </div>
+      </div>
+
+      <!-- Slide 5: 7-Day Sprint -->
+      <div class="carousel-slide" role="listitem">
+        <div class="cs-header">
+          <span class="cs-title">Sec. 12 · 7-Day Sprint</span>
+          <span class="cs-num">File #0001</span>
+        </div>
+        <div class="cs-body">
+          <div class="cs-label" style="margin-bottom:14px">Execution plan</div>
+          <ul class="rc-items" style="list-style:none">
+            <li class="rc-item"><b>Day 1–2</b> Book tailor for pant break + shirt taper. Order texture paste.</li>
+            <li class="rc-item"><b>Day 3</b> Barber with printed script. Ask for disconnected fade, texturize crown.</li>
+            <li class="rc-item"><b>Day 4</b> Skincare baseline: SPF AM, retinol PM, lip balm daily.</li>
+            <li class="rc-item"><b>Day 5–6</b> Retake photos. Window light, golden hour outdoor, eye-level angle.</li>
+            <li class="rc-item"><b>Day 7</b> Swap profile photo. Begin 30-day physique sprint: shoulder priority.</li>
+          </ul>
+          <div class="cs-finding" style="margin-top:16px"><b>Projected score after execution:</b> 8.4–8.7 / 10. Biggest jump from photos alone: +1.8pt.</div>
+        </div>
+      </div>
+
+    </div><!-- /carousel-track -->
+  </div><!-- /track-wrap -->
+
+  <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Carousel navigation">
+    <button class="carousel-dot active" role="tab" aria-selected="true" data-slide="0"></button>
+    <button class="carousel-dot" role="tab" aria-selected="false" data-slide="1"></button>
+    <button class="carousel-dot" role="tab" aria-selected="false" data-slide="2"></button>
+    <button class="carousel-dot" role="tab" aria-selected="false" data-slide="3"></button>
+    <button class="carousel-dot" role="tab" aria-selected="false" data-slide="4"></button>
   </div>
 </section>
 
@@ -1485,8 +2177,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 </section>
 
 <!-- ===== II. AUDIT REPORT ===== -->
-<section class="report section" id="report">
-  <div class="wrap">
+<section class="report section" id="report">  <div class="wrap">
     <div class="report-grid">
       <div class="report-copy reveal">
         <div class="chapter">
@@ -1528,6 +2219,162 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RUBRIC · WHAT WE GRADE ===== -->
+<section class="rubric section" id="rubric">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="chapter">
+        <span class="roman">II.5</span>
+        <span class="rule"></span>
+        <span>The rubric</span>
+      </div>
+      <h2>Every variable we <span class="accent">grade against you.</span></h2>
+      <p class="lead">Not vibes. Not generics. A grid of specific, observable, fixable signals — graded in every audit.</p>
+    </div>
+
+    <div class="rubric-grid">
+
+      <div class="rubric-cell reveal">
+        <div class="rc-cat">
+          <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="8" height="8" rx="1"/><path d="M3 5h4M5 3v4"/></svg></div>
+          Style
+        </div>
+        <div class="rc-name">Outfit Fit &amp; Direction</div>
+        <ul class="rc-items">
+          <li class="rc-item"><b>Silhouette read</b> — shoulder seam placement, torso taper</li>
+          <li class="rc-item"><b>Pant break</b> — stack, hem, ankle exposure</li>
+          <li class="rc-item"><b>Color palette logic</b> — neutral base, accent ratio</li>
+          <li class="rc-item"><b>Aesthetic coherence</b> — do the pieces talk to each other</li>
+          <li class="rc-item"><b>Footwear alignment</b> — do the shoes finish the look</li>
+        </ul>
+        <div class="rc-verdict">Outputs: Fit diagnosis + tailor brief + capsule direction</div>
+      </div>
+
+      <div class="rubric-cell reveal" data-delay="100">
+        <div class="rc-cat">
+          <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 1c0 0 3 2 3 5s-3 3-3 3-3 0-3-3 3-5 3-5z"/></svg></div>
+          Hair
+        </div>
+        <div class="rc-name">Cut &amp; Texture Architecture</div>
+        <ul class="rc-items">
+          <li class="rc-item"><b>Face-shape framing</b> — how the cut works with bone structure</li>
+          <li class="rc-item"><b>Fade taper logic</b> — guard lengths, blend zones</li>
+          <li class="rc-item"><b>Top length ratio</b> — too long, too short, or wrong for your density</li>
+          <li class="rc-item"><b>Product and texture</b> — what you should be using, verbatim</li>
+          <li class="rc-item"><b>Barber-ready script</b> — copy-paste at the chair</li>
+        </ul>
+        <div class="rc-verdict">Outputs: Full cut brief + product call + growth direction</div>
+      </div>
+
+      <div class="rubric-cell reveal" data-delay="200">
+        <div class="rc-cat">
+          <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 1v8M2 4l3-3 3 3M2 8h6"/></svg></div>
+          Physique
+        </div>
+        <div class="rc-name">Proportion &amp; Posture</div>
+        <ul class="rc-items">
+          <li class="rc-item"><b>V-taper potential</b> — shoulder width vs. waist read</li>
+          <li class="rc-item"><b>Posture flags</b> — forward head, anterior pelvic tilt, rounded shoulders</li>
+          <li class="rc-item"><b>Priority muscle groups</b> — highest visual ROI for your build</li>
+          <li class="rc-item"><b>Clothing leverage</b> — how to dress around current physique</li>
+        </ul>
+        <div class="rc-verdict">Outputs: Posture protocol + 30-day training priority list</div>
+      </div>
+
+      <div class="rubric-cell reveal">
+        <div class="rc-cat">
+          <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="5" r="3.5"/><path d="M3.5 5c0-1 .5-2 1.5-2s1.5 1 1.5 2"/></svg></div>
+          Grooming
+        </div>
+        <div class="rc-name">Facial Framing</div>
+        <ul class="rc-items">
+          <li class="rc-item"><b>Facial hair strategy</b> — beard, stubble, or clean — what works for your face</li>
+          <li class="rc-item"><b>Skin presentation</b> — texture, uniformity, any flags</li>
+          <li class="rc-item"><b>Eyebrow architecture</b> — shape, weight, and grooming need</li>
+          <li class="rc-item"><b>5-minute baseline protocol</b> — what to add this week</li>
+        </ul>
+        <div class="rc-verdict">Outputs: Daily protocol + beard direction + product list</div>
+      </div>
+
+      <div class="rubric-cell reveal" data-delay="100">
+        <div class="rc-cat">
+          <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="2.5" width="7" height="5" rx="1"/><circle cx="5" cy="5" r="1.5"/></svg></div>
+          Photos
+        </div>
+        <div class="rc-name">Digital Presence</div>
+        <ul class="rc-items">
+          <li class="rc-item"><b>Lighting read</b> — source, direction, quality, shadows</li>
+          <li class="rc-item"><b>Angle and height</b> — camera position relative to face and body</li>
+          <li class="rc-item"><b>Pose and expression</b> — tension flags, jaw line, openness</li>
+          <li class="rc-item"><b>Environment</b> — background, context, distraction</li>
+          <li class="rc-item"><b>Retake brief</b> — exact instructions to go reshoot</li>
+        </ul>
+        <div class="rc-verdict">Outputs: Shot-by-shot retake guide + posing brief</div>
+      </div>
+
+      <div class="rubric-cell reveal" data-delay="200">
+        <div class="rc-cat">
+          <div class="rc-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9l3-3 2 2 3-6"/></svg></div>
+          Upgrade Plan
+        </div>
+        <div class="rc-name">7-Day &amp; 30-Day Trajectory</div>
+        <ul class="rc-items">
+          <li class="rc-item"><b>Highest-ROI moves</b> — ranked by impact per dollar and effort</li>
+          <li class="rc-item"><b>Day-by-day sprint</b> — what to do each day this week</li>
+          <li class="rc-item"><b>Procurement list</b> — items ranked, with budget guidance</li>
+          <li class="rc-item"><b>30-day trajectory</b> — where you land if you execute</li>
+        </ul>
+        <div class="rc-verdict">Outputs: Action sprint + shopping list + projected score</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOUNDER NOTE ===== -->
+<section class="founder section" id="founder">
+  <div class="wrap">
+    <div class="founder-inner">
+
+      <div class="founder-pull reveal">
+        <blockquote>"Most men don't fail at style because they're lazy. They fail because <span class="accent">nobody ever told them specifically what was wrong.</span> BroGrade fixes that."</blockquote>
+      </div>
+
+      <div class="founder-body">
+        <div class="founder-id reveal" data-delay="100">
+          <div class="founder-avatar">
+            <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="18" cy="14" r="6"/>
+              <path d="M6 30c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
+            </svg>
+          </div>
+          <div>
+            <div class="founder-name">J. Brousseau</div>
+            <div class="founder-role">Founder, BroGrade</div>
+          </div>
+          <div class="founder-meta">
+            <div class="founder-meta-line">Vol. 01 · Beta cohort</div>
+            <div class="founder-meta-line">Est. 2026 · Canada</div>
+            <div class="founder-meta-line">getbrograde@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="founder-text reveal" data-delay="200">
+          <p>I built BroGrade because I was the guy who thought he was doing fine until someone gave me one specific note — and it changed everything. <b>The feedback wasn't harsh. It was precise.</b> That's the whole difference.</p>
+          <p>Most style advice is too vague to act on. "Wear better clothes." "Get a better haircut." <b>None of that tells you what's actually wrong with your look right now.</b> BroGrade does.</p>
+          <p>Every audit I write, I ask one question: if I had five minutes with this person, <b>what's the single callout that would move the needle fastest?</b> Then I find the next four. That's what ships to you.</p>
+          <p>Beta pricing exists because I'm learning as much as you are. You get an honest audit at a fraction of what this should cost. I get signal. That's the deal.</p>
+          <div class="sig">
+            <span class="rule" style="width:28px"></span>
+            <span>J. Brousseau · Founder</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1823,6 +2670,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  /* ── Nav scroll ── */
   const nav = document.getElementById('nav');
   let ticking = false;
   window.addEventListener('scroll', () => {
@@ -1835,6 +2683,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
     }
   }, { passive: true });
 
+  /* ── FAQ accordion ── */
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
@@ -1843,6 +2692,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
     });
   });
 
+  /* ── Scroll reveal ── */
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduce && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
@@ -1858,6 +2708,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
   }
 
+  /* ── Score counter animation ── */
   const countEls = document.querySelectorAll('[data-count]');
   if ('IntersectionObserver' in window) {
     const co = new IntersectionObserver((entries) => {
@@ -1882,6 +2733,7 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
     countEls.forEach(el => co.observe(el));
   }
 
+  /* ── Waitlist form ── */
   const form = document.getElementById('waitlist-form');
   form?.addEventListener('submit', () => {
     setTimeout(() => {
@@ -1889,6 +2741,122 @@ html.js .reveal[data-delay="500"] { transition-delay: 500ms; }
       form.reset();
     }, 200);
   });
+
+  /* ── Scroll progress bar ── */
+  const scrollBar = document.getElementById('scroll-bar');
+  if (scrollBar) {
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      scrollBar.style.width = (window.scrollY / max * 100).toFixed(2) + '%';
+    }, { passive: true });
+  }
+
+  /* ── Custom cursor (pointer devices only) ── */
+  if (window.matchMedia('(pointer: fine)').matches && !reduce) {
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx = -200, my = -200, rx = -200, ry = -200;
+    let rafId;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top  = my + 'px';
+      if (!rafId) rafId = requestAnimationFrame(animateRing);
+    });
+
+    function animateRing() {
+      rafId = null;
+      rx += (mx - rx) * 0.14;
+      ry += (my - ry) * 0.14;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      if (Math.abs(mx - rx) > 0.5 || Math.abs(my - ry) > 0.5) {
+        rafId = requestAnimationFrame(animateRing);
+      }
+    }
+
+    const hoverTargets = 'a, button, [role="button"], .pillar, .step, .carousel-slide, .rubric-cell';
+    document.addEventListener('mouseover', e => {
+      if (e.target.closest(hoverTargets)) document.body.classList.add('cursor-hover');
+    });
+    document.addEventListener('mouseout', e => {
+      if (e.target.closest(hoverTargets)) document.body.classList.remove('cursor-hover');
+    });
+    document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
+    document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-click'));
+
+    document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+  }
+
+  /* ── Active nav link on scroll ── */
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if ('IntersectionObserver' in window && sections.length) {
+    const navIO = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => navIO.observe(s));
+  }
+
+  /* ── Carousel drag + dot sync ── */
+  const track = document.getElementById('carousel-track');
+  const dotsEl = document.getElementById('carousel-dots');
+  if (track && dotsEl) {
+    /* Drag */
+    let isDown = false, startX, scrollLeft;
+    track.addEventListener('mousedown', e => {
+      isDown = true; track.classList.add('dragging');
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+    track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('dragging'); });
+    track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('dragging'); });
+    track.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX) * 1.6;
+    });
+
+    /* Dot sync */
+    const dots = dotsEl.querySelectorAll('.carousel-dot');
+    const syncDots = () => {
+      const slideW = track.querySelector('.carousel-slide')?.offsetWidth + 20 || 320;
+      const idx = Math.round(track.scrollLeft / slideW);
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === idx);
+        d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+      });
+    };
+    track.addEventListener('scroll', syncDots, { passive: true });
+
+    dots.forEach((d, i) => {
+      d.addEventListener('click', () => {
+        const slideW = track.querySelector('.carousel-slide')?.offsetWidth + 20 || 320;
+        track.scrollTo({ left: i * slideW, behavior: 'smooth' });
+      });
+    });
+
+    /* Bar fill animation when carousel visible */
+    const barIO = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('bars-in');
+        }
+      });
+    }, { threshold: 0.3 });
+    track.querySelectorAll('.carousel-slide').forEach(s => barIO.observe(s));
+  }
+
+  /* ── No extra bar JS needed — CSS vars handle widths ── */
 </script>
 </body>
 </html>
