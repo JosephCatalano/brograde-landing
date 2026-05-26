@@ -504,7 +504,13 @@
       const emailDelivery = data.email_delivery || {};
 
       if (!scan) {
-        successCopy.textContent = "Your scan has been saved for review. AI generation is not configured or did not complete, so BroGrade can review it manually.";
+        if (data.ai_status === "not_configured") {
+          successCopy.textContent = "Your scan has been saved. AI is not configured on this deployment yet, so BroGrade can review it manually.";
+        } else if (data.ai_status === "failed") {
+          successCopy.textContent = `Your scan has been saved, but AI generation failed on this attempt. Reason: ${data.ai_error || "Check the server logs."}`;
+        } else {
+          successCopy.textContent = "Your scan has been saved for review. AI generation did not complete, so BroGrade can review it manually.";
+        }
         return;
       }
 

@@ -616,9 +616,25 @@ function publicRecord(record) {
     status: record.status,
     ai_status: record.ai_status,
     ai_model: record.ai_model,
+    ai_error: record.ai_error ? cleanString(record.ai_error, 500) : null,
     email_delivery: record.email_delivery,
     scan: record.scan || null
   };
+}
+
+function requireAdminSecret(req, res, next) {
+  const provided = req.get("x-brograde-admin-secret") || req.query.secret;
+  if (!process.env.SCAN_SIGNING_SECRET) {
+    res.status(503).json({ ok: false, message: "SCAN_SIGNING_SECRET is not configured." });
+    return;
+  }
+
+  if (!safeEquals(provided, process.env.SCAN_SIGNING_SECRET)) {
+    res.status(403).json({ ok: false, message: "Invalid admin secret." });
+    return;
+  }
+
+  next();
 }
 
 app.get("/api/health", (req, res) => {
@@ -631,6 +647,56 @@ app.get("/api/health", (req, res) => {
     email_configured: Boolean(process.env.RESEND_API_KEY && process.env.RESEND_FROM),
     storage_configured: Boolean(STORAGE_DIR),
     storage_dir: STORAGE_DIR
+  });
+});
+
+app.get("/api/admin/ai-check", requireAdminSecret, async (req, res) => {
+  if (!process.env.OPENAI_API_KEY) {
+    res.status(503).json({
+      ok: false,
+      message: "OPENAI_API_KEY is not configured.",
+      attempted_models: AI_MODELS
+    });
+    return;
+  }
+
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  const failures = [];
+
+  for (const model of AI_MODELS) {
+    try {
+      const response = await openai.responses.create({
+        model,
+        store: false,
+        instructions: "Return exactly the requested confirmation text.",
+        input: "Reply with exactly: BroGrade AI ready",
+        reasoning: { effort: AI_REASONING_EFFORT },
+        max_output_tokens: 24
+      });
+
+      const text = (response.output_text || "").trim();
+      if (!/BroGrade AI ready/i.test(text)) {
+        throw new Error(`Unexpected model response: ${text || "empty output"}`);
+      }
+
+      res.json({
+        ok: true,
+        model,
+        attempted_models: AI_MODELS,
+        response_id: response.id
+      });
+      return;
+    } catch (error) {
+      failures.push({ model, message: error.message });
+      if (!shouldTryNextModel(error)) break;
+    }
+  }
+
+  res.status(502).json({
+    ok: false,
+    message: "OpenAI check failed.",
+    attempted_models: AI_MODELS,
+    failures
   });
 });
 

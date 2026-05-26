@@ -57,6 +57,14 @@ npm run ai:check
 
 The app uses `BROGRADE_AI_MODEL` first and then tries `BROGRADE_AI_FALLBACK_MODELS` if the primary model is not enabled for the account.
 
+On Railway, you can also check the deployed app with:
+
+```bash
+curl -H "x-brograde-admin-secret: YOUR_SCAN_SIGNING_SECRET" https://www.brograde.com/api/admin/ai-check
+```
+
+If this fails, the scan form will save submissions but will not show an AI result.
+
 ## Health Check
 
 ```text
