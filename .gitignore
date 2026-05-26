@@ -28,5 +28,9 @@ build/
 .cache/
 .parcel-cache/
 
+# Private local submissions
+storage/
+../storage/
+
 # Misc
 *.bak

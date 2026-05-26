@@ -8,4 +8,3 @@
 */
 
 window.BROGRADE_SCAN_ENDPOINT = "/api/free-looks-scans";
-window.BROGRADE_ADMIN_EMAIL = "getbrograde@gmail.com";

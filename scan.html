@@ -218,7 +218,29 @@
         <div class="success-screen" id="success-screen" aria-live="polite">
           <div class="success-mark" aria-hidden="true">&#10003;</div>
           <h2>Your free BroGrade Looks Scan is submitted.</h2>
-          <p>Check your email for your scan. If you want a more detailed breakdown, you can upgrade to the full BroGrade Beta Audit.</p>
+          <p id="success-copy">Your scan has been saved. If email delivery is configured, a copy will be sent to your inbox.</p>
+
+          <div class="scan-result" id="scan-result" hidden>
+            <div class="scan-result-head">
+              <span>BroGrade Looks Scan</span>
+              <strong id="scan-score">Pending</strong>
+            </div>
+            <div class="scan-result-grid">
+              <div>
+                <span>Biggest Weak Point</span>
+                <strong id="scan-weak-point">Review pending</strong>
+              </div>
+              <div>
+                <span>Fastest Win</span>
+                <strong id="scan-fastest-win">Review pending</strong>
+              </div>
+            </div>
+            <div class="scan-result-block">
+              <span>Top 3 upgrades</span>
+              <ol id="scan-upgrades"></ol>
+            </div>
+            <p id="scan-summary"></p>
+          </div>
 
           <div class="upsell">
             <h3>Want the full breakdown?</h3>
@@ -451,7 +473,8 @@
           throw new Error("Submission is not configured yet. Please connect a backend endpoint before accepting live scans.");
         }
 
-        await window.BroGradeScanSubmitter.submit({ payload, file });
+        const result = await window.BroGradeScanSubmitter.submit({ payload, file });
+        renderServerResult(result);
         form.hidden = true;
         progressHead.hidden = true;
         successScreen.classList.add("show");
@@ -462,6 +485,41 @@
         backBtn.disabled = false;
         nextBtn.textContent = "Submit Free Looks Scan";
       }
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function renderServerResult(result) {
+      const data = result?.data || {};
+      const scan = data.scan;
+      const successCopy = document.getElementById("success-copy");
+      const scanResult = document.getElementById("scan-result");
+      const emailDelivery = data.email_delivery || {};
+
+      if (!scan) {
+        successCopy.textContent = "Your scan has been saved for review. AI generation is not configured or did not complete, so BroGrade can review it manually.";
+        return;
+      }
+
+      successCopy.textContent = emailDelivery.user_sent
+        ? "Your scan is ready below and a copy was sent to your email."
+        : "Your scan is ready below. Email delivery is not configured yet, so keep this page open if you want to review it now.";
+
+      document.getElementById("scan-score").textContent = `${scan.overall_first_impression.score}/10`;
+      document.getElementById("scan-weak-point").textContent = scan.biggest_weak_point;
+      document.getElementById("scan-fastest-win").textContent = scan.fastest_win;
+      document.getElementById("scan-summary").textContent = scan.quick_summary;
+      document.getElementById("scan-upgrades").innerHTML = scan.top_3_upgrades.map((item) => (
+        `<li><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.first_step)}</span></li>`
+      )).join("");
+      scanResult.hidden = false;
     }
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
