@@ -1,36 +1,32 @@
-# OS
-.DS_Store
-Thumbs.db
-desktop.ini
-$RECYCLE.BIN/
-
-# Editors
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-
-# Env / secrets
+# Secrets
 .env
 .env.local
 .env.*.local
 
-# Build artefacts (if you ever add tooling later)
-node_modules/
-dist/
-build/
-.cache/
-.parcel-cache/
-
-# Private local submissions
+# Private submissions and uploads
 storage/
-../storage/
 
-# Misc
-*.bak
+# Dependencies
+node_modules/
+
+# Local Codex/Claude notes
+.claude/
+
+# Source media and generated audit files not needed for deploy
+Reels/
+Reel Pictures/
+logos/
+BroGrade-Beta-Audit*.docx
+/templates/
+/generate-audit.js
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
