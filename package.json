@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
+    "ai:check": "node scripts/check-ai.js",
     "check": "node --check server.js && node --check landing/assets/free-scan-submit.js",
     "test": "npm run check"
   },

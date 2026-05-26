@@ -18,10 +18,24 @@ const SCANS_DIR = path.join(STORAGE_DIR, "free-looks-scans");
 const PORT = Number(process.env.PORT || 3000);
 const MAX_PHOTO_SIZE = 10 * 1024 * 1024;
 const ADMIN_EMAIL = process.env.BROGRADE_ADMIN_EMAIL || "getbrograde@gmail.com";
-const AI_MODEL = process.env.BROGRADE_AI_MODEL || "gpt-5.5";
 const AI_REASONING_EFFORT = process.env.BROGRADE_AI_REASONING_EFFORT || "medium";
 const PUBLIC_BASE_URL = (process.env.PUBLIC_BASE_URL || `http://localhost:${PORT}`).replace(/\/$/, "");
 const PHOTO_SIGNING_SECRET = process.env.SCAN_SIGNING_SECRET || crypto.randomBytes(32).toString("hex");
+
+function parseCsv(value) {
+  return String(value || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function uniqueList(items) {
+  return [...new Set(items.filter(Boolean))];
+}
+
+const AI_MODEL = process.env.BROGRADE_AI_MODEL || "gpt-5.5";
+const AI_FALLBACK_MODELS = parseCsv(process.env.BROGRADE_AI_FALLBACK_MODELS || "gpt-5.1,gpt-5");
+const AI_MODELS = uniqueList([AI_MODEL, ...AI_FALLBACK_MODELS]);
 
 if (!process.env.SCAN_SIGNING_SECRET) {
   console.warn("SCAN_SIGNING_SECRET is not set. Admin photo links will reset when the server restarts.");
@@ -291,6 +305,9 @@ function buildPrompt(submission) {
     "Do not identify race, ethnicity, sexuality, class, exact weight, medical conditions, mental health, dermatology issues, or anything you cannot safely infer.",
     "If the image is too unclear, says little about the chosen goal, appears to include someone under 18, or contains someone other than the uploader, set status accordingly and explain the photo problem without a score above 5.",
     "Keep it useful for a cold traffic user. Give the first 3 changes, not a full paid audit.",
+    "Make the feedback direct enough to feel valuable but clean enough to email to a normal customer.",
+    "Use concrete visible signals. Avoid vague advice like be confident, glow up, or just dress better.",
+    "If a category cannot be judged from the image, say limited read from this photo and still give the best useful next step.",
     "",
     "User context:",
     `First name: ${submission.first_name}`,
@@ -351,21 +368,27 @@ function normalizeScan(scan) {
   return normalized;
 }
 
-async function generateAiScan(submission, file) {
-  if (!process.env.OPENAI_API_KEY) {
-    return {
-      ai_status: "not_configured",
-      model: null,
-      scan: null,
-      error: "OPENAI_API_KEY is not configured."
-    };
+function getOpenAiRefusal(response) {
+  for (const output of response.output || []) {
+    for (const part of output.content || []) {
+      if (part.type === "refusal" && part.refusal) return part.refusal;
+    }
   }
 
-  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-  const base64Image = file.buffer.toString("base64");
+  return "";
+}
 
+function shouldTryNextModel(error) {
+  const status = Number(error.status || error.code || 0);
+  if ([401, 403, 429].includes(status)) return false;
+
+  const message = String(error.message || "");
+  return /model|not found|does not exist|unsupported|not supported|invalid.*model|reasoning/i.test(message);
+}
+
+async function createScanWithModel(openai, model, submission, base64Image) {
   const response = await openai.responses.create({
-    model: AI_MODEL,
+    model,
     store: false,
     instructions: "You are BroGrade, an appearance presentation reviewer for men 18+. Be specific, direct, useful, and safety-aware. Output JSON only.",
     input: [
@@ -391,17 +414,54 @@ async function generateAiScan(submission, file) {
     max_output_tokens: 1800
   });
 
+  const refusal = getOpenAiRefusal(response);
+  if (refusal) {
+    throw new Error(`OpenAI refused the scan: ${refusal}`);
+  }
+
   const outputText = response.output_text;
   if (!outputText) {
     throw new Error("OpenAI returned an empty scan.");
   }
 
   return {
-    ai_status: "completed",
-    model: AI_MODEL,
-    response_id: response.id,
+    response,
     scan: normalizeScan(JSON.parse(outputText))
   };
+}
+
+async function generateAiScan(submission, file) {
+  if (!process.env.OPENAI_API_KEY) {
+    return {
+      ai_status: "not_configured",
+      model: null,
+      scan: null,
+      error: "OPENAI_API_KEY is not configured."
+    };
+  }
+
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  const base64Image = file.buffer.toString("base64");
+  const failures = [];
+
+  for (const model of AI_MODELS) {
+    try {
+      const result = await createScanWithModel(openai, model, submission, base64Image);
+      return {
+        ai_status: "completed",
+        model,
+        attempted_models: AI_MODELS,
+        response_id: result.response.id,
+        scan: result.scan
+      };
+    } catch (error) {
+      failures.push({ model, message: error.message });
+      if (!shouldTryNextModel(error)) break;
+    }
+  }
+
+  const summary = failures.map((item) => `${item.model}: ${item.message}`).join(" | ");
+  throw new Error(`OpenAI scan failed after trying ${failures.length} model(s). ${summary}`);
 }
 
 function escapeHtml(value) {
@@ -555,6 +615,7 @@ function publicRecord(record) {
     created_at: record.created_at,
     status: record.status,
     ai_status: record.ai_status,
+    ai_model: record.ai_model,
     email_delivery: record.email_delivery,
     scan: record.scan || null
   };
@@ -564,7 +625,12 @@ app.get("/api/health", (req, res) => {
   res.json({
     ok: true,
     ai_configured: Boolean(process.env.OPENAI_API_KEY),
-    email_configured: Boolean(process.env.RESEND_API_KEY && process.env.RESEND_FROM)
+    ai_model: AI_MODEL,
+    ai_fallback_models: AI_FALLBACK_MODELS,
+    ai_reasoning_effort: AI_REASONING_EFFORT,
+    email_configured: Boolean(process.env.RESEND_API_KEY && process.env.RESEND_FROM),
+    storage_configured: Boolean(STORAGE_DIR),
+    storage_dir: STORAGE_DIR
   });
 });
 
@@ -615,6 +681,7 @@ app.post("/api/free-looks-scans", apiLimiter, upload.single("photo"), async (req
       status: aiResult.scan ? "reviewing" : "new",
       ai_status: aiResult.ai_status,
       ai_model: aiResult.model,
+      ai_attempted_models: aiResult.attempted_models || AI_MODELS,
       ai_response_id: aiResult.response_id || null,
       ai_error: aiResult.error || null,
       scan: aiResult.scan,
@@ -626,7 +693,7 @@ app.post("/api/free-looks-scans", apiLimiter, upload.single("photo"), async (req
     const emailDelivery = await deliverEmails(record);
     record.email_delivery = emailDelivery;
     record.updated_at = new Date().toISOString();
-    if (record.scan && emailDelivery.user_sent) {
+    if (record.scan) {
       record.status = "sent";
     }
 
