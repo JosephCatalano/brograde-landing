@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="theme-color" content="#08090C"/>
+  <meta name="color-scheme" content="dark"/>
+
+  <title>Free BroGrade Looks Scan</title>
+  <meta name="description" content="Upload one photo and submit a short on-site BroGrade Looks Scan for direct appearance feedback."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Free BroGrade Looks Scan"/>
+  <meta property="og:description" content="Upload one clear photo. Get your top appearance upgrades."/>
+  <meta property="og:image" content="assets/logo-horizontal.png"/>
+  <meta property="og:url" content="https://brograde.com/scan.html"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <link rel="icon" type="image/png" href="assets/logo-mark.png"/>
+  <link rel="apple-touch-icon" href="assets/logo-mark.png"/>
+  <link rel="canonical" href="https://brograde.com/scan.html"/>
+
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700;800&family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/brograde-site.css"/>
+</head>
+<body class="scan-page">
+  <a href="#scan-main" class="skip">Skip to scan form</a>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="BroGrade home">
+        <img src="assets/logo-horizontal.png" alt="BroGrade"/>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#free-layer">What you get</a>
+        <a href="index.html#privacy">Privacy</a>
+      </div>
+      <div class="nav-actions">
+        <a href="https://forms.gle/s58S8b6sq6drfv188" target="_blank" rel="noopener" class="btn btn-secondary">Full Audit</a>
+        <a href="index.html" class="btn btn-primary">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="scan-shell" id="scan-main">
+    <div class="wrap scan-layout">
+      <aside class="scan-side reveal">
+        <img src="assets/logo-mark.png" alt="BroGrade shield mark"/>
+        <div class="eyebrow">Free BroGrade Looks Scan</div>
+        <h1>Upload yourself. Get graded. Get upgraded.</h1>
+        <p>One photo, a few quick answers, and enough context to give you the first useful read on what is helping, what is hurting, and what to change first.</p>
+        <div class="tag-row" aria-label="Scan benefits">
+          <span class="tag">1 photo</span>
+          <span class="tag">Top 3 fixes</span>
+          <span class="tag">18+ only</span>
+          <span class="tag">Private</span>
+        </div>
+      </aside>
+
+      <section class="form-card reveal" aria-label="Free Looks Scan form">
+        <div class="progress-head" id="progress-head">
+          <div class="progress-meta">
+            <span id="step-label">Step 1 of 5</span>
+            <span>Free scan</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+
+        <form class="scan-form" id="scan-form" name="Free BroGrade Looks Scan" novalidate>
+          <section class="step-panel" data-step-panel>
+            <h2>Upload one clear photo</h2>
+            <p>Start with one clear photo. Use good lighting. Avoid filters, heavy shadows, extreme angles, or old photos.</p>
+
+            <div class="field-group">
+              <div class="field">
+                <label for="photo">Upload photo</label>
+                <div class="upload-box">
+                  <div>
+                    <strong>Choose a jpg, jpeg, png, or webp file</strong>
+                    <span>Max size 10 MB. Photo is required.</span>
+                    <input id="photo" name="photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"/>
+                  </div>
+                </div>
+                <div class="photo-preview" id="photo-preview" aria-live="polite">
+                  <img id="preview-image" alt="Selected upload preview"/>
+                  <div>
+                    <strong id="preview-name">Selected photo</strong>
+                    <span id="preview-size"></span>
+                    <button type="button" class="btn btn-secondary" id="remove-photo">Remove photo</button>
+                  </div>
+                </div>
+              </div>
+
+              <fieldset class="field">
+                <legend>What type of photo are you uploading?</legend>
+                <div class="choice-grid two">
+                  <label class="choice"><input type="radio" name="photo_type" value="Full body / outfit"/> <span>Full body / outfit</span></label>
+                  <label class="choice"><input type="radio" name="photo_type" value="Face / hair"/> <span>Face / hair</span></label>
+                  <label class="choice"><input type="radio" name="photo_type" value="Dating profile photo"/> <span>Dating profile photo</span></label>
+                  <label class="choice"><input type="radio" name="photo_type" value="Not sure"/> <span>Not sure</span></label>
+                </div>
+              </fieldset>
+            </div>
+          </section>
+
+          <section class="step-panel" data-step-panel hidden>
+            <h2>What do you want to improve most?</h2>
+            <p>Pick the main thing you want BroGrade to focus on first.</p>
+            <fieldset class="field">
+              <legend class="field-label">Main goal</legend>
+              <div class="choice-grid two">
+                <label class="choice"><input type="radio" name="main_goal" value="Style / outfits"/> <span>Style / outfits</span></label>
+                <label class="choice"><input type="radio" name="main_goal" value="Hair / grooming"/> <span>Hair / grooming</span></label>
+                <label class="choice"><input type="radio" name="main_goal" value="Physique / gym"/> <span>Physique / gym</span></label>
+                <label class="choice"><input type="radio" name="main_goal" value="Dating profile / photos"/> <span>Dating profile / photos</span></label>
+                <label class="choice"><input type="radio" name="main_goal" value="Skin / face"/> <span>Skin / face</span></label>
+                <label class="choice"><input type="radio" name="main_goal" value="Overall appearance upgrade"/> <span>Overall appearance upgrade</span></label>
+                <label class="choice"><input type="radio" name="main_goal" value="Not sure, I want the honest truth"/> <span>Not sure, I want the honest truth</span></label>
+              </div>
+            </fieldset>
+          </section>
+
+          <section class="step-panel" data-step-panel hidden>
+            <h2>What look are you going for?</h2>
+            <p>Pick the closest aesthetic. You can add your own words below.</p>
+            <fieldset class="field">
+              <legend class="field-label">Ideal look</legend>
+              <div class="choice-grid two">
+                <label class="choice"><input type="radio" name="ideal_look" value="Clean / mature"/> <span>Clean / mature</span></label>
+                <label class="choice"><input type="radio" name="ideal_look" value="Old money"/> <span>Old money</span></label>
+                <label class="choice"><input type="radio" name="ideal_look" value="Athletic"/> <span>Athletic</span></label>
+                <label class="choice"><input type="radio" name="ideal_look" value="Mafia / sleek"/> <span>Mafia / sleek</span></label>
+                <label class="choice"><input type="radio" name="ideal_look" value="Business casual"/> <span>Business casual</span></label>
+                <label class="choice"><input type="radio" name="ideal_look" value="Streetwear"/> <span>Streetwear</span></label>
+                <label class="choice"><input type="radio" name="ideal_look" value="Minimalist"/> <span>Minimalist</span></label>
+                <label class="choice"><input type="radio" name="ideal_look" value="Luxury casual"/> <span>Luxury casual</span></label>
+                <label class="choice"><input type="radio" name="ideal_look" value="Gym / masculine"/> <span>Gym / masculine</span></label>
+                <label class="choice"><input type="radio" name="ideal_look" value="Model-off-duty"/> <span>Model-off-duty</span></label>
+                <label class="choice"><input type="radio" name="ideal_look" value="Not sure"/> <span>Not sure</span></label>
+              </div>
+            </fieldset>
+            <div class="field" style="margin-top: 16px;">
+              <label for="ideal_look_notes">Describe the look you want in your own words</label>
+              <textarea id="ideal_look_notes" name="ideal_look_notes" placeholder="Example: cleaner, more mature, better dressed, more attractive in photos"></textarea>
+            </div>
+          </section>
+
+          <section class="step-panel" data-step-panel hidden>
+            <h2>Quick context</h2>
+            <p>This helps personalize your scan. Do not overthink it.</p>
+            <div class="field-group">
+              <div class="inline-fields">
+                <div class="field">
+                  <label for="first_name">First name</label>
+                  <input id="first_name" name="first_name" autocomplete="given-name" required/>
+                </div>
+                <div class="field">
+                  <label for="age">Age</label>
+                  <input id="age" name="age" type="number" min="18" inputmode="numeric" required/>
+                </div>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required/>
+              </div>
+              <div class="inline-fields">
+                <div class="field">
+                  <label for="height">Height <small>optional</small></label>
+                  <input id="height" name="height" autocomplete="off" placeholder="Example: 5'10&quot; or 178 cm"/>
+                </div>
+                <div class="field">
+                  <label for="weight">Weight <small>optional</small></label>
+                  <input id="weight" name="weight" autocomplete="off" placeholder="Example: 175 lb or 79 kg"/>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="step-panel" data-step-panel hidden>
+            <h2>Almost done</h2>
+            <p>Confirm the basics, then submit your free scan.</p>
+
+            <div class="consent-block">
+              <label class="choice">
+                <input type="checkbox" name="consent_age_confirmed" value="true"/>
+                <span>I confirm I am 18 or older and I am only uploading photos of myself.</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="consent_disclaimer_confirmed" value="true"/>
+                <span>I understand BroGrade gives style, grooming, fitness-direction, and appearance feedback for self-improvement purposes only. It is not medical, mental health, dermatology, or professional fitness advice.</span>
+              </label>
+            </div>
+
+            <fieldset class="field" style="margin-top: 18px;">
+              <legend>Can BroGrade use parts of your scan or photos for marketing?</legend>
+              <div class="choice-grid">
+                <label class="choice"><input type="radio" name="marketing_permission" value="No" checked/> <span>No</span></label>
+                <label class="choice"><input type="radio" name="marketing_permission" value="Yes, with my face blurred"/> <span>Yes, with my face blurred</span></label>
+                <label class="choice"><input type="radio" name="marketing_permission" value="Yes, but ask me first"/> <span>Yes, but ask me first</span></label>
+              </div>
+            </fieldset>
+          </section>
+
+          <div class="error-box" id="form-error" role="alert"></div>
+          <div class="status-box" id="form-status" role="status"></div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="back-btn" disabled>Back</button>
+            <button type="button" class="btn btn-primary" id="next-btn">Continue</button>
+          </div>
+        </form>
+
+        <div class="success-screen" id="success-screen" aria-live="polite">
+          <div class="success-mark" aria-hidden="true">&#10003;</div>
+          <h2>Your free BroGrade Looks Scan is submitted.</h2>
+          <p>Check your email for your scan. If you want a more detailed breakdown, you can upgrade to the full BroGrade Beta Audit.</p>
+
+          <div class="upsell">
+            <h3>Want the full breakdown?</h3>
+            <p>Your free scan finds the first problem. The full BroGrade Beta Audit shows you exactly how to fix your style, grooming, physique direction, photos, and wardrobe.</p>
+            <ul>
+              <li>Appearance scorecard</li>
+              <li>Style breakdown</li>
+              <li>Hair and grooming feedback</li>
+              <li>Physique direction</li>
+              <li>Photo review</li>
+              <li>Shopping list</li>
+              <li>7-day upgrade plan</li>
+            </ul>
+            <div class="success-actions">
+              <a href="https://forms.gle/s58S8b6sq6drfv188" target="_blank" rel="noopener" class="btn btn-primary">Get Full BroGrade Beta Audit</a>
+              <a href="index.html" class="btn btn-secondary">Back to Home</a>
+              <a href="index.html" class="btn btn-quiet">Maybe later</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/free-scan-submit.js"></script>
+  <script>
+    const form = document.getElementById("scan-form");
+    const panels = Array.from(document.querySelectorAll("[data-step-panel]"));
+    const stepLabel = document.getElementById("step-label");
+    const progressFill = document.getElementById("progress-fill");
+    const backBtn = document.getElementById("back-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const errorBox = document.getElementById("form-error");
+    const statusBox = document.getElementById("form-status");
+    const progressHead = document.getElementById("progress-head");
+    const successScreen = document.getElementById("success-screen");
+    const photoInput = document.getElementById("photo");
+    const photoPreview = document.getElementById("photo-preview");
+    const previewImage = document.getElementById("preview-image");
+    const previewName = document.getElementById("preview-name");
+    const previewSize = document.getElementById("preview-size");
+    const removePhoto = document.getElementById("remove-photo");
+    const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+    const allowedExtensions = [".jpg", ".jpeg", ".png", ".webp"];
+    const maxFileSize = 10 * 1024 * 1024;
+    let currentStep = 0;
+    let previewUrl = "";
+
+    function showError(message) {
+      statusBox.classList.remove("show");
+      statusBox.textContent = "";
+      errorBox.textContent = message;
+      errorBox.classList.add("show");
+      errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function clearMessages() {
+      errorBox.classList.remove("show");
+      errorBox.textContent = "";
+      statusBox.classList.remove("show");
+      statusBox.textContent = "";
+    }
+
+    function showStatus(message) {
+      errorBox.classList.remove("show");
+      errorBox.textContent = "";
+      statusBox.textContent = message;
+      statusBox.classList.add("show");
+    }
+
+    function checkedValue(name) {
+      return form.querySelector(`input[name="${name}"]:checked`)?.value || "";
+    }
+
+    function checkedBoolean(name) {
+      return Boolean(form.querySelector(`input[name="${name}"]:checked`));
+    }
+
+    function getPhotoError(file) {
+      if (!file) return "Photo is required.";
+      const lowerName = file.name.toLowerCase();
+      const extensionOk = allowedExtensions.some((ext) => lowerName.endsWith(ext));
+      if (!allowedTypes.includes(file.type) && !extensionOk) return "Upload must be a jpg, jpeg, png, or webp image.";
+      if (file.size > maxFileSize) return "Photo must be 10 MB or smaller.";
+      return "";
+    }
+
+    function validateStep(step) {
+      if (step === 0) {
+        const photoError = getPhotoError(photoInput.files[0]);
+        if (photoError) return photoError;
+        if (!checkedValue("photo_type")) return "Select what type of photo you are uploading.";
+      }
+
+      if (step === 1 && !checkedValue("main_goal")) {
+        return "Select the main thing you want to improve.";
+      }
+
+      if (step === 2 && !checkedValue("ideal_look")) {
+        return "Select the look you are going for.";
+      }
+
+      if (step === 3) {
+        const firstName = form.first_name.value.trim();
+        const age = Number(form.age.value);
+        const email = form.email.value.trim();
+        if (!firstName) return "First name is required.";
+        if (!age) return "Age is required.";
+        if (age < 18) return "You must be 18 or older to submit a BroGrade Looks Scan.";
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "Enter a valid email address.";
+      }
+
+      if (step === 4) {
+        if (!checkedBoolean("consent_age_confirmed")) return "You must confirm you are 18 or older and uploading photos of yourself.";
+        if (!checkedBoolean("consent_disclaimer_confirmed")) return "You must confirm you understand the BroGrade feedback disclaimer.";
+      }
+
+      return "";
+    }
+
+    function showStep(step) {
+      panels.forEach((panel, index) => {
+        panel.hidden = index !== step;
+      });
+      stepLabel.textContent = `Step ${step + 1} of ${panels.length}`;
+      progressFill.style.width = `${((step + 1) / panels.length) * 100}%`;
+      backBtn.disabled = step === 0;
+      nextBtn.textContent = step === panels.length - 1 ? "Submit Free Looks Scan" : "Continue";
+      clearMessages();
+    }
+
+    function formatFileSize(bytes) {
+      return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
+    }
+
+    photoInput.addEventListener("change", () => {
+      const file = photoInput.files[0];
+      const photoError = getPhotoError(file);
+      if (photoError) {
+        showError(photoError);
+        photoInput.value = "";
+        photoPreview.classList.remove("show");
+        return;
+      }
+
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      previewUrl = URL.createObjectURL(file);
+      previewImage.src = previewUrl;
+      previewName.textContent = file.name;
+      previewSize.textContent = formatFileSize(file.size);
+      photoPreview.classList.add("show");
+      clearMessages();
+    });
+
+    removePhoto.addEventListener("click", () => {
+      photoInput.value = "";
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      previewUrl = "";
+      previewImage.src = "";
+      photoPreview.classList.remove("show");
+      photoInput.focus();
+    });
+
+    backBtn.addEventListener("click", () => {
+      if (currentStep === 0) return;
+      currentStep -= 1;
+      showStep(currentStep);
+    });
+
+    nextBtn.addEventListener("click", async () => {
+      const error = validateStep(currentStep);
+      if (error) {
+        showError(error);
+        return;
+      }
+
+      if (currentStep < panels.length - 1) {
+        currentStep += 1;
+        showStep(currentStep);
+        return;
+      }
+
+      await submitScan();
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      await submitScan();
+    });
+
+    function buildPayload() {
+      return {
+        created_at: new Date().toISOString(),
+        first_name: form.first_name.value.trim(),
+        age: Number(form.age.value),
+        email: form.email.value.trim(),
+        height: form.height.value.trim(),
+        weight: form.weight.value.trim(),
+        photo_type: checkedValue("photo_type"),
+        main_goal: checkedValue("main_goal"),
+        ideal_look: checkedValue("ideal_look"),
+        ideal_look_notes: form.ideal_look_notes.value.trim(),
+        marketing_permission: checkedValue("marketing_permission") || "No",
+        consent_age_confirmed: checkedBoolean("consent_age_confirmed"),
+        consent_disclaimer_confirmed: checkedBoolean("consent_disclaimer_confirmed"),
+        status: "new"
+      };
+    }
+
+    async function submitScan() {
+      for (let index = 0; index < panels.length; index += 1) {
+        const error = validateStep(index);
+        if (error) {
+          currentStep = index;
+          showStep(currentStep);
+          showError(error);
+          return;
+        }
+      }
+
+      const file = photoInput.files[0];
+      const payload = buildPayload();
+      nextBtn.disabled = true;
+      backBtn.disabled = true;
+      nextBtn.textContent = "Submitting your scan...";
+      showStatus("Submitting your scan...");
+
+      try {
+        if (!window.BroGradeScanSubmitter) {
+          throw new Error("Submission is not configured yet. Please connect a backend endpoint before accepting live scans.");
+        }
+
+        await window.BroGradeScanSubmitter.submit({ payload, file });
+        form.hidden = true;
+        progressHead.hidden = true;
+        successScreen.classList.add("show");
+        successScreen.scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (error) {
+        showError(error.message || "Something went wrong while submitting your scan.");
+        nextBtn.disabled = false;
+        backBtn.disabled = false;
+        nextBtn.textContent = "Submit Free Looks Scan";
+      }
+    }
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+    }
+
+    showStep(currentStep);
+  </script>
+</body>
+</html>
