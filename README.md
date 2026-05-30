@@ -18,6 +18,27 @@ http://localhost:3000/audit.html
 http://localhost:3000/api/health
 ```
 
+## Stop And Restart Locally
+
+If the app is running in the current terminal, stop it with:
+
+```text
+Ctrl+C
+```
+
+If it is running in the background on port `3000`, stop it from PowerShell:
+
+```powershell
+$conn = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1
+if ($conn) { Stop-Process -Id $conn.OwningProcess }
+```
+
+Then restart:
+
+```bash
+npm start
+```
+
 ## Required Railway Variables
 
 ```env
@@ -46,7 +67,15 @@ For local end-to-end testing without Stripe payment, add this to `.env` and rest
 BROGRADE_DEV_CHECKOUT_BYPASS=true
 ```
 
-This exposes a local-only "Test Without Payment" button on the audit page. It is ignored when `NODE_ENV=production`.
+Then restart the server and open:
+
+```text
+http://localhost:3000/audit.html
+```
+
+Click **Test Without Payment**. The app creates a local fake paid checkout session and sends you to the full audit intake page.
+
+This bypass is local-only: it is disabled when `NODE_ENV=production`. Leave it off in production and use Stripe test mode for deployed checkout testing.
 
 ## Optional Email Variables
 
