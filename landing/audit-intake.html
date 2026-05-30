@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="theme-color" content="#08090C"/>
+  <meta name="color-scheme" content="dark"/>
+
+  <title>Full BroGrade Audit Intake</title>
+  <meta name="description" content="Complete your paid BroGrade Full Audit intake and upload your audit photos."/>
+  <meta name="robots" content="noindex"/>
+
+  <link rel="icon" type="image/png" href="assets/logo-mark.png"/>
+  <link rel="apple-touch-icon" href="assets/logo-mark.png"/>
+
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700;800&family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/brograde-site.css"/>
+</head>
+<body class="scan-page">
+  <a href="#audit-intake-main" class="skip">Skip to audit intake</a>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="BroGrade home">
+        <img src="assets/logo-horizontal.png" alt="BroGrade"/>
+      </a>
+      <div class="nav-links">
+        <a href="audit.html">Full audit</a>
+        <a href="scan.html">Free scan</a>
+        <a href="index.html#privacy">Privacy</a>
+      </div>
+      <div class="nav-actions">
+        <a href="audit.html" class="btn btn-secondary">Audit Page</a>
+        <a href="index.html" class="btn btn-primary">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="scan-shell" id="audit-intake-main">
+    <div class="wrap audit-intake-layout">
+      <aside class="scan-side reveal">
+        <img src="assets/logo-mark.png" alt="BroGrade shield mark"/>
+        <div class="eyebrow">Paid audit intake</div>
+        <h1>Build the full picture.</h1>
+        <p>Upload the required photos and give enough context for a specific scorecard, shopping plan, grooming direction, and execution plan.</p>
+        <div class="tag-row" aria-label="Audit requirements">
+          <span class="tag" id="audit-session-badge">Verifying payment</span>
+          <span class="tag">4 required photos</span>
+          <span class="tag">Private</span>
+          <span class="tag">18+ only</span>
+        </div>
+      </aside>
+
+      <section class="form-card reveal" aria-label="Full Audit intake form">
+        <div class="audit-intake-gate" id="audit-intake-gate">
+          <h2>Checkout required.</h2>
+          <p>Start with secure checkout, then complete the full audit intake.</p>
+          <a href="audit.html#checkout" class="btn btn-primary">Start Checkout</a>
+        </div>
+
+        <form class="scan-form full-audit-form" id="full-audit-form" novalidate>
+          <input type="hidden" id="checkout_session_id" name="checkout_session_id"/>
+          <input type="hidden" id="scan_id" name="scan_id"/>
+
+          <section class="audit-form-section">
+            <div class="audit-section-kicker">01 / Photos</div>
+            <h2>Upload your audit photos</h2>
+            <p>Use recent, clear photos with normal lighting. Avoid filters, heavy shadows, and old photos.</p>
+            <div class="audit-upload-grid">
+              <label class="audit-upload-tile" for="front_photo">
+                <strong>Full body front *</strong>
+                <span data-file-summary="front_photo">No file selected</span>
+                <input id="front_photo" name="front_photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required/>
+              </label>
+              <label class="audit-upload-tile" for="side_photo">
+                <strong>Side profile *</strong>
+                <span data-file-summary="side_photo">No file selected</span>
+                <input id="side_photo" name="side_photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required/>
+              </label>
+              <label class="audit-upload-tile" for="face_photo">
+                <strong>Face and hair *</strong>
+                <span data-file-summary="face_photo">No file selected</span>
+                <input id="face_photo" name="face_photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required/>
+              </label>
+              <label class="audit-upload-tile" for="best_outfit_photo">
+                <strong>Best current outfit *</strong>
+                <span data-file-summary="best_outfit_photo">No file selected</span>
+                <input id="best_outfit_photo" name="best_outfit_photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required/>
+              </label>
+              <label class="audit-upload-tile" for="worst_outfit_photo">
+                <strong>Weakest outfit</strong>
+                <span data-file-summary="worst_outfit_photo">No file selected</span>
+                <input id="worst_outfit_photo" name="worst_outfit_photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"/>
+              </label>
+              <label class="audit-upload-tile" for="dating_profile_photo">
+                <strong>Dating/profile photo</strong>
+                <span data-file-summary="dating_profile_photo">No file selected</span>
+                <input id="dating_profile_photo" name="dating_profile_photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"/>
+              </label>
+              <label class="audit-upload-tile" for="closet_photo">
+                <strong>Closet / wardrobe</strong>
+                <span data-file-summary="closet_photo">No file selected</span>
+                <input id="closet_photo" name="closet_photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"/>
+              </label>
+              <label class="audit-upload-tile" for="extra_photo">
+                <strong>Extra context</strong>
+                <span data-file-summary="extra_photo">No file selected</span>
+                <input id="extra_photo" name="extra_photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"/>
+              </label>
+            </div>
+          </section>
+
+          <section class="audit-form-section">
+            <div class="audit-section-kicker">02 / Basics</div>
+            <h2>Your details</h2>
+            <div class="field-group">
+              <div class="inline-fields">
+                <div class="field">
+                  <label for="first_name">First name</label>
+                  <input id="first_name" name="first_name" autocomplete="given-name" required/>
+                </div>
+                <div class="field">
+                  <label for="age">Age</label>
+                  <input id="age" name="age" type="number" min="18" inputmode="numeric" required/>
+                </div>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required/>
+              </div>
+              <div class="inline-fields">
+                <div class="field">
+                  <label for="height">Height <small>optional</small></label>
+                  <input id="height" name="height" placeholder="5'10&quot; or 178 cm"/>
+                </div>
+                <div class="field">
+                  <label for="weight">Weight <small>optional</small></label>
+                  <input id="weight" name="weight" placeholder="175 lb or 79 kg"/>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="audit-form-section">
+            <div class="audit-section-kicker">03 / Goal</div>
+            <h2>What should the audit optimize for?</h2>
+            <div class="field-group">
+              <div class="field">
+                <label for="main_goal">Main goal</label>
+                <input id="main_goal" name="main_goal" placeholder="Cleaner dating profile, better outfits, more mature image" required/>
+              </div>
+              <div class="field">
+                <label for="target_look">Target look</label>
+                <input id="target_look" name="target_look" placeholder="Clean mature, athletic, old money, streetwear, luxury casual" required/>
+              </div>
+              <fieldset class="field">
+                <legend>Focus areas</legend>
+                <div class="choice-grid two">
+                  <label class="choice"><input type="checkbox" name="focus_areas" value="Style / outfits"/> <span>Style / outfits</span></label>
+                  <label class="choice"><input type="checkbox" name="focus_areas" value="Hair / grooming"/> <span>Hair / grooming</span></label>
+                  <label class="choice"><input type="checkbox" name="focus_areas" value="Physique / gym"/> <span>Physique / gym</span></label>
+                  <label class="choice"><input type="checkbox" name="focus_areas" value="Dating profile / photos"/> <span>Dating profile / photos</span></label>
+                  <label class="choice"><input type="checkbox" name="focus_areas" value="Wardrobe shopping"/> <span>Wardrobe shopping</span></label>
+                  <label class="choice"><input type="checkbox" name="focus_areas" value="Overall appearance upgrade"/> <span>Overall upgrade</span></label>
+                </div>
+              </fieldset>
+              <div class="inline-fields">
+                <div class="field">
+                  <label for="budget">Wardrobe budget</label>
+                  <select id="budget" name="budget" required>
+                    <option value="">Select budget</option>
+                    <option>Under $150</option>
+                    <option>$150-$300</option>
+                    <option>$300-$600</option>
+                    <option>$600-$1,000</option>
+                    <option>$1,000+</option>
+                    <option>No set budget</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="primary_environment">Primary environment</label>
+                  <select id="primary_environment" name="primary_environment" required>
+                    <option value="">Select environment</option>
+                    <option>Dating</option>
+                    <option>School / campus</option>
+                    <option>Professional / office</option>
+                    <option>Social / nightlife</option>
+                    <option>Gym / fitness</option>
+                    <option>Everyday casual</option>
+                    <option>Personal brand / content</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="audit-form-section">
+            <div class="audit-section-kicker">04 / Context</div>
+            <h2>Give the audit something to work with</h2>
+            <div class="field-group">
+              <div class="field">
+                <label for="current_style">Describe your current style</label>
+                <textarea id="current_style" name="current_style" placeholder="What do you wear most days? What feels random, basic, or off?" required></textarea>
+              </div>
+              <div class="field">
+                <label for="biggest_frustration">Biggest frustration</label>
+                <textarea id="biggest_frustration" name="biggest_frustration" placeholder="What bothers you most about your look right now?" required></textarea>
+              </div>
+              <div class="field">
+                <label for="desired_outcome">Desired outcome</label>
+                <textarea id="desired_outcome" name="desired_outcome" placeholder="What should change after you execute the audit?" required></textarea>
+              </div>
+              <div class="inline-fields">
+                <div class="field">
+                  <label for="brands_liked">Brands or styles you like <small>optional</small></label>
+                  <input id="brands_liked" name="brands_liked" placeholder="Uniqlo, Zara, Ralph Lauren, Nike, minimal"/>
+                </div>
+                <div class="field">
+                  <label for="brands_avoided">Brands or styles to avoid <small>optional</small></label>
+                  <input id="brands_avoided" name="brands_avoided" placeholder="Skinny jeans, loud logos, oversized streetwear"/>
+                </div>
+              </div>
+              <div class="field">
+                <label for="haircut_context">Hair context <small>optional</small></label>
+                <textarea id="haircut_context" name="haircut_context" placeholder="What cut do you usually get? Any constraints?"></textarea>
+              </div>
+              <div class="field">
+                <label for="gym_context">Gym / physique context <small>optional</small></label>
+                <textarea id="gym_context" name="gym_context" placeholder="Training frequency, current priorities, visual physique goals"></textarea>
+              </div>
+              <div class="field">
+                <label for="dating_context">Dating/photo context <small>optional</small></label>
+                <textarea id="dating_context" name="dating_context" placeholder="Apps used, profile goal, what photos you already have"></textarea>
+              </div>
+              <div class="field">
+                <label for="city_climate">City or climate <small>optional</small></label>
+                <input id="city_climate" name="city_climate" placeholder="Toronto winters, hot climate, campus, office dress code"/>
+              </div>
+            </div>
+          </section>
+
+          <section class="audit-form-section">
+            <div class="audit-section-kicker">05 / Consent</div>
+            <h2>Confirm and submit</h2>
+            <div class="consent-block">
+              <label class="choice">
+                <input id="consent_age_confirmed" type="checkbox" name="consent_age_confirmed" value="true"/>
+                <span>I confirm I am 18 or older and I am only uploading photos of myself.</span>
+              </label>
+              <label class="choice">
+                <input id="consent_disclaimer_confirmed" type="checkbox" name="consent_disclaimer_confirmed" value="true"/>
+                <span>I understand BroGrade gives appearance feedback for self-improvement only, not medical or professional advice.</span>
+              </label>
+            </div>
+            <fieldset class="field" style="margin-top: 18px;">
+              <legend>Can BroGrade use your audit or photos for marketing?</legend>
+              <div class="choice-grid">
+                <label class="choice"><input type="radio" name="marketing_permission" value="No" checked/> <span>No</span></label>
+                <label class="choice"><input type="radio" name="marketing_permission" value="Yes, with my face blurred"/> <span>Yes, with my face blurred</span></label>
+                <label class="choice"><input type="radio" name="marketing_permission" value="Yes, but ask me first"/> <span>Yes, but ask me first</span></label>
+              </div>
+            </fieldset>
+          </section>
+
+          <div class="error-box" id="full-audit-error" role="alert"></div>
+          <div class="status-box" id="full-audit-status" role="status"></div>
+
+          <div class="form-actions">
+            <a href="audit.html" class="btn btn-secondary">Back</a>
+            <button class="btn btn-primary" id="full-audit-submit" type="submit">Submit Full Audit</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/full-audit-submit.js"></script>
+  <script>
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+    }
+  </script>
+</body>
+</html>

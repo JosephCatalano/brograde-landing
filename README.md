@@ -14,6 +14,7 @@ Open:
 ```text
 http://localhost:3000
 http://localhost:3000/scan.html
+http://localhost:3000/audit.html
 http://localhost:3000/api/health
 ```
 
@@ -28,6 +29,24 @@ BROGRADE_AI_REASONING_EFFORT=medium
 SCAN_SIGNING_SECRET=make-this-a-long-random-secret
 BROGRADE_STORAGE_DIR=/data
 ```
+
+## Optional Stripe Variables
+
+```env
+STRIPE_SECRET_KEY=sk_test_or_live_key
+BROGRADE_AUDIT_PRICE_CENTS=1900
+BROGRADE_AUDIT_CURRENCY=usd
+BROGRADE_AUDIT_DELIVERY_WINDOW=24-48 hours
+BROGRADE_AUDIT_REVISION_POLICY=One actionability revision included during beta.
+```
+
+For local end-to-end testing without Stripe payment, add this to `.env` and restart:
+
+```env
+BROGRADE_DEV_CHECKOUT_BYPASS=true
+```
+
+This exposes a local-only "Test Without Payment" button on the audit page. It is ignored when `NODE_ENV=production`.
 
 ## Optional Email Variables
 

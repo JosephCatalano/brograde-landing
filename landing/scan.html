@@ -7,7 +7,7 @@
   <meta name="color-scheme" content="dark"/>
 
   <title>Free BroGrade Looks Scan</title>
-  <meta name="description" content="Upload one photo and submit a short on-site BroGrade Looks Scan for direct appearance feedback."/>
+  <meta name="description" content="Upload one photo for a free BroGrade Looks Scan."/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Free BroGrade Looks Scan"/>
   <meta property="og:description" content="Upload one clear photo. Get your top appearance upgrades."/>
@@ -34,12 +34,12 @@
         <img src="assets/logo-horizontal.png" alt="BroGrade"/>
       </a>
       <div class="nav-links">
-        <a href="index.html#how">How it works</a>
-        <a href="index.html#free-layer">What you get</a>
+        <a href="index.html#how">How</a>
+        <a href="index.html#free-layer">Free scan</a>
         <a href="index.html#privacy">Privacy</a>
       </div>
       <div class="nav-actions">
-        <a href="https://forms.gle/s58S8b6sq6drfv188" target="_blank" rel="noopener" class="btn btn-secondary">Full Audit</a>
+        <a href="audit.html" class="btn btn-secondary">Full Audit</a>
         <a href="index.html" class="btn btn-primary">Home</a>
       </div>
     </div>
@@ -50,8 +50,8 @@
       <aside class="scan-side reveal">
         <img src="assets/logo-mark.png" alt="BroGrade shield mark"/>
         <div class="eyebrow">Free BroGrade Looks Scan</div>
-        <h1>Upload yourself. Get graded. Get upgraded.</h1>
-        <p>One photo, a few quick answers, and enough context to give you the first useful read on what is helping, what is hurting, and what to change first.</p>
+        <h1>Upload one photo. Get your first read.</h1>
+        <p>Answer a few basics and see what is helping, what is hurting, and what to change first.</p>
         <div class="tag-row" aria-label="Scan benefits">
           <span class="tag">1 photo</span>
           <span class="tag">Top 3 fixes</span>
@@ -73,16 +73,16 @@
 
         <form class="scan-form" id="scan-form" name="Free BroGrade Looks Scan" novalidate>
           <section class="step-panel" data-step-panel>
-            <h2>Upload one clear photo</h2>
-            <p>Start with one clear photo. Use good lighting. Avoid filters, heavy shadows, extreme angles, or old photos.</p>
+            <h2>Upload a clear photo</h2>
+            <p>Use good lighting. Avoid filters, heavy shadows, extreme angles, or old photos.</p>
 
             <div class="field-group">
               <div class="field">
                 <label for="photo">Upload photo</label>
                 <div class="upload-box">
                   <div>
-                    <strong>Choose a jpg, jpeg, png, or webp file</strong>
-                    <span>Max size 10 MB. Photo is required.</span>
+                    <strong>Choose jpg, png, or webp</strong>
+                    <span>Max 10 MB. Required.</span>
                     <input id="photo" name="photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"/>
                   </div>
                 </div>
@@ -97,7 +97,7 @@
               </div>
 
               <fieldset class="field">
-                <legend>What type of photo are you uploading?</legend>
+                <legend>Photo type</legend>
                 <div class="choice-grid two">
                   <label class="choice"><input type="radio" name="photo_type" value="Full body / outfit"/> <span>Full body / outfit</span></label>
                   <label class="choice"><input type="radio" name="photo_type" value="Face / hair"/> <span>Face / hair</span></label>
@@ -109,8 +109,8 @@
           </section>
 
           <section class="step-panel" data-step-panel hidden>
-            <h2>What do you want to improve most?</h2>
-            <p>Pick the main thing you want BroGrade to focus on first.</p>
+            <h2>What do you want to improve?</h2>
+            <p>Pick the first focus.</p>
             <fieldset class="field">
               <legend class="field-label">Main goal</legend>
               <div class="choice-grid two">
@@ -119,15 +119,15 @@
                 <label class="choice"><input type="radio" name="main_goal" value="Physique / gym"/> <span>Physique / gym</span></label>
                 <label class="choice"><input type="radio" name="main_goal" value="Dating profile / photos"/> <span>Dating profile / photos</span></label>
                 <label class="choice"><input type="radio" name="main_goal" value="Skin / face"/> <span>Skin / face</span></label>
-                <label class="choice"><input type="radio" name="main_goal" value="Overall appearance upgrade"/> <span>Overall appearance upgrade</span></label>
-                <label class="choice"><input type="radio" name="main_goal" value="Not sure, I want the honest truth"/> <span>Not sure, I want the honest truth</span></label>
+                <label class="choice"><input type="radio" name="main_goal" value="Overall appearance upgrade"/> <span>Overall upgrade</span></label>
+                <label class="choice"><input type="radio" name="main_goal" value="Not sure, I want the honest truth"/> <span>Not sure / honest read</span></label>
               </div>
             </fieldset>
           </section>
 
           <section class="step-panel" data-step-panel hidden>
-            <h2>What look are you going for?</h2>
-            <p>Pick the closest aesthetic. You can add your own words below.</p>
+            <h2>What look do you want?</h2>
+            <p>Pick the closest fit. Add notes if needed.</p>
             <fieldset class="field">
               <legend class="field-label">Ideal look</legend>
               <div class="choice-grid two">
@@ -145,14 +145,14 @@
               </div>
             </fieldset>
             <div class="field" style="margin-top: 16px;">
-              <label for="ideal_look_notes">Describe the look you want in your own words</label>
-              <textarea id="ideal_look_notes" name="ideal_look_notes" placeholder="Example: cleaner, more mature, better dressed, more attractive in photos"></textarea>
+              <label for="ideal_look_notes">Describe it in your own words</label>
+              <textarea id="ideal_look_notes" name="ideal_look_notes" placeholder="Cleaner, more mature, better dressed, better photos"></textarea>
             </div>
           </section>
 
           <section class="step-panel" data-step-panel hidden>
-            <h2>Quick context</h2>
-            <p>This helps personalize your scan. Do not overthink it.</p>
+            <h2>Your details</h2>
+            <p>A little context helps personalize the scan.</p>
             <div class="field-group">
               <div class="inline-fields">
                 <div class="field">
@@ -171,11 +171,11 @@
               <div class="inline-fields">
                 <div class="field">
                   <label for="height">Height <small>optional</small></label>
-                  <input id="height" name="height" autocomplete="off" placeholder="Example: 5'10&quot; or 178 cm"/>
+                  <input id="height" name="height" autocomplete="off" placeholder="5'10&quot; or 178 cm"/>
                 </div>
                 <div class="field">
                   <label for="weight">Weight <small>optional</small></label>
-                  <input id="weight" name="weight" autocomplete="off" placeholder="Example: 175 lb or 79 kg"/>
+                  <input id="weight" name="weight" autocomplete="off" placeholder="175 lb or 79 kg"/>
                 </div>
               </div>
             </div>
@@ -183,7 +183,7 @@
 
           <section class="step-panel" data-step-panel hidden>
             <h2>Almost done</h2>
-            <p>Confirm the basics, then submit your free scan.</p>
+            <p>Confirm and submit.</p>
 
             <div class="consent-block">
               <label class="choice">
@@ -192,12 +192,12 @@
               </label>
               <label class="choice">
                 <input type="checkbox" name="consent_disclaimer_confirmed" value="true"/>
-                <span>I understand BroGrade gives style, grooming, fitness-direction, and appearance feedback for self-improvement purposes only. It is not medical, mental health, dermatology, or professional fitness advice.</span>
+                <span>I understand BroGrade gives appearance feedback for self-improvement only, not medical or professional advice.</span>
               </label>
             </div>
 
             <fieldset class="field" style="margin-top: 18px;">
-              <legend>Can BroGrade use parts of your scan or photos for marketing?</legend>
+              <legend>Can BroGrade use your scan or photo for marketing?</legend>
               <div class="choice-grid">
                 <label class="choice"><input type="radio" name="marketing_permission" value="No" checked/> <span>No</span></label>
                 <label class="choice"><input type="radio" name="marketing_permission" value="Yes, with my face blurred"/> <span>Yes, with my face blurred</span></label>
@@ -217,8 +217,8 @@
 
         <div class="success-screen" id="success-screen" aria-live="polite">
           <div class="success-mark" aria-hidden="true">&#10003;</div>
-          <h2>Your free BroGrade Looks Scan is submitted.</h2>
-          <p id="success-copy">Your scan has been saved. If email delivery is configured, a copy will be sent to your inbox.</p>
+          <h2>Your scan is submitted.</h2>
+          <p id="success-copy">Saved. If email is configured, a copy will be sent.</p>
 
           <div class="scan-result" id="scan-result" hidden>
             <div class="scan-result-head">
@@ -243,20 +243,19 @@
           </div>
 
           <div class="upsell">
-            <h3>Want the full breakdown?</h3>
-            <p>Your free scan finds the first problem. The full BroGrade Beta Audit shows you exactly how to fix your style, grooming, physique direction, photos, and wardrobe.</p>
+            <h3>Unlock the full upgrade plan</h3>
+            <p>Your free scan finds the first problem. The full audit turns your photos, goals, and budget into exact fixes.</p>
             <ul>
-              <li>Appearance scorecard</li>
-              <li>Style breakdown</li>
-              <li>Hair and grooming feedback</li>
-              <li>Physique direction</li>
-              <li>Photo review</li>
-              <li>Shopping list</li>
-              <li>7-day upgrade plan</li>
+              <li>Locked full appearance scorecard</li>
+              <li>Locked haircut and barber copy</li>
+              <li>Locked style and fit breakdown</li>
+              <li>Locked photo/profile review</li>
+              <li>Locked shopping list for your budget</li>
+              <li>Locked 7-day and 30-day upgrade plan</li>
             </ul>
             <div class="success-actions">
-              <a href="https://forms.gle/s58S8b6sq6drfv188" target="_blank" rel="noopener" class="btn btn-primary">Get Full BroGrade Beta Audit</a>
-              <a href="index.html" class="btn btn-secondary">Back to Home</a>
+              <a href="audit.html" class="btn btn-primary" id="full-audit-upgrade-link">Unlock Full Audit</a>
+              <a href="index.html" class="btn btn-secondary">Back Home</a>
               <a href="index.html" class="btn btn-quiet">Maybe later</a>
             </div>
           </div>
@@ -368,7 +367,7 @@
       stepLabel.textContent = `Step ${step + 1} of ${panels.length}`;
       progressFill.style.width = `${((step + 1) / panels.length) * 100}%`;
       backBtn.disabled = step === 0;
-      nextBtn.textContent = step === panels.length - 1 ? "Submit Free Looks Scan" : "Continue";
+      nextBtn.textContent = step === panels.length - 1 ? "Submit Free Scan" : "Continue";
       clearMessages();
     }
 
@@ -465,8 +464,8 @@
       const payload = buildPayload();
       nextBtn.disabled = true;
       backBtn.disabled = true;
-      nextBtn.textContent = "Submitting your scan...";
-      showStatus("Submitting your scan...");
+      nextBtn.textContent = "Submitting...";
+      showStatus("Submitting...");
 
       try {
         if (!window.BroGradeScanSubmitter) {
@@ -483,7 +482,7 @@
         showError(error.message || "Something went wrong while submitting your scan.");
         nextBtn.disabled = false;
         backBtn.disabled = false;
-        nextBtn.textContent = "Submit Free Looks Scan";
+        nextBtn.textContent = "Submit Free Scan";
       }
     }
 
@@ -502,21 +501,26 @@
       const successCopy = document.getElementById("success-copy");
       const scanResult = document.getElementById("scan-result");
       const emailDelivery = data.email_delivery || {};
+      const upgradeLink = document.getElementById("full-audit-upgrade-link");
+
+      if (upgradeLink && data.id) {
+        upgradeLink.href = `audit.html?scan_id=${encodeURIComponent(data.id)}`;
+      }
 
       if (!scan) {
         if (data.ai_status === "not_configured") {
-          successCopy.textContent = "Your scan has been saved. AI is not configured on this deployment yet, so BroGrade can review it manually.";
+          successCopy.textContent = "Your scan has been saved. BroGrade can review it manually.";
         } else if (data.ai_status === "failed") {
-          successCopy.textContent = `Your scan has been saved, but AI generation failed on this attempt. Reason: ${data.ai_error || "Check the server logs."}`;
+          successCopy.textContent = `Your scan has been saved, but AI generation failed. Reason: ${data.ai_error || "Check the server logs."}`;
         } else {
-          successCopy.textContent = "Your scan has been saved for review. AI generation did not complete, so BroGrade can review it manually.";
+          successCopy.textContent = "Your scan has been saved for review.";
         }
         return;
       }
 
       successCopy.textContent = emailDelivery.user_sent
-        ? "Your scan is ready below and a copy was sent to your email."
-        : "Your scan is ready below. Email delivery is not configured yet, so keep this page open if you want to review it now.";
+        ? "Your scan is ready below and was emailed to you."
+        : "Your scan is ready below. Email is not configured yet.";
 
       document.getElementById("scan-score").textContent = `${scan.overall_first_impression.score}/10`;
       document.getElementById("scan-weak-point").textContent = scan.biggest_weak_point;

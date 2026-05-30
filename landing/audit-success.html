@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="theme-color" content="#08090C"/>
+  <meta name="color-scheme" content="dark"/>
+
+  <title>BroGrade Audit Submitted</title>
+  <meta name="robots" content="noindex"/>
+
+  <link rel="icon" type="image/png" href="assets/logo-mark.png"/>
+  <link rel="apple-touch-icon" href="assets/logo-mark.png"/>
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700;800&family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/brograde-site.css"/>
+</head>
+<body class="scan-page">
+  <nav class="nav" aria-label="Primary">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="BroGrade home">
+        <img src="assets/logo-horizontal.png" alt="BroGrade"/>
+      </a>
+      <div class="nav-links">
+        <a href="audit.html">Full audit</a>
+        <a href="scan.html">Free scan</a>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-primary">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="audit-success-shell">
+    <section class="wrap audit-success-card">
+      <div class="success-mark" aria-hidden="true">&#10003;</div>
+      <div class="eyebrow">Full Audit</div>
+      <h1>Audit submitted.</h1>
+      <p class="lead" id="audit-success-status">Checking your audit status...</p>
+      <p id="audit-success-summary" class="audit-success-summary"></p>
+      <div class="hero-actions">
+        <a id="audit-result-link" href="audit-result.html" class="btn btn-primary" hidden>Open Audit Result</a>
+        <a href="index.html" class="btn btn-secondary">Back Home</a>
+      </div>
+      <p class="microcopy">Your private result link is also sent by email when email delivery is configured.</p>
+    </section>
+  </main>
+
+  <script src="assets/audit-success.js"></script>
+</body>
+</html>
