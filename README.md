@@ -1,6 +1,6 @@
 # BroGrade
 
-Full-stack BroGrade landing page and Free Looks Scan flow.
+Full-stack BroGrade landing page, Free Looks Scan flow, paid Full Audit funnel, and SEO guide pages.
 
 ## Run Locally
 
@@ -15,6 +15,7 @@ Open:
 http://localhost:3000
 http://localhost:3000/scan.html
 http://localhost:3000/audit.html
+http://localhost:3000/how-to-improve-your-looks-men.html
 http://localhost:3000/api/health
 ```
 
@@ -73,7 +74,7 @@ Then restart the server and open:
 http://localhost:3000/audit.html
 ```
 
-Click **Test Without Payment**. The app creates a local fake paid checkout session and sends you to the full audit intake page.
+Click **Test Without Payment**. The app creates a local test checkout session and sends you to the full audit intake page.
 
 This bypass is local-only: it is disabled when `NODE_ENV=production`. Leave it off in production and use Stripe test mode for deployed checkout testing.
 

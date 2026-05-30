@@ -43,9 +43,9 @@
     <div class="wrap audit-intake-layout">
       <aside class="scan-side reveal">
         <img src="assets/logo-mark.png" alt="BroGrade shield mark"/>
-        <div class="eyebrow">Paid audit intake</div>
-        <h1>Build the full picture.</h1>
-        <p>Upload the required photos and give enough context for a specific scorecard, shopping plan, grooming direction, and execution plan.</p>
+        <div class="eyebrow">Full audit intake</div>
+        <h1>Give the audit enough context to be specific.</h1>
+        <p>Upload the required photos and add the details that affect the plan: target image, budget, environment, wardrobe, hair, photos, and what is frustrating you right now.</p>
         <div class="tag-row" aria-label="Audit requirements">
           <span class="tag" id="audit-session-badge">Verifying payment</span>
           <span class="tag">4 required photos</span>
@@ -57,7 +57,7 @@
       <section class="form-card reveal" aria-label="Full Audit intake form">
         <div class="audit-intake-gate" id="audit-intake-gate">
           <h2>Checkout required.</h2>
-          <p>Start with secure checkout, then complete the full audit intake.</p>
+          <p>Start with secure checkout, then complete the private full audit intake.</p>
           <a href="audit.html#checkout" class="btn btn-primary">Start Checkout</a>
         </div>
 
@@ -68,7 +68,7 @@
           <section class="audit-form-section">
             <div class="audit-section-kicker">01 / Photos</div>
             <h2>Upload your audit photos</h2>
-            <p>Use recent, clear photos with normal lighting. Avoid filters, heavy shadows, and old photos.</p>
+            <p>Use recent, clear photos with normal lighting. Avoid filters, heavy shadows, old photos, group shots, and extreme angles.</p>
             <div class="audit-upload-grid">
               <label class="audit-upload-tile" for="front_photo">
                 <strong>Full body front *</strong>
@@ -76,7 +76,7 @@
                 <input id="front_photo" name="front_photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required/>
               </label>
               <label class="audit-upload-tile" for="side_photo">
-                <strong>Side profile *</strong>
+                <strong>Full body side *</strong>
                 <span data-file-summary="side_photo">No file selected</span>
                 <input id="side_photo" name="side_photo" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required/>
               </label>
@@ -200,19 +200,19 @@
 
           <section class="audit-form-section">
             <div class="audit-section-kicker">04 / Context</div>
-            <h2>Give the audit something to work with</h2>
+            <h2>Tell us what the photos alone cannot show</h2>
             <div class="field-group">
               <div class="field">
                 <label for="current_style">Describe your current style</label>
-                <textarea id="current_style" name="current_style" placeholder="What do you wear most days? What feels random, basic, or off?" required></textarea>
+                <textarea id="current_style" name="current_style" placeholder="What do you wear most days? What feels random, basic, immature, too plain, or off?" required></textarea>
               </div>
               <div class="field">
                 <label for="biggest_frustration">Biggest frustration</label>
-                <textarea id="biggest_frustration" name="biggest_frustration" placeholder="What bothers you most about your look right now?" required></textarea>
+                <textarea id="biggest_frustration" name="biggest_frustration" placeholder="What bothers you most about your look right now? Be specific." required></textarea>
               </div>
               <div class="field">
                 <label for="desired_outcome">Desired outcome</label>
-                <textarea id="desired_outcome" name="desired_outcome" placeholder="What should change after you execute the audit?" required></textarea>
+                <textarea id="desired_outcome" name="desired_outcome" placeholder="What should be different after you follow the audit for 7 to 30 days?" required></textarea>
               </div>
               <div class="inline-fields">
                 <div class="field">
@@ -234,7 +234,7 @@
               </div>
               <div class="field">
                 <label for="dating_context">Dating/photo context <small>optional</small></label>
-                <textarea id="dating_context" name="dating_context" placeholder="Apps used, profile goal, what photos you already have"></textarea>
+                <textarea id="dating_context" name="dating_context" placeholder="Apps used, profile goal, what photos you already have, what feels weak"></textarea>
               </div>
               <div class="field">
                 <label for="city_climate">City or climate <small>optional</small></label>

@@ -1308,13 +1308,21 @@ h3 {
 }
 
 .scan-result-block li strong,
-.scan-result-block li span {
+.scan-result-block li span,
+.scan-result-block li em {
   display: block;
 }
 
 .scan-result-block li span {
   color: var(--muted);
   margin-top: 3px;
+}
+
+.scan-result-block li em {
+  margin-top: 6px;
+  color: var(--cream);
+  font-style: normal;
+  font-weight: 750;
 }
 
 .scan-result > p {

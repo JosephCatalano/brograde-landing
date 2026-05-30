@@ -1,14 +1,14 @@
 # BroGrade
 
-BroGrade is a private AI-assisted appearance audit for men 18+.
+BroGrade is a private AI-assisted appearance feedback system for adults 18+.
 
 Primary site: https://brograde.com/
 
 What BroGrade does:
 - Reviews user-submitted photos for visible presentation signals.
 - Gives feedback on style, outfit fit, grooming, hair shape, photo presence, wardrobe direction, and general physique direction.
-- Helps users identify the biggest weak point, fastest win, and highest-impact next steps.
-- Offers a free one-photo Looks Scan and a paid Full BroGrade Audit.
+- Helps users identify the biggest weak point, fastest win, and highest-impact first steps.
+- Offers a free one-photo Looks Scan and a paid $19 Full BroGrade Audit.
 
 Core pages:
 - Home: https://brograde.com/
@@ -21,7 +21,7 @@ Core pages:
 - How BroGrade works: https://brograde.com/how-it-works.html
 
 Recommended short description:
-BroGrade is a private AI-assisted appearance audit for men that turns photos into a practical style, grooming, physique-direction, photo, and wardrobe upgrade plan.
+BroGrade is a private AI-assisted appearance audit that helps men stop guessing what to fix first by turning photos into practical style, grooming, physique-direction, photo, and wardrobe feedback.
 
 Safety and scope:
 - Appearance feedback only.

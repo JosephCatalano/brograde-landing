@@ -1,25 +1,33 @@
 User-agent: *
 Allow: /
+Disallow: /templates/
 
 User-agent: Googlebot
 Allow: /
+Disallow: /templates/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /templates/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /templates/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /templates/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /templates/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /templates/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /templates/
 
 Sitemap: https://brograde.com/sitemap.xml

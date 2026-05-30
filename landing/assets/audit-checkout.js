@@ -97,7 +97,7 @@
       showError(error.message || "Could not start checkout.");
       submitBtn.disabled = false;
       if (devSubmitBtn) devSubmitBtn.disabled = false;
-      submitBtn.textContent = "Unlock Full Audit";
+      submitBtn.textContent = "Start Full Audit - $19";
       if (devSubmitBtn) devSubmitBtn.textContent = "Test Without Payment";
     }
   }

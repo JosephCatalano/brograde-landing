@@ -487,7 +487,7 @@ function buildPrompt(submission) {
     "Review presentation only: clothing fit, silhouette, grooming, hair shape, photo presence, wardrobe direction, and general physique direction.",
     "Do not identify race, ethnicity, sexuality, class, exact weight, medical conditions, mental health, dermatology issues, or anything you cannot safely infer.",
     "If the image is too unclear, says little about the chosen goal, appears to include someone under 18, or contains someone other than the uploader, set status accordingly and explain the photo problem without a score above 5.",
-    "Keep it useful for a cold traffic user. Give the first 3 changes, not a full paid audit.",
+    "Keep it useful for a cold traffic user. Give the first 3 changes with enough rationale that the free scan feels valuable, but do not include the full paid audit system.",
     "Make the feedback direct enough to feel valuable but clean enough to email to a normal customer.",
     "Use concrete visible signals. Avoid vague advice like be confident, glow up, or just dress better.",
     "If a category cannot be judged from the image, say limited read from this photo and still give the best useful next step.",
@@ -941,7 +941,7 @@ function normalizeFullAudit(audit) {
 
 function buildFullAuditPrompt(submission) {
   return [
-    "Create a paid Full BroGrade Beta Audit from the uploaded images and user context.",
+    "Create a paid Full BroGrade Audit from the uploaded images and user context.",
     "",
     "Brand voice: dark, direct, masculine, premium, practical, honest without being cruel. The user paid for specificity.",
     "Do not flatter. Do not shame. Do not use incel language, alpha language, medical claims, diagnosis, guaranteed dating/fitness results, or sensitive-trait inference.",
@@ -992,7 +992,7 @@ async function createFullAuditWithModel(openai, model, submission, photos) {
   const response = await openai.responses.create({
     model,
     store: false,
-    instructions: "You are BroGrade, a paid appearance presentation auditor for men 18+. Be specific, direct, useful, and safety-aware. Output JSON only.",
+    instructions: "You are BroGrade, a paid appearance presentation auditor for adults 18+. Be specific, direct, useful, and safety-aware. Output JSON only.",
     input: [{ role: "user", content }],
     reasoning: { effort: AI_REASONING_EFFORT },
     text: {
@@ -1075,7 +1075,7 @@ function scanText(scan) {
     `Fastest Win: ${scan.fastest_win}`,
     "",
     "Top 3 upgrades:",
-    ...scan.top_3_upgrades.map((item, index) => `${index + 1}. ${item.title}: ${item.first_step}`),
+    ...scan.top_3_upgrades.map((item, index) => `${index + 1}. ${item.title}: ${item.why_it_matters} First step: ${item.first_step}`),
     "",
     scan.quick_summary,
     "",
@@ -1233,7 +1233,7 @@ async function deliverEmails(record) {
         "",
         scanText(scan),
         "",
-        "Want the full breakdown? The full BroGrade Beta Audit covers style, grooming, physique direction, photos, wardrobe, shopping priorities, and a 7-day upgrade plan.",
+        "Want the complete plan behind this read? The full BroGrade Audit covers style, grooming, physique direction, photos, wardrobe, shopping priorities, and a 7-day upgrade plan.",
         "",
         "BroGrade gives style, grooming, fitness-direction, and appearance feedback for self-improvement purposes only. It is not medical, mental health, dermatology, or professional fitness advice."
       ].join("\n"),
@@ -1242,7 +1242,7 @@ async function deliverEmails(record) {
         <p>Thanks for submitting your free BroGrade Looks Scan, ${escapeHtml(record.first_name)}.</p>
         ${scanHtml(scan)}
         <hr/>
-        <p><strong>Want the full breakdown?</strong> The full BroGrade Beta Audit covers style, grooming, physique direction, photos, wardrobe, shopping priorities, and a 7-day upgrade plan.</p>
+        <p><strong>Want the complete plan behind this read?</strong> The full BroGrade Audit covers style, grooming, physique direction, photos, wardrobe, shopping priorities, and a 7-day upgrade plan.</p>
         <p style="color:#666">BroGrade gives style, grooming, fitness-direction, and appearance feedback for self-improvement purposes only. It is not medical, mental health, dermatology, or professional fitness advice.</p>
       `
     });
@@ -1427,6 +1427,11 @@ async function listFullAuditRecords() {
   return records.sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
 }
 
+async function findFullAuditByCheckoutSession(sessionId) {
+  const records = await listFullAuditRecords();
+  return records.find((record) => record.checkout_session_id === sessionId) || null;
+}
+
 function requireAdminSecret(req, res, next) {
   const provided = req.get("x-brograde-admin-secret") || req.query.secret;
   if (!process.env.SCAN_SIGNING_SECRET) {
@@ -1562,7 +1567,7 @@ app.post("/api/audit-checkout-session", apiLimiter, async (req, res, next) => {
             currency: AUDIT_CURRENCY,
             unit_amount: AUDIT_PRICE_CENTS,
             product_data: {
-              name: "Full BroGrade Beta Audit",
+              name: "Full BroGrade Audit",
               description: "Personalized style, grooming, physique-direction, photo, wardrobe, and execution plan."
             }
           },
@@ -1685,6 +1690,20 @@ app.post("/api/full-audits", apiLimiter, auditUpload.fields(auditPhotoUploadFiel
     const sessionId = safeCheckoutSessionId(req.body.checkout_session_id);
     const checkoutSession = await retrievePaidCheckoutSession(sessionId);
     const checkoutData = checkoutSessionPublicData(checkoutSession);
+    const existingRecord = await findFullAuditByCheckoutSession(sessionId);
+
+    if (existingRecord) {
+      res.status(409).json({
+        ok: false,
+        message: "This checkout session has already been used for a full audit.",
+        data: publicAuditRecord(existingRecord, {
+          includeAudit: Boolean(existingRecord.full_audit),
+          includePrivateUrl: true
+        })
+      });
+      return;
+    }
+
     const submission = validateAuditSubmission(req.body, req.files);
 
     if (checkoutData.customer_email && checkoutData.customer_email.toLowerCase() !== submission.email) {

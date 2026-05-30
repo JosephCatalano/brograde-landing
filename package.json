@@ -1,16 +1,23 @@
 {
   "name": "brograde",
   "version": "1.0.0",
-  "description": "",
+  "description": "BroGrade landing site, free looks scan, and full audit funnel.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
     "ai:check": "node scripts/check-ai.js",
-    "check": "node --check server.js && node --check landing/assets/free-scan-submit.js && node --check landing/assets/audit-checkout.js && node --check landing/assets/full-audit-submit.js && node --check landing/assets/audit-success.js && node --check landing/assets/audit-result.js",
+    "check:syntax": "node --check server.js && node --check landing/assets/free-scan-submit.js && node --check landing/assets/audit-checkout.js && node --check landing/assets/full-audit-submit.js && node --check landing/assets/audit-success.js && node --check landing/assets/audit-result.js && node --check scripts/check-site.js",
+    "check:site": "node scripts/check-site.js",
+    "check": "npm run check:syntax && npm run check:site",
     "test": "npm run check"
   },
-  "keywords": [],
+  "keywords": [
+    "brograde",
+    "appearance-audit",
+    "style-audit",
+    "looks-scan"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",

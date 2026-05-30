@@ -128,6 +128,11 @@
       });
 
       const result = await response.json().catch(() => null);
+      if (response.status === 409 && result?.data?.result_url) {
+        window.location.href = result.data.result_url.replace("audit-result.html", "audit-success.html");
+        return;
+      }
+
       if (!response.ok) throw new Error(result?.message || "Could not submit full audit.");
 
       const resultUrl = result?.data?.result_url;
